@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/lulibags", "destination": "/", "permanent": true },
+    { "source": "/lulibags/:path*", "destination": "/", "permanent": true }
+  ]
+}

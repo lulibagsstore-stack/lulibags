@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Bolsas de crochê feitas à mão, peça por peça. Modelos prontos e personalizados, com pedido direto pelo WhatsApp.">
+<meta property="og:title" content="Luli Bags">
+<meta property="og:description" content="Bolsas de crochê feitas à mão, peça por peça.">
+<meta property="og:type" content="website">
+<link rel="preload" as="image" href="img/hero-tricot.webp" imagesrcset="img/hero-tricot-sm.webp 640w, img/hero-tricot.webp 1200w" imagesizes="(max-width: 860px) 100vw, 50vw" fetchpriority="high">
+<link rel="icon" type="image/svg+xml" href="img/simbolo-rosa.svg">
+<title>Luli Bags</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap"></noscript>
+<style>
+[hidden] { display: none !important; }
+html, body { margin: 0; }
+/* Layout: editorial storefront. Full-bleed split hero, zero-gutter product grids with hairlines, cream canvas, one pink accent. Single light look by choice. */
+:root {
+  --canvas: #F3EEE8;
+  --paper: #FAF7F3;
+  --ink: #1C1717;
+  --muted: #6A6260;
+  --hair: rgba(28, 23, 23, 0.14);
+  --pink: #EF5370;
+  --pink-ink: #B8235A;
+  --blush: #F9E1E9;
+  --stone: #E6DED4;
+  --stone-2: #D8CEC3;
+  --night: #1C1717;
+  --on-night: #F3EEE8;
+  --on-night-muted: #BDB3AE;
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gut: max(16px, env(safe-area-inset-left, 0px));
+  --gut-r: max(16px, env(safe-area-inset-right, 0px));
+  --bar-h: 68px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--canvas); color: var(--ink); font-family: var(--serif); font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
+img { max-width: 100%; display: block; }
+a { color: var(--pink-ink); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--pink-ink); outline-offset: 3px; }
+h1, h2, h3 { font-weight: 400; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; }
+
+.label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.5; }
+.muted { color: var(--muted); }
+.wrap { padding-left: var(--gut); padding-right: var(--gut-r); }
+@media (min-width: 900px) { .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); } }
+
+/* Announcement + header */
+.announce { background: var(--blush); padding-block: 10px; display: flex; justify-content: center; gap: 14px; text-align: center; flex-wrap: wrap; }
+.announce a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); border-bottom: 1px solid var(--ink); height: var(--bar-h); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+.bar nav { display: flex; gap: 28px; }
+.bar .right { display: flex; gap: 24px; justify-content: flex-end; align-items: center; }
+.navlink { background: none; border: 0; padding: 12px 0; cursor: pointer; color: var(--ink); font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.navlink:hover, .navlink[aria-current="page"] { color: var(--pink-ink); }
+.brand { display: inline-flex; align-items: center; justify-content: center; width: 120px; height: 44px; background: none; border: 0; padding: 0; cursor: pointer; }
+.brand img { height: 30px; width: auto; transition: opacity .15s; }
+.bar .menu-btn { display: none; }
+.bar .right .navlink { white-space: nowrap; }
+@media (max-width: 860px) {
+  .bar nav, .bar .hide-sm { display: none; }
+  .bar .menu-btn { display: inline-flex; justify-self: start; margin-left: -10px; }
+  .bar .right { gap: 0; }
+}
+.drawer-menu { position: fixed; z-index: 40; inset: 0; background: var(--paper); padding-top: calc(env(safe-area-inset-top, 0px) + 24px); padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 24px); display: flex; flex-direction: column; gap: 8px; }
+.drawer-menu .big { font-size: 40px; line-height: 1.15; background: none; border: 0; text-align: left; padding: 6px 0; cursor: pointer; color: var(--ink); }
+.drawer-menu .big:hover { color: var(--pink-ink); }
+
+/* Hero */
+.hero { position: relative; }
+.hero-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.half { position: relative; height: 860px; overflow: hidden; display: block; color: var(--on-night); }
+.half img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.half:hover img { transform: scale(1.025); }
+.half .label { position: absolute; top: 20px; left: 20px; color: var(--on-night); }
+.half:hover { text-decoration: none; }
+#mark { position: absolute; left: 50%; top: 50%; width: clamp(280px, 64vw, 940px); margin: 0; pointer-events: none; z-index: 25; transform: translate(-50%, -50%); transform-origin: 50% 50%; will-change: transform; }
+#mark img { width: 100%; height: auto; }
+.hero .cta { position: absolute; left: 24px; bottom: 28px; z-index: 5; }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .half { height: 520px; }
+}
+
+/* Buttons */
+.pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 26px; border-radius: 41px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font-family: var(--serif); font-size: 17px; cursor: pointer; transition: background .2s, color .2s; text-decoration: none; }
+.pill:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
+.pill.solid { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.pill.solid:hover { background: var(--pink-ink); border-color: var(--pink-ink); }
+.pill[disabled] { opacity: .45; cursor: not-allowed; }
+.link-arrow { background: none; border: 0; padding: 0; cursor: pointer; color: var(--pink-ink); font-size: 18px; }
+.link-arrow:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Section heads */
+.head { padding-block: 112px 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; }
+.head .t { display: flex; flex-direction: column; gap: 18px; max-width: 760px; }
+.h2 { font-size: clamp(34px, 4.2vw, 58px); line-height: 1.05; }
+
+/* Product grid */
+.grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+.cell { display: flex; flex-direction: column; background: none; border: 0; border-right: 1px solid var(--hair); border-bottom: 1px solid var(--hair); padding: 0; text-align: left; cursor: pointer; color: var(--ink); min-width: 0; }
+.grid4 > .cell:nth-child(4n) { border-right: 0; }
+.grid4 > .cell:nth-last-child(-n+4) { border-bottom: 0; }
+.cell .ph { aspect-ratio: 3 / 4; max-width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.cell .ph img { width: 100%; height: 100%; object-fit: contain; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.cell:hover .ph img { transform: translateY(-6px) scale(1.02); }
+.cell .cap { padding: 0 20px 24px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 19px; }
+.cell .cap .label { color: var(--muted); white-space: nowrap; }
+@media (max-width: 860px) {
+  .grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid4 > .cell { border-right: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+  .grid4 > .cell:nth-child(2n) { border-right: 0; }
+  .grid4 > .cell:nth-last-child(-n+2) { border-bottom: 0; }
+  .cell .cap { padding: 0 12px 18px; font-size: 16px; flex-direction: column; gap: 2px; }
+}
+
+.made-wide { grid-column: span 3; display: flex; align-items: center; gap: clamp(24px, 4vw, 64px); background: var(--blush); border: 0; border-left: 1px solid var(--hair); padding: 40px clamp(24px, 4vw, 64px); text-align: left; cursor: pointer; color: var(--ink); min-width: 0; }
+.grid4.all { border-bottom: 0; }
+.grid4.all > .cell { border-bottom: 1px solid var(--hair); }
+.made-wide img { width: clamp(90px, 9vw, 150px); height: auto; flex-shrink: 0; }
+.made-wide .big { font-size: clamp(26px, 2.8vw, 42px); line-height: 1.1; }
+.made-wide .go { color: var(--pink-ink); font-size: 18px; }
+.made-wide:hover .go { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 860px) { .made-wide { grid-column: span 1; flex-direction: column; align-items: flex-start; padding: 24px 16px; border-left: 0; } .made-wide .big { font-size: 22px; } }
+
+/* Concha carousel */
+.car-head { padding-block: 112px 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; }
+.car-nav { display: flex; gap: 8px; }
+.arrow { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--ink); background: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: var(--ink); transition: background .2s, color .2s; }
+.arrow:hover:not([disabled]) { background: var(--ink); color: var(--paper); }
+.arrow[disabled] { opacity: .3; cursor: default; }
+.track { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% / 4); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); overscroll-behavior-x: contain; }
+.track::-webkit-scrollbar { display: none; }
+.track > * { scroll-snap-align: start; }
+.track .cell { border-bottom: 0; }
+.cell .ph img.cover { object-fit: cover; }
+.track .edit { position: relative; display: flex; flex-direction: column; border-right: 1px solid var(--hair); min-width: 0; }
+.track .edit .ph { aspect-ratio: 3 / 4; max-width: 100%; overflow: hidden; }
+.track .edit .ph img { width: 100%; height: 100%; object-fit: cover; }
+.track .edit.camp .ph { aspect-ratio: auto; height: 100%; }
+.track .made { display: flex; flex-direction: column; justify-content: space-between; gap: 24px; background: var(--blush); color: var(--ink); border: 0; text-align: left; cursor: pointer; padding: 28px 24px 32px; min-width: 0; }
+.track .made img { width: 120px; height: auto; }
+.track .made p { font-size: clamp(26px, 2.4vw, 36px); line-height: 1.1; }
+.track .made .go { color: var(--pink-ink); font-size: 18px; }
+.track .made:hover .go { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 860px) { .track { grid-auto-columns: 72%; } .car-head { padding-block: 72px 28px; } }
+
+/* Models index */
+.models { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 64px; row-gap: 28px; padding-block: 120px 168px; align-items: stretch; }
+.models > .label { grid-column: 1 / -1; }
+.mlist { display: flex; flex-direction: column; }
+.mitem { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border: 0; border-top: 1px solid var(--ink); background: none; text-align: left; cursor: pointer; color: var(--muted); font-size: clamp(30px, 3.2vw, 44px); line-height: 1.1; font-family: var(--serif); }
+.mitem:last-child { border-bottom: 1px solid var(--ink); }
+.mitem[aria-pressed="true"] { color: var(--ink); font-style: italic; }
+.mitem[aria-pressed="true"] .label { color: var(--pink-ink); font-style: normal; }
+.mitem .label { color: inherit; }
+.mfig { margin: 0; position: relative; min-height: 0; display: flex; flex-direction: column; align-items: flex-start; }
+.mfig .frame { position: absolute; top: 0; left: 0; bottom: 0; height: 100%; aspect-ratio: 1 / 1; max-width: 100%; overflow: hidden; background: var(--stone); display: flex; align-items: center; justify-content: center; }
+.mfig figcaption { position: absolute; top: 100%; left: 0; width: 100%; padding-top: 14px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; font-size: 17px; }
+@keyframes idxIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.mfig .frame > img { animation: idxIn .45s cubic-bezier(.2,.7,.2,1) both; }
+@media (prefers-reduced-motion: reduce) { .mfig .frame > img { animation: none; } }
+.mfig .frame > img { width: 100%; height: 100%; }
+.mfig .frame img.contain { object-fit: contain; }
+.mfig .frame img.cover { object-fit: cover; }
+.mfig .soon { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; padding: 24px; }
+.mfig .soon img { width: 120px; height: auto; }
+@media (max-width: 860px) { .models { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 72px; } .mfig .frame { position: relative; height: auto; width: 100%; } .mfig figcaption { position: static; } }
+
+/* Personalizar band */
+.band { background: var(--blush); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pstack { display: grid; grid-template-rows: repeat(2, minmax(0, 1fr)); min-height: 760px; background: var(--canvas); }
+.pstack figure { position: relative; margin: 0; overflow: hidden; background: #F1EAE2; }
+.pstack figure + figure { border-top: 1px solid var(--hair); }
+.pstack img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.pstack figure:hover img { transform: scale(1.03); }
+.pstack figcaption { position: absolute; top: 20px; left: 20px; right: 20px; display: flex; justify-content: space-between; gap: 12px; color: var(--ink); }
+@media (max-width: 860px) { .pstack { min-height: 0; grid-template-rows: none; } .pstack figure { aspect-ratio: 3 / 2; max-width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .pstack img { transition: none; } }
+.band .txt { padding-block: 96px; display: flex; flex-direction: column; justify-content: center; gap: 28px; max-width: 640px; }
+.steps { list-style: none; margin: 0; padding: 0; }
+.steps li { display: flex; gap: 24px; padding: 12px 0; border-top: 1px solid var(--ink); }
+.steps li:last-child { border-bottom: 1px solid var(--ink); }
+.steps li span:first-child { color: var(--pink-ink); }
+@media (max-width: 860px) { .band { grid-template-columns: minmax(0, 1fr); } .band .txt { padding-block: 56px; } }
+
+/* Quote + gallery */
+.quote { padding-block: 140px; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center; }
+.quote p.big { max-width: 980px; font-size: clamp(30px, 4vw, 58px); line-height: 1.12; letter-spacing: -0.01em; }
+.tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.tile { aspect-ratio: 4 / 5; max-width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.tile img.cover { width: 100%; height: 100%; object-fit: cover; }
+.tile img.contain { width: 86%; height: 86%; object-fit: contain; }
+@media (max-width: 860px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tiles .tile:nth-child(5) { display: none; } }
+
+/* Footer */
+footer { --night: #FDF2F4; --on-night: var(--ink); --on-night-muted: var(--muted); border-top: 1px solid var(--hair); background: var(--night); color: var(--on-night); padding-block: 80px 28px; display: flex; flex-direction: column; gap: 64px; }
+footer a, footer .flink { color: var(--on-night); background: none; border: 0; padding: 4px 0; cursor: pointer; text-align: left; font-size: 17px; font-family: var(--serif); }
+footer a:hover, footer .flink:hover { color: var(--pink-ink); text-decoration: none; }
+.fcols { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+.fcol { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.fcol .label { color: var(--on-night-muted); margin-bottom: 8px; }
+.news { display: flex; border-bottom: 1px solid var(--on-night); max-width: 380px; }
+.news input { flex: 1; min-width: 0; background: transparent; border: 0; color: var(--on-night); font: inherit; padding: 12px 0; }
+.news input::placeholder { color: var(--on-night-muted); }
+.news input:focus-visible { outline: none; }
+.news:focus-within { border-bottom-color: var(--pink-ink); }
+.news button { background: none; border: 0; color: var(--on-night); cursor: pointer; min-height: 44px; }
+.fmark { width: 100%; height: auto; }
+.fbase { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--on-night-muted); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 860px) { .fcols { grid-template-columns: repeat(2, minmax(0, 1fr)); } .fcol.wide { grid-column: 1 / -1; } }
+
+/* Product view */
+.pdp { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); border-bottom: 1px solid var(--hair); }
+.pgal { border-right: 1px solid var(--hair); display: flex; flex-direction: column; position: sticky; top: calc(env(safe-area-inset-top, 0px) + var(--bar-h)); align-self: start; }
+.pmain { height: clamp(420px, calc(100svh - var(--bar-h) - 113px), 860px); max-width: 100%; background: var(--stone); display: flex; align-items: center; justify-content: center; overflow: hidden; padding: clamp(16px, 3vw, 48px); }
+.pmain img { width: 100%; height: 100%; object-fit: contain; animation: idxIn .45s cubic-bezier(.2,.7,.2,1) both; }
+@media (prefers-reduced-motion: reduce) { .pmain img { animation: none; } }
+.pdp.multi .pgal { position: static; }
+.pdp.multi .pmain { position: relative; height: auto; aspect-ratio: 1 / 1; }
+.pdp.multi .pmain.full { aspect-ratio: 4 / 5; padding: clamp(16px, 3vw, 48px) 0 clamp(16px, 3vw, 48px) clamp(16px, 3vw, 48px); }
+.pdp.multi .pmain.full img { object-position: right center; }
+.pdp.multi .pmain + .pmain { border-top: 1px solid var(--hair); }
+.pdp.multi .pinfo { position: sticky; top: calc(env(safe-area-inset-top, 0px) + var(--bar-h)); align-self: start; }
+.pview { position: absolute; top: 20px; left: 20px; color: var(--muted); }
+@media (max-width: 860px) { .pdp.multi .pinfo { position: static; } }
+.pthumbs { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); border-top: 1px solid var(--hair); }
+.pthumb { height: 112px; max-width: 100%; border: 0; border-right: 1px solid var(--hair); background: var(--canvas); padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.pthumb:last-child { border-right: 0; }
+.pthumb img { width: 78%; height: 78%; object-fit: contain; }
+.pthumb[aria-pressed="true"] { background: var(--stone); }
+.pinfo { padding-block: 48px 64px; display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+.crumbs { display: flex; gap: 8px; flex-wrap: wrap; }
+.crumbs button { background: none; border: 0; padding: 0; cursor: pointer; color: var(--muted); }
+.crumbs button:hover { color: var(--pink-ink); }
+.ptitle { font-size: clamp(44px, 4.6vw, 68px); line-height: 1; }
+.sw-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.sw { width: 48px; height: 48px; border-radius: 50%; border: 1px solid transparent; background: none; padding: 0; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+.sw span { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--ink); display: block; }
+.sw[aria-pressed="true"] { border-color: var(--ink); }
+.qty { display: inline-flex; align-items: center; border: 1px solid var(--ink); border-radius: 41px; height: 48px; }
+.qty button { width: 44px; height: 46px; background: none; border: 0; cursor: pointer; font-size: 20px; }
+.qty output { min-width: 28px; text-align: center; font-variant-numeric: tabular-nums; }
+.buyrow { display: flex; gap: 12px; flex-wrap: wrap; }
+.buyrow .pill.solid { flex: 1; min-width: 200px; }
+details { border-bottom: 1px solid var(--ink); }
+details summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; min-height: 52px; }
+details summary::-webkit-details-marker { display: none; }
+details .plus { font-family: var(--serif); font-size: 20px; transition: transform .2s; }
+details[open] .plus { transform: rotate(45deg); }
+details p { padding-bottom: 18px; font-size: 17px; }
+.acc { border-top: 1px solid var(--ink); }
+@media (max-width: 860px) { .pdp { grid-template-columns: minmax(0, 1fr); } .pgal { border-right: 0; position: static; } .pmain { height: auto; aspect-ratio: 4 / 5; } .pthumb { height: 84px; } .pinfo { padding-block: 32px 48px; } }
+
+/* Builder */
+.builder { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+.bprev { position: sticky; top: calc(env(safe-area-inset-top, 0px) + var(--bar-h)); align-self: start; background: var(--stone); min-height: calc(100svh - var(--bar-h)); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 28px; padding: 64px 32px 40px; }
+.bprev-tag { position: absolute; top: 20px; left: 20px; }
+.bprev-img { width: min(70%, 420px); height: auto; animation: idxIn .45s cubic-bezier(.2,.7,.2,1) both; }
+.bprev-empty { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+.bprev-empty img { width: 120px; height: auto; }
+.bprev-info { width: 100%; max-width: 460px; display: grid; grid-template-columns: 1fr; gap: 14px; border-top: 1px solid var(--hair); padding-top: 20px; }
+.bval { font-size: 22px; margin-top: 2px; }
+.bcombo { display: flex; align-items: flex-start; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+.bball { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 64px; text-align: center; }
+.bball small { font-size: 12px; line-height: 1.2; color: var(--muted); }
+.dotc { width: 36px; height: 36px; border-radius: 50%; border: 1px dashed var(--muted); display: flex; align-items: center; justify-content: center; }
+.dotc.on { border: 1px solid var(--ink); }
+.op { color: var(--muted); padding-top: 8px; }
+.bform { padding-block: 48px 64px; display: flex; flex-direction: column; gap: 40px; min-width: 0; }
+.bstep { border: 0; margin: 0; padding: 0; min-width: 0; display: flex; flex-direction: column; gap: 14px; transition: opacity .3s; }
+.bstep legend { padding: 0; margin-bottom: 14px; }
+.bstep.dim { opacity: .4; }
+.bmodels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--hair); border-left: 1px solid var(--hair); }
+.bmodel { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 8px 12px; background: none; border: 0; border-right: 1px solid var(--hair); border-bottom: 1px solid var(--hair); cursor: pointer; color: var(--ink); min-width: 0; }
+.bmodel img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+.bmodel:hover { background: var(--paper); }
+.bmodel[aria-pressed="true"] { background: var(--blush); }
+.bmodel[aria-pressed="true"] .label { color: var(--pink-ink); }
+.bchips { display: flex; flex-wrap: wrap; gap: 8px; }
+.bchip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 41px; background: var(--blush); font-size: 15px; }
+.bchip i { width: 12px; height: 12px; border-radius: 50%; border: 1px solid var(--ink); display: inline-block; }
+.bswatches { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px 8px; }
+.bsw { display: flex; flex-direction: column; align-items: center; gap: 4px; background: none; border: 0; padding: 0; cursor: pointer; color: var(--ink); min-width: 0; }
+.bsw .dotc { width: 44px; height: 44px; border: 1px solid var(--ink); transition: transform .15s; }
+.bsw .dotc b { font-family: var(--mono); font-size: 13px; color: #fff; mix-blend-mode: difference; }
+.bsw[aria-pressed="true"] .dotc { transform: scale(1.08); box-shadow: 0 0 0 3px var(--canvas), 0 0 0 4px var(--ink); }
+.bsw .code { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--muted); font-variant-numeric: tabular-nums; }
+.bsw .nm { font-size: 13px; line-height: 1.2; text-align: center; }
+.bsw[aria-pressed="true"] .nm { color: var(--pink-ink); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { min-height: 44px; padding: 0 24px; border-radius: 41px; border: 1px solid var(--ink); background: none; cursor: pointer; font-size: 16px; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.summary { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding-block: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 17px; }
+.summary b { font-weight: 400; color: var(--muted); }
+.sdot { width: 12px; height: 12px; border-radius: 50%; border: 1px solid var(--ink); display: inline-block; vertical-align: middle; margin-right: 6px; }
+.bmsg { background: var(--blush); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; font-size: 16px; }
+.pill.wa { width: 100%; gap: 10px; }
+@media (max-width: 860px) {
+  .builder { grid-template-columns: minmax(0, 1fr); }
+  .bprev { position: relative; min-height: 0; padding: 56px 16px 28px; }
+  .bprev-img { width: min(60%, 280px); }
+  .bmodels { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .bswatches { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Cart */
+.scrim { position: fixed; inset: 0; background: rgba(28, 23, 23, 0.35); z-index: 45; }
+.cart { position: fixed; z-index: 50; top: 0; right: 0; bottom: 0; width: min(440px, 100%); background: var(--paper); border-left: 1px solid var(--ink); display: flex; flex-direction: column; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); padding-right: env(safe-area-inset-right, 0px); }
+.cart header { display: flex; justify-content: space-between; align-items: center; height: var(--bar-h); padding: 0 20px; border-bottom: 1px solid var(--ink); }
+.cart .items { flex: 1; overflow-y: auto; }
+.citem { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 16px; padding: 18px 20px; border-bottom: 1px solid var(--hair); }
+.citem .th { aspect-ratio: 3 / 4; max-width: 100%; background: var(--stone); display: flex; align-items: center; justify-content: center; }
+.citem .th img { width: 92%; height: 92%; object-fit: contain; }
+.citem .meta { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.citem .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.citem .qty { height: 40px; }
+.citem .qty button { height: 38px; width: 38px; }
+.rm { background: none; border: 0; padding: 8px 0; cursor: pointer; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.cart footer { background: none; color: var(--ink); padding: 20px; border-top: 1px solid var(--ink); gap: 14px; display: flex; flex-direction: column; }
+.empty { padding: 48px 20px; display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--paper); border-radius: 41px; padding: 12px 22px; z-index: 60; }
+.iconbtn { background: none; border: 0; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink); }
+.view-enter { animation: fade .35s ease both; }
+@keyframes fade { from { opacity: .3; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .view-enter { animation: none; } .half img, .cell .ph img { transition: none; } }
+</style>
+</head>
+<body>
+
+
+<div class="announce label wrap">
+  <span>Bolsas de crochê feitas à mão</span><span aria-hidden="true">·</span><button class="link-arrow label" style="color: var(--ink); font-size: 11px; text-decoration: underline; text-underline-offset: 3px" data-go="personalizar">Crie a sua</button>
+</div>
+
+<header class="bar wrap" id="bar">
+  <nav aria-label="Principal">
+    <button class="navlink" data-go="home" data-scroll="todos">Modelos</button>
+    <button class="navlink" data-go="home" data-scroll="concha">Coleção Concha</button>
+    <button class="navlink" data-go="personalizar">Personalizar</button>
+  </nav>
+  <button class="menu-btn iconbtn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 6h18M2 11h18M2 16h18"/></svg>
+  </button>
+  <button class="brand" id="brand" data-go="home" aria-label="Luli Bags, início"><img id="barLogo" src="img/nome-rosa.svg" alt=""></button>
+  <div class="right">
+    <button class="navlink hide-sm" data-go="home" data-scroll="footer">Contato</button>
+    <button class="navlink" id="cartBtn" aria-haspopup="dialog">Sacola (<span id="cartCount">0</span>)</button>
+  </div>
+</header>
+
+<div class="drawer-menu wrap" id="mobileMenu" hidden role="dialog" aria-label="Menu">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px">
+    <img src="img/nome-rosa.svg" alt="Luli Bags" style="height: 30px; width: auto">
+    <button class="iconbtn" id="menuClose" aria-label="Fechar menu"><svg width="20" height="20" viewBox="0 0 20 20" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 3l14 14M17 3L3 17"/></svg></button>
+  </div>
+  <button class="big" data-go="home" data-scroll="todos">Modelos</button>
+  <button class="big" data-go="home" data-scroll="concha"><em>Coleção Concha</em></button>
+  <button class="big" data-go="personalizar">Personalizar</button>
+  <button class="big" data-go="home" data-scroll="footer">Contato</button>
+</div>
+
+<main id="app"></main>
+
+<footer class="wrap" id="footer">
+  <div class="fcols">
+    <div class="fcol wide">
+      <span class="label">Novidades por e-mail</span>
+      <form class="news" id="newsForm" novalidate>
+        <label for="newsEmail" class="sr">Seu e-mail</label>
+        <input id="newsEmail" type="email" placeholder="seu@email.com" autocomplete="email" required>
+        <button type="submit" class="label">Assinar →</button>
+      </form>
+      <p id="newsMsg" class="label" style="color: var(--on-night-muted); min-height: 18px" aria-live="polite"></p>
+    </div>
+    <div class="fcol">
+      <span class="label">Navegação</span>
+      <button class="flink" data-go="home" data-scroll="todos">Modelos</button>
+      <button class="flink" data-go="home" data-scroll="concha">Coleção Concha</button>
+      <button class="flink" data-go="personalizar">Personalizar</button>
+    </div>
+    <div class="fcol">
+      <span class="label">Contato</span>
+      <a href="https://www.instagram.com/lulibags.store/" target="_blank" rel="noopener">Instagram @lulibags.store</a>
+      <a href="https://wa.me/5511988341230" target="_blank" rel="noopener">WhatsApp (11) 98834-1230</a>
+      <span style="font-size: 17px; padding: 4px 0; user-select: all">lulibags.store@gmail.com</span>
+    </div>
+  </div>
+  <img class="fmark" src="img/nome-rosa.svg" alt="Luli Bags">
+  <div class="fbase label"><span>© 2026 Luli Bags</span><span>Feitas à mão, peça por peça</span></div>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="cart" id="cart" hidden role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+  <header><h2 id="cartTitle" class="label" style="font-size: 12px">Sacola</h2><button class="iconbtn" id="cartClose" aria-label="Fechar sacola"><svg width="20" height="20" viewBox="0 0 20 20" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 3l14 14M17 3L3 17"/></svg></button></header>
+  <div class="items" id="cartItems"></div>
+  <footer id="cartFoot"></footer>
+</aside>
+<div class="toast label" id="toast" hidden role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  var MODELS = {
+    shoulder: { name: 'Shoulder', price: 290, line: 'Linha permanente', desc: 'Formato trapézio em crochê de fio de malha e alça curta para levar na mão ou no antebraço. Cada peça é tecida à mão depois do pedido.',
+      colors: [{ id: 'rosa', name: 'Rosa', hex: '#E7B4C6', img: 'img/shoulder-rosa.webp' }, { id: 'azul', name: 'Azul', hex: '#4E95A6', img: 'img/shoulder-azul.webp' }, { id: 'roxa', name: 'Roxa', hex: '#6E2F8C', img: 'img/shoulder-roxa.webp' }] },
+    'arco-mini': { name: 'Arco Mini', price: 240, line: 'Linha permanente', desc: 'Versão compacta do Arco, com formato retangular e alça em arco trançada. Feita à mão, peça por peça.',
+      colors: [{ id: 'cinza', name: 'Cinza', hex: '#9C9C9A', img: 'img/arco-mini-cinza.webp' }, { id: 'roxa', name: 'Roxa', hex: '#6B3AA0', img: 'img/arco-mini-roxa.webp' }] },
+    'arco-maxi': { name: 'Arco Maxi', price: 290, line: 'Linha permanente', desc: 'Alça em arco alta e faixa mesclada na base. Feita à mão, peça por peça.',
+      colors: [{ id: 'vinho', name: 'Vinho', hex: '#8E1B33', img: 'img/arco-maxi-vinho.webp' }, { id: 'roxa', name: 'Roxa', hex: '#6E2F8C', img: 'img/arco-maxi-roxa.webp' }] },
+    scallop: { name: 'Scallop', price: 320, line: 'Coleção Concha', desc: 'Ponto concha que abre em leque e alça de ombro trançada no mesmo fio. Feita à mão, peça por peça.',
+      colors: [{ id: 'marrom', name: 'Marrom', hex: '#6B2E24', img: 'img/scallop-marrom.webp' }, { id: 'preta', name: 'Preta', hex: '#161414', img: 'img/scallop-preta.webp' }, { id: 'branca', name: 'Branca', hex: '#F1E9DA', img: 'img/scallop-branca.webp' }] },
+    olive: { name: 'Olive', price: 240, full: true, line: 'Coleção Concha', desc: 'Ponto concha, alça curta de mão e alça longa trançada para usar transversal. Feita à mão, peça por peça.',
+      colors: [{ id: 'lilas', name: 'Lilás', hex: '#B9A6D6', img: 'img/olive-lilas.webp' }, { id: 'preta', name: 'Preta', hex: '#161414', img: 'img/olive-preta.webp' }, { id: 'azul-marinho', name: 'Azul-Marinho', hex: '#232A4E', img: 'img/olive-azul-marinho.webp' }, { id: 'vermelha', name: 'Vermelha', hex: '#C0122E', img: 'img/olive-vermelha.webp' }, { id: 'branca', name: 'Branca', hex: '#F1E9DA', img: 'img/olive-branca.webp' }] },
+    classic: { name: 'Classic', price: 290, line: 'Linha permanente', desc: 'Formato sacola com alças curtas e base larga. Feita à mão, peça por peça.',
+      colors: [{ id: 'rosa', name: 'Rosa', hex: '#E0234E', img: 'img/classic-rosa.webp' }, { id: 'vinho', name: 'Vinho', hex: '#7E1426', img: 'img/classic-vinho.webp' }] }
+  };
+  var CONCHA = [['scallop','marrom'],['scallop','preta'],['scallop','branca']];
+  var CAMP = [
+    { img: 'img/camp-1.webp', bg: '#3B3A2E', alt: 'Modelo de jaqueta de couro caminhando na rua com uma bolsa da Coleção Concha creme' },
+    { img: 'img/camp-2.webp', bg: '#2A2624', alt: 'Bolsa da Coleção Concha rosé segurada com as duas mãos à frente de um portão de ferro' },
+    { img: 'img/camp-3.webp', bg: '#2A2E36', alt: 'Modelo de branco encostada numa vitrine com uma bolsa da Coleção Concha preta' },
+    { img: 'img/camp-4.webp', bg: '#2E3440', alt: 'Bolsa da Coleção Concha azul-marinho com alça longa no colo, em luz de fim de tarde' },
+    { img: 'img/camp-6.webp', bg: '#4A3A32', alt: 'Bolsa da Coleção Concha creme usada transversal com suéter vinho' }
+  ];
+  function campHTML(c) {
+    return '<figure class="edit camp" style="margin: 0; background: ' + c.bg + '"><div class="ph"><img src="' + c.img + '"' + rs(c.img, 640, 1000, '(max-width: 860px) 72vw, 25vw') + ' alt="' + esc(c.alt) + '" loading="lazy" decoding="async"></div></figure>';
+  }
+  function conchaTrack() {
+    var out = [], ci = 0, n = 0;
+    CONCHA.forEach(function (g, k) {
+      out.push(cellHTML(g[0], g[1]));
+      var take = k === CONCHA.length - 1 ? CAMP.length - ci : Math.ceil((CAMP.length - ci) / (CONCHA.length - k));
+      for (var t = 0; t < take && ci < CAMP.length; t++) out.push(campHTML(CAMP[ci++]));
+    });
+    return out.join('');
+  }
+  var GRID = [['shoulder','azul'],['shoulder','rosa'],['shoulder','roxa'],['arco-maxi','roxa'],['arco-maxi','vinho'],['arco-mini','cinza'],['arco-mini','roxa'],['classic','rosa'],['classic','vinho'],['scallop','marrom'],['scallop','preta'],['scallop','branca'],['olive','lilas'],['olive','preta'],['olive','azul-marinho'],['olive','vermelha'],['olive','branca']];
+  var INDEX = [
+    { id: 'scallop', name: 'Scallop', img: 'img/scallop-marrom.webp', fit: 'contain', alt: 'Bolsa Scallop marrom', note: 'Scallop. Ponto concha em leque, da Coleção Concha.', go: 'scallop' },
+    { id: 'olive', name: 'Olive', img: 'img/olive-lilas.webp', fit: 'cover', alt: 'Bolsa Olive lilás com alça longa', note: 'Olive. Ponto concha com alça curta e alça longa.', go: 'olive' },
+    { id: 'shoulder', name: 'Shoulder', img: 'img/shoulder-azul.webp', fit: 'contain', alt: 'Bolsa Shoulder azul mesclada', note: 'Shoulder. Formato trapézio e alça curta.', go: 'shoulder' },
+    { id: 'arco-maxi', name: 'Arco Maxi', img: 'img/arco-maxi-vinho.webp', fit: 'contain', alt: 'Bolsa Arco Maxi vinho', note: 'Arco Maxi. Alça em arco alta e faixa mesclada.', go: 'arco-maxi' },
+    { id: 'arco-mini', name: 'Arco Mini', img: 'img/arco-mini-cinza.webp', fit: 'contain', alt: 'Bolsa Arco Mini cinza', note: 'Arco Mini. A versão compacta do Arco.', go: 'arco-mini' },
+    { id: 'classic', name: 'Classic', img: 'img/classic-rosa.webp', fit: 'contain', alt: 'Bolsa Classic rosa', note: 'Classic. Formato sacola com base larga.', go: 'classic' }
+  ];
+  var YARNS = [
+    { id: 'rosa', name: 'Rosa', hex: '#E0234E' }, { id: 'rosa-claro', name: 'Rosa claro', hex: '#E7B4C6' }, { id: 'vinho', name: 'Vinho', hex: '#7E1426' },
+    { id: 'marrom', name: 'Marrom', hex: '#6B2E24' }, { id: 'roxa', name: 'Roxo', hex: '#6E2F8C' }, { id: 'lilas', name: 'Lilás', hex: '#B9A6D6' },
+    { id: 'azul', name: 'Azul', hex: '#4E95A6' }, { id: 'cinza', name: 'Cinza', hex: '#9C9C9A' }, { id: 'creme', name: 'Creme', hex: '#EFE4D2' }, { id: 'preta', name: 'Preto', hex: '#161414' }
+  ];
+
+  var app = document.getElementById('app');
+  var state = { view: 'home', model: 'shoulder', color: 'rosa', qty: 1, idx: 'scallop',
+    b: { model: null, colors: [], strap: null, strapColor: null } };
+  var cart = [];
+  try { cart = JSON.parse(localStorage.getItem('luli-cart') || '[]') || []; } catch (e) { cart = []; }
+
+  function brl(n) { return 'R$ ' + Number(n).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  function priceOf(it) { if (it.price) return it.price; var m = it.key.replace(/^custom:/, '').split(/[:-]/)[0]; if (it.key.indexOf('arco-') > -1) m = it.key.indexOf('arco-mini') > -1 ? 'arco-mini' : 'arco-maxi'; return MODELS[m] ? MODELS[m].price : 0; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function yarn(id) { for (var i = 0; i < YARNS.length; i++) if (YARNS[i].id === id) return YARNS[i]; return null; }
+  function colorOf(m, c) { var cs = MODELS[m].colors; for (var i = 0; i < cs.length; i++) if (cs[i].id === c) return cs[i]; return cs[0]; }
+
+  function sm(src) { return src.replace(/\.webp$/, '-sm.webp'); }
+  function rs(src, wSm, wFull, sizes) { return ' srcset="' + sm(src) + ' ' + wSm + 'w, ' + src + ' ' + wFull + 'w" sizes="' + sizes + '"'; }
+  function cellHTML(m, c) {
+    var col = colorOf(m, c);
+    return '<button class="cell" data-open="' + m + '" data-color="' + col.id + '"><div class="ph"><img' + (MODELS[m].line === 'Coleção Concha' ? ' class="cover"' : '') + ' src="' + col.img + '"' + rs(col.img, 400, 720, '(max-width: 860px) 50vw, 25vw') + ' alt="Bolsa ' + esc(MODELS[m].name) + ' em crochê ' + esc(col.name.toLowerCase()) + '" loading="lazy"></div>' +
+      '<div class="cap"><span>' + esc(MODELS[m].name) + ' <em>' + esc(col.name) + '</em></span><span class="label">' + brl(MODELS[m].price) + '</span></div></button>';
+  }
+
+  function homeHTML() {
+    var it = INDEX.filter(function (x) { return x.id === state.idx; })[0];
+    var fig = it.soon
+      ? '<div class="soon"><img src="img/simbolo-rosa.svg" alt=""><span class="label muted">Fotos novas em breve</span></div>'
+      : '<img class="' + it.fit + '" src="' + it.img + '" loading="lazy" decoding="async" alt="' + esc(it.alt) + '">';
+    return '' +
+    '<section class="hero" id="hero">' +
+      '<div class="hero-grid">' +
+        '<a class="half" href="#concha" data-scrollto="concha" style="background: var(--stone-2)"><img src="img/hero-tricot.webp" srcset="img/hero-tricot-sm.webp 640w, img/hero-tricot.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" fetchpriority="high" decoding="async" alt="Bolsa Scallop em crochê bordô segurada à frente de um cardigã de tricô"><span class="label">Coleção Concha</span></a>' +
+        '<a class="half" href="#todos" data-scrollto="todos" style="background: #2A2E36"><img src="img/hero-rua.webp" srcset="img/hero-rua-sm.webp 640w, img/hero-rua.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" fetchpriority="high" decoding="async" alt="Mulher de branco caminhando na rua com uma bolsa de crochê preta na mão"><span class="label">Novidades</span></a>' +
+      '</div>' +
+      '<h1 id="mark"><img src="img/nome-rosa.svg" alt="Luli Bags"></h1>' +
+      '<button class="pill cta" data-scrollto="todos">Conheça os modelos →</button>' +
+    '</section>' +
+
+    '<section class="car-head wrap" id="concha"><div style="display: flex; flex-direction: column; gap: 18px; max-width: 760px"><span class="label muted">Nova coleção · Concha</span><h2 class="h2">Coleção Concha</h2></div>' +
+      '<div class="car-nav"><button class="arrow" id="carPrev" aria-label="Anterior"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M11 3L5 9l6 6"/></svg></button><button class="arrow" id="carNext" aria-label="Próximo"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 3l6 6-6 6"/></svg></button></div></section>' +
+    '<section class="track" id="track" aria-label="Coleção Concha" tabindex="0">' + conchaTrack() +
+      '<button class="made" data-go="personalizar" data-model="olive"><span class="label">Sob medida</span><img src="img/simbolo-rosa.svg" alt=""><span style="display: flex; flex-direction: column; gap: 14px"><p>Personalize sua bolsa<br><em>da Coleção Concha.</em></p><span style="font-size: 17px; line-height: 1.5">Escolha o modelo, até duas cores e a alça.</span><span class="go">Criar a minha →</span></span></button>' +
+    '</section>' +
+
+    '<section class="head wrap" id="todos"><div class="t"><span class="label muted">Modelos · 6 modelos · 17 peças</span><h2 class="h2">Todos os modelos</h2></div><button class="link-arrow" data-go="personalizar">Prefere outra cor? Personalize →</button></section>' +
+    '<section class="grid4 all" aria-label="Produtos">' + GRID.map(function (g) { return cellHTML(g[0], g[1]); }).join('') + '<button class="made-wide" data-go="personalizar"><img src="img/simbolo-rosa.svg" alt=""><span style="display: flex; flex-direction: column; gap: 12px; min-width: 0"><span class="label">Sob medida</span><span class="big">Não achou a sua cor?<br><em>Monte a sua combinação.</em></span><span class="go">Personalizar →</span></span></button></section>' +
+
+    '<section class="models wrap" id="modelos" aria-label="Modelos">' +
+      '<span class="label muted">Modelos · ' + INDEX.length + '</span><div class="mlist" role="group" aria-label="Escolha um modelo">' +
+      INDEX.map(function (x, i) { return '<button class="mitem" data-idx="' + x.id + '" aria-pressed="' + (x.id === state.idx) + '">' + esc(x.name) + '<span class="label">' + String(i + 1).padStart(2, '0') + (x.id === state.idx && x.go ? ' · ver →' : '') + '</span></button>'; }).join('') +
+      '</div>' +
+      '<figure class="mfig"><div class="frame">' + fig + '</div><figcaption><span>' + esc(it.note) + '</span>' + (it.go ? '<button class="link-arrow" data-open="' + it.go + '">Ver modelo →</button>' : '<button class="link-arrow" data-go="personalizar">Encomendar →</button>') + '</figcaption></figure>' +
+    '</section>' +
+
+    '<section class="band" id="personalizar-band">' +
+      '<div class="pstack">' +
+        '<figure><img src="img/pers-corpos.webp" srcset="img/pers-corpos-sm.webp 640w, img/pers-corpos.webp 1600w" sizes="(max-width: 860px) 100vw, 50vw" alt="Cinco bolsas Olive em crochê, sem alça longa, dispostas em leque: lilás, preto, branco, vermelho e azul-marinho" loading="lazy" decoding="async"><figcaption class="label"><span>01 · Escolha a cor da bolsa</span><span class="muted">5 cores</span></figcaption></figure>' +
+        '<figure><img src="img/pers-alcas.webp" srcset="img/pers-alcas-sm.webp 640w, img/pers-alcas.webp 1600w" sizes="(max-width: 860px) 100vw, 50vw" alt="Cinco alças longas trançadas em crochê nas cores vermelho, lilás, azul-marinho, preto e branco" loading="lazy" decoding="async"><figcaption class="label"><span>02 · Escolha a alça</span><span class="muted">5 cores</span></figcaption></figure>' +
+      '</div>' +
+      '<div class="txt wrap"><span class="label">Personalizar</span><h2 class="h2">Crie uma bolsa<br><em>exclusiva para você.</em></h2><p style="font-size: 19px; line-height: 1.55">Escolha o modelo, as cores e faça sua combinação única. Cada peça é tecida à mão depois do seu pedido.</p>' +
+      '<ol class="steps label"><li><span>01</span>Escolha o modelo</li><li><span>02</span>Escolha uma ou duas cores</li><li><span>03</span>Decida se quer alça tiracolo</li></ol>' +
+      '<div><button class="pill" data-go="personalizar">Personalizar agora →</button></div></div>' +
+    '</section>' +
+
+    '<section class="quote wrap"><span class="label muted">Handmade crochet bag</span><p class="big">Nada sai de uma máquina. <em>Cada Luli é feita ponto a ponto, à mão, uma de cada vez.</em></p></section>' +
+
+    '<section class="tiles" aria-label="Galeria">' +
+      '<div class="tile" style="background: #3A2F2A"><img class="cover" src="img/gal-tricot.webp" srcset="img/gal-tricot-sm.webp 640w, img/gal-tricot.webp 1000w" sizes="(max-width: 860px) 100vw, 50vw" alt="Bolsa Scallop marrom segurada à frente de um suéter de tricô" loading="lazy" decoding="async" style="object-position: 50% 60%"></div>' +
+      '<div class="tile" style="background: var(--stone)"><img class="contain" src="img/arco-mini-roxa.webp" alt="" loading="lazy" decoding="async"></div>' +
+      '<div class="tile" style="background: var(--blush)"><img src="img/simbolo-rosa.svg" alt="" style="width: 52%; height: auto"></div>' +
+      '<div class="tile" style="background: #2A2E36"><img class="cover" src="img/gal-vento.webp" srcset="img/gal-vento-sm.webp 640w, img/gal-vento.webp 1600w" sizes="(max-width: 860px) 100vw, 50vw" alt="Modelo de branco com o cabelo ao vento e uma bolsa de crochê preta no ombro" loading="lazy" decoding="async" style="object-position: 50% 40%"></div>' +
+      '<div class="tile" style="background: var(--stone)"><img class="contain" src="img/classic-rosa.webp" alt="" loading="lazy" decoding="async"></div>' +
+    '</section>';
+  }
+
+  function productHTML() {
+    var m = MODELS[state.model], col = colorOf(state.model, state.color);
+    var others = Object.keys(MODELS).filter(function (k) { return k !== state.model && MODELS[k].line === m.line; });
+    if (others.length < 3) others = others.concat(Object.keys(MODELS).filter(function (k) { return k !== state.model && others.indexOf(k) < 0; }));
+    others = others.slice(0, m.colors.length > 1 ? 3 : 4);
+    var full = m.full ? col.img.replace('img/', 'img/pdp-full-') : '';
+    return '' +
+    '<section class="pdp' + (full ? ' multi' : '') + '">' +
+      '<div class="pgal">' + (full ? '<div class="pmain full"><img src="' + full + '" alt="Bolsa ' + esc(m.name) + ' ' + esc(col.name.toLowerCase()) + ' inteira, com a alça longa"></div>' : '') + (full ? '' : '<div class="pmain"><img src="' + col.img.replace('img/', 'img/pdp-') + '" alt="Bolsa ' + esc(m.name) + ' em crochê ' + esc(col.name.toLowerCase()) + '"></div>') +
+      '<div class="pthumbs" style="--n: ' + Math.max(3, m.colors.length) + '">' + m.colors.map(function (c) { return '<button class="pthumb" data-color-pick="' + c.id + '" aria-pressed="' + (c.id === col.id) + '" aria-label="Ver cor ' + esc(c.name) + '"><img src="' + sm(c.img.replace('img/', 'img/pdp-')) + '" alt="" loading="lazy" decoding="async"></button>'; }).join('') +
+        (m.colors.length < 3 ? '<div class="pthumb" style="cursor: default; grid-column: span ' + (3 - m.colors.length) + '"><span class="label muted" style="padding: 12px; text-align: center">Outras cores no Personalizar</span></div>' : '') + '</div></div>' +
+      '<div class="pinfo wrap">' +
+        '<nav class="crumbs label" aria-label="Trilha"><button data-go="home">Início</button><span aria-hidden="true">/</span><button data-go="home" data-scroll="todos">Modelos</button><span aria-hidden="true">/</span><span>' + esc(m.name) + '</span></nav>' +
+        '<div style="display: flex; flex-direction: column; gap: 10px"><span class="label">' + esc(m.line) + '</span><h1 class="ptitle">' + esc(m.name) + ' <em>' + esc(col.name) + '</em></h1><p style="font-size: 22px; font-variant-numeric: tabular-nums">' + brl(m.price) + '</p></div>' +
+        '<p style="font-size: 19px; line-height: 1.55; max-width: 520px">' + esc(m.desc) + '</p>' +
+        '<fieldset><legend class="label">Cor · ' + esc(col.name) + '</legend><div class="sw-row">' + m.colors.map(function (c) { return '<button class="sw" data-color-pick="' + c.id + '" aria-pressed="' + (c.id === col.id) + '" aria-label="Cor ' + esc(c.name) + '"><span style="background: ' + c.hex + '"></span></button>'; }).join('') + '</div></fieldset>' +
+        '<div style="display: flex; flex-direction: column; gap: 12px"><div class="buyrow"><div class="qty" role="group" aria-label="Quantidade"><button data-qty="-1" aria-label="Diminuir">−</button><output id="qtyOut">' + state.qty + '</output><button data-qty="1" aria-label="Aumentar">+</button></div><button class="pill" id="addBtn" style="flex: 1; min-width: 200px">Adicionar à sacola</button></div>' +
+        '<a class="pill solid wa" id="buyNow" href="' + buyNowHref(m, col) + '" target="_blank" rel="noopener">' + WA_ICON + 'Comprar agora pelo WhatsApp</a>' +
+        '<button class="pill" data-go="personalizar" data-model="' + state.model + '">Personalizar este modelo →</button>' +
+        '</div>' +
+      '</div>' +
+    '</section>' +
+    '<section class="head wrap" style="padding-block: 96px 40px"><h2 class="h2" style="font-size: clamp(30px, 3.4vw, 46px)">Outros modelos:<br><em>feitos à mão.</em></h2><button class="link-arrow" data-go="home" data-scroll="todos">Ver todos →</button></section>' +
+    '<section class="grid4" aria-label="Outros modelos">' + others.map(function (k) { return cellHTML(k, MODELS[k].colors[0].id); }).join('') + (m.colors.length > 1 ? cellHTML(state.model, m.colors[(m.colors.indexOf(col) + 1) % m.colors.length].id) : '') + '</section>';
+  }
+
+  var WHATSAPP = '5511988341230';
+  function buyNowHref(m, col) {
+    return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Oi, tudo bem? Quero comprar:\n• ' + state.qty + 'x ' + m.name + ' ' + col.name + ' · ' + brl(m.price * state.qty));
+  }
+  var BMODELS = [
+    { id: 'Arco Mini', key: 'arco-mini', img: 'img/pdp-arco-mini-roxa.webp' },
+    { id: 'Shoulder', key: 'shoulder', img: 'img/pdp-shoulder-roxa.webp' },
+    { id: 'Classic', key: 'classic', img: 'img/pdp-classic-vinho.webp' },
+    { id: 'Arco Maxi', key: 'arco-maxi', img: 'img/pdp-arco-maxi-vinho.webp' },
+    { id: 'Baguete', key: 'baguete', img: 'img/pers/baguete.webp' },
+    { id: 'Boho', key: 'boho', img: 'img/pers/boho.webp' },
+    { id: 'Cherry', key: 'cherry', img: 'img/pers/cherry.webp' },
+    { id: 'Scallop', key: 'scallop', img: 'img/pdp-scallop-marrom.webp' },
+    { id: 'Olive', key: 'olive', img: 'img/pers/olive.webp' }
+  ];
+  var BCOLORS = [
+    { code: '7288', name: 'Chocolate em pó', hex: '#4E3015' }, { code: '7361', name: 'Melado', hex: '#8B5A35' },
+    { code: '1723', name: 'Citrino', hex: '#F5EDB0' }, { code: '3363', name: 'Rosa amor', hex: '#DDB8B5' },
+    { code: '3986', name: 'Picante', hex: '#7A0010' }, { code: '3528', name: 'Carmin', hex: '#CC1020' },
+    { code: '3526', name: 'Rosa candy', hex: '#F0BCD8' }, { code: '3230', name: 'Rosa tropical', hex: '#E03580' },
+    { code: '6291', name: 'Vinho quente', hex: '#6A2878' }, { code: '6638', name: 'Lilás suave', hex: '#BCA0D5' },
+    { code: '2882', name: 'Mar noturno', hex: '#181840' }, { code: '2196', name: 'Turquesa', hex: '#109888' },
+    { code: '5092', name: 'Floresta selvagem', hex: '#284820' }, { code: '8225', name: 'Crômio', hex: '#9898A0' },
+    { code: '8243', name: 'Cinza resina', hex: '#525255' }, { code: '7684', name: 'Porcelana', hex: '#F0F0EC' },
+    { code: '8990', name: 'Preto', hex: '#0A0A0A' }
+  ];
+  function bcolor(code) { for (var i = 0; i < BCOLORS.length; i++) if (BCOLORS[i].code === code) return BCOLORS[i]; return null; }
+  function bmodel(id) { for (var i = 0; i < BMODELS.length; i++) if (BMODELS[i].id === id) return BMODELS[i]; return null; }
+  function bmodelByKey(k) { for (var i = 0; i < BMODELS.length; i++) if (BMODELS[i].key === k) return BMODELS[i].id; return null; }
+  function bMessage() {
+    var b = state.b, c = b.colors.map(function (x) { return bcolor(x).name.toLowerCase(); });
+    return 'Oi, tudo bem? Quero fazer um orçamento da ' + b.model + ', ' + (c.length === 2 ? 'nas cores ' + c[0] + ' e ' + c[1] : 'na cor ' + c[0]) + ', ' + (b.strap ? 'com alça tiracolo na cor ' + bcolor(b.strapColor).name.toLowerCase() : 'sem alça tiracolo') + '.';
+  }
+  function builderHTML() {
+    var b = state.b, hasModel = !!b.model, hasColors = b.colors.length >= 1, twoColors = b.colors.length === 2, done = hasModel && hasColors && (b.strap === false || (b.strap === true && !!b.strapColor));
+    var sc = b.strapColor ? bcolor(b.strapColor) : null;
+    var m = hasModel ? bmodel(b.model) : null;
+    var c1 = b.colors[0] ? bcolor(b.colors[0]) : null, c2 = b.colors[1] ? bcolor(b.colors[1]) : null;
+    function ball(c, label) { return '<span class="bball"><span class="dotc' + (c ? ' on' : '') + '" style="' + (c ? 'background: ' + c.hex : '') + '"></span><small>' + esc(c ? c.name : label) + '</small></span>'; }
+    var preview = '<div class="bprev">' +
+        '<span class="label muted bprev-tag">Sua bolsa</span>' +
+        (m ? '<img class="bprev-img" src="' + m.img + '" alt="Modelo ' + esc(m.id) + '">' : '<div class="bprev-empty"><img src="img/simbolo-rosa.svg" alt=""><span class="label muted">Escolha um modelo para começar</span></div>') +
+        '<div class="bprev-info">' +
+          '<div><span class="label muted">Modelo</span><p class="bval">' + (m ? esc(m.id) : '—') + '</p></div>' +
+          '<div><span class="label muted">' + (b.colors.length === 0 ? 'Cores · nenhuma ainda' : b.colors.length === 1 ? 'Cor · pode escolher mais 1' : 'Cores') + '</span>' +
+            '<div class="bcombo">' + ball(c1, 'Cor 1') + '<span class="op" aria-hidden="true">+</span>' + ball(c2, 'Cor 2') +
+            (twoColors ? '<span class="op" aria-hidden="true">=</span><span class="bball"><span class="dotc on half" style="background: linear-gradient(90deg, ' + c1.hex + ' 50%, ' + c2.hex + ' 50%)"></span><small>Combinação</small></span>' : '') + '</div></div>' +
+          '<div><span class="label muted">Alça tiracolo</span>' + (b.strap && sc ? '<div class="bcombo">' + ball(sc, '') + '</div>' : '<p class="bval">' + (b.strap === null ? '—' : b.strap ? 'Escolha a cor da alça' : 'Sem alça') + '</p>') + '</div>' +
+        '</div></div>';
+    var models = '<div class="bmodels">' + BMODELS.map(function (x) { return '<button class="bmodel" data-bmodel="' + esc(x.id) + '" aria-pressed="' + (x.id === b.model) + '"><img src="' + (x.img.indexOf('/pers/') > -1 ? x.img : sm(x.img)) + '" alt="" loading="lazy" decoding="async"><span class="label">' + esc(x.id) + '</span></button>'; }).join('') + '</div>';
+    var swatches = '<div class="bswatches">' + BCOLORS.map(function (c) {
+      var idx = b.colors.indexOf(c.code);
+      return '<button class="bsw" data-bcolor="' + c.code + '" aria-pressed="' + (idx > -1) + '" aria-label="' + c.code + ' ' + esc(c.name) + '"><span class="dotc" style="background: ' + c.hex + '">' + (idx > -1 ? '<b>' + (idx + 1) + '</b>' : '') + '</span><span class="code">' + c.code + '</span><span class="nm">' + esc(c.name) + '</span></button>';
+    }).join('') + '</div>';
+    var strapSw = b.strap ? '<p class="label muted" style="margin-top: 10px">Cor da alça · escolha 1</p><div class="bswatches">' + BCOLORS.map(function (c) {
+      var on = b.strapColor === c.code;
+      return '<button class="bsw" data-scolor="' + c.code + '" aria-pressed="' + on + '" aria-label="Alça ' + c.code + ' ' + esc(c.name) + '"><span class="dotc" style="background: ' + c.hex + '"></span><span class="code">' + c.code + '</span><span class="nm">' + esc(c.name) + '</span></button>';
+    }).join('') + '</div>' : '';
+    var chips = b.colors.length ? '<div class="bchips">' + b.colors.map(function (code, i) { var c = bcolor(code); return '<span class="bchip"><i style="background: ' + c.hex + '"></i>Cor ' + (i + 1) + ': ' + esc(c.name) + '</span>'; }).join('') + '</div>' : '';
+    var buy = done
+      ? '<a class="pill solid wa" href="https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(bMessage()) + '" target="_blank" rel="noopener">' + WA_ICON + 'Comprar agora pelo WhatsApp</a>'
+      : '<button class="pill solid wa" disabled>' + WA_ICON + 'Complete as etapas para continuar</button>';
+    return '' +
+    '<section class="head wrap" style="padding-block: 72px 40px"><div class="t"><span class="label muted">Personalizar · sob encomenda</span><h1 class="h2">Personalize sua bolsa</h1><p style="font-size: 19px; max-width: 560px">Crie uma peça única, feita especialmente para você.</p></div></section>' +
+    '<section class="builder">' + preview +
+      '<div class="bform wrap">' +
+        '<fieldset class="bstep"><legend class="label">Passo 01 · Escolha seu modelo</legend>' + models + '</fieldset>' +
+        '<fieldset class="bstep' + (hasModel ? '' : ' dim') + '"' + (hasModel ? '' : ' disabled') + '><legend class="label">Passo 02 · Escolha as cores</legend><p class="label muted" style="margin-top: -4px">Escolha 1 ou 2 cores</p>' + chips + swatches + '</fieldset>' +
+        '<fieldset class="bstep' + (hasColors ? '' : ' dim') + '"' + (hasColors ? '' : ' disabled') + '><legend class="label">Passo 03 · Deseja adicionar alça tiracolo?</legend><div class="chips"><button class="chip" data-strap="yes" aria-pressed="' + (b.strap === true) + '">Sim</button><button class="chip" data-strap="no" aria-pressed="' + (b.strap === false) + '">Não</button></div>' + strapSw + '</fieldset>' +
+        (done ? '<div class="summary"><span class="label muted">Seu pedido</span>' +
+          '<span><b>Modelo:</b> ' + esc(b.model) + '</span>' +
+          '<span><b>' + (c2 ? 'Cor 1:' : 'Cor:') + '</b> <i class="sdot" style="background: ' + c1.hex + '"></i>' + esc(c1.code + ' · ' + c1.name) + '</span>' +
+          (c2 ? '<span><b>Cor 2:</b> <i class="sdot" style="background: ' + c2.hex + '"></i>' + esc(c2.code + ' · ' + c2.name) + '</span>' : '') +
+          '<span><b>Alça tiracolo:</b> ' + (b.strap ? '<i class="sdot" style="background: ' + sc.hex + '"></i>' + esc(sc.code + ' · ' + sc.name) : 'Não') + '</span></div>' +
+          '<div class="bmsg"><span class="label muted">Mensagem que será enviada</span><p>' + esc(bMessage()) + '</p></div>' : '') +
+        '<div class="buyrow">' + buy + '</div>' +
+        '<p class="label muted" style="line-height: 1.7">O pedido abre uma conversa no WhatsApp com a Luli, onde você recebe o orçamento e o prazo.</p>' +
+      '</div>' +
+    '</section>';
+  }
+  var WA_ICON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 016.99 2.9 9.83 9.83 0 012.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.82 11.82 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41z"/></svg>';
+
+  /* Rendering */
+  function render(scrollTarget) {
+    if (state.view === 'home') app.innerHTML = homeHTML();
+    else if (state.view === 'product') app.innerHTML = productHTML();
+    else app.innerHTML = builderHTML();
+    app.className = 'view-enter';
+    document.querySelectorAll('.navlink[data-go="personalizar"]').forEach(function (b) { b.setAttribute('aria-current', state.view === 'personalizar' ? 'page' : 'false'); });
+    setupMark();
+    setupCarousel();
+    if (scrollTarget === 'keep') return;
+    if (scrollTarget) { var el = document.getElementById(scrollTarget); if (el) { el.scrollIntoView({ block: 'start' }); return; } }
+    window.scrollTo(0, 0);
+  }
+
+  function go(view, opts) {
+    opts = opts || {};
+    state.view = view;
+    if (opts.model) { if (MODELS[opts.model]) state.model = opts.model; var bm = bmodelByKey(opts.model); if (bm) state.b.model = bm; }
+    if (opts.color) state.color = opts.color;
+    state.qty = 1;
+    closeMenu();
+    var hash = view === 'product' ? state.model : view === 'personalizar' ? 'personalizar' : '';
+    try { history.replaceState(null, '', hash ? '#' + hash : location.pathname + location.search); } catch (e) {}
+    render(opts.scroll);
+  }
+
+  /* Logo: rolls with the hero while it shrinks, then hands off to the logo in the bar */
+  var markEl = null, heroEl = null, raf = 0, d0 = 0;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var barLogo = document.getElementById('barLogo'), bar = document.getElementById('bar');
+  function setupMark() {
+    markEl = document.getElementById('mark');
+    heroEl = document.getElementById('hero');
+    d0 = 0;
+    if (!markEl) { barLogo.style.opacity = '1'; return; }
+    updateMark();
+  }
+  function updateMark() {
+    raf = 0;
+    if (!markEl || !heroEl) return;
+    var hr = heroEl.getBoundingClientRect(), br = bar.getBoundingClientRect();
+    var dist = (hr.top + hr.height / 2) - (br.top + br.height / 2);
+    if (!d0 || dist > d0) d0 = Math.max(1, dist);
+    var docked = dist <= 0.5;
+    var p = Math.min(1, Math.max(0, 1 - dist / d0));
+    var k = 120 / Math.max(1, markEl.offsetWidth);
+    var sc = reduce ? 1 : 1 - p * (1 - k);
+    markEl.style.transform = 'translate(-50%, -50%) scale(' + sc.toFixed(4) + ')';
+    markEl.style.opacity = docked ? '0' : '1';
+    barLogo.style.opacity = docked ? '1' : '0';
+  }
+  window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(updateMark); }, { passive: true });
+  window.addEventListener('resize', function () { d0 = 0; if (!raf) raf = requestAnimationFrame(updateMark); });
+
+  /* Carousel arrows */
+  var carTimer = 0, carObs = null;
+  function setupCarousel() {
+    clearInterval(carTimer); carTimer = 0;
+    if (carObs) { carObs.disconnect(); carObs = null; }
+    var tr = document.getElementById('track'), pv = document.getElementById('carPrev'), nx = document.getElementById('carNext');
+    if (!tr) return;
+    var paused = false, visible = true, idle = 0;
+    function step() { var c = tr.firstElementChild; return c ? c.getBoundingClientRect().width : tr.clientWidth; }
+    function atEnd() { return tr.scrollLeft + tr.clientWidth >= tr.scrollWidth - 2; }
+    function sync() { pv.disabled = tr.scrollLeft <= 2; nx.disabled = false; }
+    function move(dir) {
+      if (dir > 0 && atEnd()) tr.scrollTo({ left: 0, behavior: reduce ? 'auto' : 'smooth' });
+      else if (dir < 0 && tr.scrollLeft <= 2) tr.scrollTo({ left: tr.scrollWidth, behavior: reduce ? 'auto' : 'smooth' });
+      else tr.scrollBy({ left: dir * step(), behavior: reduce ? 'auto' : 'smooth' });
+    }
+    function nudge() { idle = Date.now(); }
+    pv.onclick = function () { nudge(); move(-1); };
+    nx.onclick = function () { nudge(); move(1); };
+    tr.addEventListener('scroll', function () { requestAnimationFrame(sync); }, { passive: true });
+    tr.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { e.preventDefault(); nx.onclick(); } if (e.key === 'ArrowLeft') { e.preventDefault(); pv.onclick(); } });
+    ['mouseenter', 'focusin', 'touchstart'].forEach(function (ev) { tr.addEventListener(ev, function () { paused = true; }, { passive: true }); });
+    ['mouseleave', 'focusout', 'touchend'].forEach(function (ev) { tr.addEventListener(ev, function () { paused = false; nudge(); }, { passive: true }); });
+    if ('IntersectionObserver' in window) { carObs = new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0.3 }); carObs.observe(tr); }
+    sync();
+    if (reduce) return;
+    carTimer = setInterval(function () {
+      if (paused || !visible || document.hidden || Date.now() - idle < 5000) return;
+      move(1);
+    }, 3200);
+  }
+
+  /* Cart */
+  var cartEl = document.getElementById('cart'), scrim = document.getElementById('scrim');
+  function saveCart() { try { localStorage.setItem('luli-cart', JSON.stringify(cart)); } catch (e) {} }
+  function cartCount() { return cart.reduce(function (n, i) { return n + i.qty; }, 0); }
+  function renderCart() {
+    document.getElementById('cartCount').textContent = cartCount();
+    var items = document.getElementById('cartItems'), foot = document.getElementById('cartFoot');
+    if (!cart.length) {
+      items.innerHTML = '<div class="empty"><p style="font-size: 26px">Sua sacola está vazia.</p><p class="muted">Escolha um modelo pronto ou monte o seu no Personalizar.</p><button class="pill" data-go="home" data-scroll="todos" data-close-cart>Ver modelos →</button></div>';
+      foot.innerHTML = '';
+      return;
+    }
+    items.innerHTML = cart.map(function (it, i) {
+      return '<div class="citem"><div class="th"><img src="' + sm(it.img) + '" alt="" loading="lazy" decoding="async"></div><div class="meta"><span style="font-size: 19px">' + esc(it.title) + '</span><span class="muted" style="font-size: 15px">' + esc(it.sub) + '</span><span class="label muted">' + brl(priceOf(it) * it.qty) + '</span>' +
+        '<div class="row"><div class="qty" role="group" aria-label="Quantidade de ' + esc(it.title) + '"><button data-cq="' + i + ':-1" aria-label="Diminuir">−</button><output>' + it.qty + '</output><button data-cq="' + i + ':1" aria-label="Aumentar">+</button></div><button class="rm" data-rm="' + i + '">Remover</button></div></div></div>';
+    }).join('');
+    foot.innerHTML = '<div style="display: flex; justify-content: space-between"><span class="label">Subtotal · ' + cartCount() + (cartCount() === 1 ? ' peça' : ' peças') + '</span><span class="label">' + brl(cart.reduce(function (t, i) { return t + priceOf(i) * i.qty; }, 0)) + '</span></div>' +
+      '<a class="pill solid wa" href="https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(cartMessage()) + '" target="_blank" rel="noopener">' + WA_ICON + 'Finalizar compra pelo WhatsApp</a><p class="label muted" style="line-height: 1.7">O pedido abre uma conversa no WhatsApp com a Luli, onde você combina frete e pagamento.</p>';
+  }
+  function cartMessage() {
+    var total = cart.reduce(function (t, i) { return t + priceOf(i) * i.qty; }, 0);
+    return 'Oi, tudo bem? Quero finalizar meu pedido:\n' + cart.map(function (it) { return '• ' + it.qty + 'x ' + it.title + ' · ' + brl(priceOf(it) * it.qty); }).join('\n') + '\nSubtotal: ' + brl(total);
+  }
+  function openCart() { renderCart(); cartEl.hidden = false; scrim.hidden = false; document.getElementById('cartClose').focus(); }
+  function closeCart() { cartEl.hidden = true; scrim.hidden = true; }
+  function addItem(item) {
+    for (var i = 0; i < cart.length; i++) if (cart[i].key === item.key) { cart[i].qty += item.qty; saveCart(); renderCart(); return; }
+    cart.push(item); saveCart(); renderCart();
+  }
+  var toastT = 0;
+  function toast(msg) { var t = document.getElementById('toast'); t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(function () { t.hidden = true; }, 2200); }
+
+  /* Mobile menu */
+  var menu = document.getElementById('mobileMenu'), menuBtn = document.getElementById('menuBtn');
+  function closeMenu() { menu.hidden = true; menuBtn.setAttribute('aria-expanded', 'false'); }
+
+  /* Events */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('button, a');
+    if (!t) return;
+    if (t.hasAttribute('data-close-cart')) closeCart();
+    if (t.dataset.go) { e.preventDefault(); var v = t.dataset.go; go(v === 'home' ? 'home' : 'personalizar', { scroll: t.dataset.scroll, model: t.dataset.model }); return; }
+    if (t.dataset.scrollto) { e.preventDefault(); var el = document.getElementById(t.dataset.scrollto); if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); return; }
+    if (t.dataset.open) { go('product', { model: t.dataset.open, color: t.dataset.color || MODELS[t.dataset.open].colors[0].id }); return; }
+    if (t.dataset.idx) { state.idx = t.dataset.idx; render('keep'); return; }
+    if (t.dataset.colorPick) { state.color = t.dataset.colorPick; render('keep'); return; }
+    if (t.dataset.qty) { state.qty = Math.max(1, Math.min(9, state.qty + Number(t.dataset.qty))); document.getElementById('qtyOut').textContent = state.qty; var bn = document.getElementById('buyNow'), pm = MODELS[state.model]; if (bn && pm) bn.href = buyNowHref(pm, pm.colors.filter(function (c) { return c.id === state.color; })[0] || pm.colors[0]); return; }
+    if (t.id === 'addBtn') {
+      var col = colorOf(state.model, state.color), m = MODELS[state.model];
+      addItem({ key: state.model + ':' + col.id, title: m.name + ' ' + col.name, sub: 'Pronta para encomenda', img: col.img, qty: state.qty, price: m.price });
+      toast(m.name + ' ' + col.name + ' na sacola'); return;
+    }
+    if (t.dataset.bmodel) { state.b.model = t.dataset.bmodel; render('keep'); return; }
+    if (t.dataset.bcolor) { var cs = state.b.colors, code = t.dataset.bcolor; if (cs.indexOf(code) > -1) state.b.colors = cs.filter(function (x) { return x !== code; }); else if (cs.length < 2) state.b.colors = cs.concat([code]); else state.b.colors = [cs[1], code]; render('keep'); return; }
+    if (t.dataset.strap) { state.b.strap = t.dataset.strap === 'yes'; if (!state.b.strap) state.b.strapColor = null; render('keep'); return; }
+    if (t.dataset.scolor) { state.b.strapColor = state.b.strapColor === t.dataset.scolor ? null : t.dataset.scolor; render('keep'); return; }
+    if (t.id === 'cartBtn') { openCart(); return; }
+    if (t.id === 'cartClose') { closeCart(); cartBtn.focus(); return; }
+    if (t.dataset.cq) { var q = t.dataset.cq.split(':'), it = cart[+q[0]]; it.qty += +q[1]; if (it.qty < 1) cart.splice(+q[0], 1); saveCart(); renderCart(); return; }
+    if (t.dataset.rm) { cart.splice(+t.dataset.rm, 1); saveCart(); renderCart(); return; }
+    if (t.id === 'menuBtn') { menu.hidden = false; menuBtn.setAttribute('aria-expanded', 'true'); document.getElementById('menuClose').focus(); return; }
+    if (t.id === 'menuClose') { closeMenu(); menuBtn.focus(); return; }
+  });
+  var cartBtn = document.getElementById('cartBtn');
+  scrim.addEventListener('click', closeCart);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { if (!cartEl.hidden) { closeCart(); cartBtn.focus(); } if (!menu.hidden) closeMenu(); } });
+  document.getElementById('newsForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = document.getElementById('newsEmail').value.trim(), msg = document.getElementById('newsMsg');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { msg.textContent = 'Confira o e-mail: falta o @ ou o domínio.'; return; }
+    msg.textContent = 'Inscrição simulada. No site final, isso entra na lista da Nuvemshop.';
+    document.getElementById('newsEmail').value = '';
+  });
+
+  /* Start on the view named in the link, if any */
+  var h = (location.hash || '').replace('#', '');
+  renderCart();
+  if (MODELS[h]) go('product', { model: h, color: MODELS[h].colors[0].id });
+  else if (h === 'personalizar') go('personalizar');
+  else render(h === 'todos' || h === 'concha' || h === 'modelos' ? h : null);
+})();
+</script>
+
+</body>
+</html>
