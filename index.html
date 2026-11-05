@@ -6,7 +6,7 @@
 <meta name="description" content="Bolsas de crochê feitas à mão, peça por peça. Modelos prontos e personalizados, com pedido direto pelo WhatsApp.">
 <meta property="og:title" content="Luli Bags | Bolsas de crochê feitas à mão">
 <meta property="og:url" content="https://www.lulibags.com.br/">
-<meta property="og:image" content="https://www.lulibags.com.br/img/og.jpg">
+<meta property="og:image" content="https://www.lulibags.com.br/og.jpg">
 <link rel="canonical" href="https://www.lulibags.com.br/">
 <meta property="og:description" content="Bolsas de crochê feitas à mão, peça por peça.">
 <meta property="og:type" content="website">
@@ -381,13 +381,8 @@ details p { padding-bottom: 18px; font-size: 17px; }
 <footer class="wrap" id="footer">
   <div class="fcols">
     <div class="fcol wide">
-      <span class="label">Novidades por e-mail</span>
-      <form class="news" id="newsForm" novalidate>
-        <label for="newsEmail" class="sr">Seu e-mail</label>
-        <input id="newsEmail" type="email" placeholder="seu@email.com" autocomplete="email" required>
-        <button type="submit" class="label">Assinar →</button>
-      </form>
-      <p id="newsMsg" class="label" style="color: var(--on-night-muted); min-height: 18px" aria-live="polite"></p>
+      <span class="label">Novidades e lançamentos</span>
+      <a class="news" href="https://www.instagram.com/lulibags.store/" target="_blank" rel="noopener" style="justify-content: space-between; align-items: center; padding: 12px 0; color: var(--on-night); text-decoration: none"><span>Siga @lulibags.store no Instagram</span><span class="label">Seguir →</span></a>
     </div>
     <div class="fcol">
       <span class="label">Navegação</span>
@@ -470,7 +465,15 @@ details p { padding-bottom: 18px; font-size: 17px; }
     b: { model: null, colors: [], strap: null, strapColor: null } };
   var cart = [];
   try { cart = JSON.parse(localStorage.getItem('luli-cart') || '[]') || []; } catch (e) { cart = []; }
+  cart = (Array.isArray(cart) ? cart : []).map(function (it) {
+    var p = String(it && it.key || '').split(':'), m = p[0], c = p[1];
+    if (!Object.prototype.hasOwnProperty.call(MODELS, m)) return null;
+    var col = MODELS[m].colors.filter(function (x) { return x.id === c; })[0]; if (!col) return null;
+    var q = Math.max(1, Math.min(9, parseInt(it.qty, 10) || 1));
+    return { key: m + ':' + col.id, title: MODELS[m].name + ' ' + col.name, sub: 'Pronta para encomenda', img: col.img, qty: q, price: MODELS[m].price };
+  }).filter(Boolean);
 
+  function isModel(k) { return Object.prototype.hasOwnProperty.call(MODELS, k); }
   function brl(n) { return 'R$ ' + Number(n).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
   function priceOf(it) { if (it.price) return it.price; var m = it.key.replace(/^custom:/, '').split(/[:-]/)[0]; if (it.key.indexOf('arco-') > -1) m = it.key.indexOf('arco-mini') > -1 ? 'arco-mini' : 'arco-maxi'; return MODELS[m] ? MODELS[m].price : 0; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -662,7 +665,7 @@ details p { padding-bottom: 18px; font-size: 17px; }
   function go(view, opts) {
     opts = opts || {};
     state.view = view;
-    if (opts.model) { if (MODELS[opts.model]) state.model = opts.model; var bm = bmodelByKey(opts.model); if (bm) state.b.model = bm; }
+    if (opts.model) { if (isModel(opts.model)) state.model = opts.model; var bm = bmodelByKey(opts.model); if (bm) state.b.model = bm; }
     if (opts.color) state.color = opts.color;
     state.qty = 1;
     closeMenu();
@@ -774,7 +777,7 @@ details p { padding-bottom: 18px; font-size: 17px; }
     if (t.hasAttribute('data-close-cart')) closeCart();
     if (t.dataset.go) { e.preventDefault(); var v = t.dataset.go; go(v === 'home' ? 'home' : 'personalizar', { scroll: t.dataset.scroll, model: t.dataset.model }); return; }
     if (t.dataset.scrollto) { e.preventDefault(); var el = document.getElementById(t.dataset.scrollto); if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); return; }
-    if (t.dataset.open) { go('product', { model: t.dataset.open, color: t.dataset.color || MODELS[t.dataset.open].colors[0].id }); return; }
+    if (t.dataset.open && isModel(t.dataset.open)) { go('product', { model: t.dataset.open, color: t.dataset.color || MODELS[t.dataset.open].colors[0].id }); return; }
     if (t.dataset.idx) { state.idx = t.dataset.idx; render('keep'); return; }
     if (t.dataset.colorPick) { state.color = t.dataset.colorPick; render('keep'); return; }
     if (t.dataset.qty) { state.qty = Math.max(1, Math.min(9, state.qty + Number(t.dataset.qty))); document.getElementById('qtyOut').textContent = state.qty; var bn = document.getElementById('buyNow'), pm = MODELS[state.model]; if (bn && pm) bn.href = buyNowHref(pm, pm.colors.filter(function (c) { return c.id === state.color; })[0] || pm.colors[0]); return; }
@@ -797,18 +800,11 @@ details p { padding-bottom: 18px; font-size: 17px; }
   var cartBtn = document.getElementById('cartBtn');
   scrim.addEventListener('click', closeCart);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { if (!cartEl.hidden) { closeCart(); cartBtn.focus(); } if (!menu.hidden) closeMenu(); } });
-  document.getElementById('newsForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var v = document.getElementById('newsEmail').value.trim(), msg = document.getElementById('newsMsg');
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { msg.textContent = 'Confira o e-mail: falta o @ ou o domínio.'; return; }
-    msg.textContent = 'Inscrição simulada. No site final, isso entra na lista da Nuvemshop.';
-    document.getElementById('newsEmail').value = '';
-  });
 
   /* Start on the view named in the link, if any */
   var h = (location.hash || '').replace('#', '');
   renderCart();
-  if (MODELS[h]) go('product', { model: h, color: MODELS[h].colors[0].id });
+  if (isModel(h)) go('product', { model: h, color: MODELS[h].colors[0].id });
   else if (h === 'personalizar') go('personalizar');
   else render(h === 'todos' || h === 'concha' || h === 'modelos' ? h : null);
 })();
