@@ -834,16 +834,22 @@ details p { padding-bottom: 18px; font-size: 17px; }
     { id: 'Olive', key: 'olive', img: 'img/pers/olive.webp' }
   ];
   var BCOLORS = [
-    { code: '7288', name: 'Chocolate em pó', hex: '#4E3015' }, { code: '7361', name: 'Melado', hex: '#8B5A35' },
-    { code: '1723', name: 'Citrino', hex: '#F5EDB0' }, { code: '3363', name: 'Rosa amor', hex: '#DDB8B5' },
-    { code: '3986', name: 'Picante', hex: '#7A0010' }, { code: '3528', name: 'Carmin', hex: '#CC1020' },
-    { code: '3526', name: 'Rosa candy', hex: '#F0BCD8' }, { code: '3230', name: 'Rosa tropical', hex: '#E03580' },
-    { code: '6291', name: 'Vinho quente', hex: '#6A2878' }, { code: '6638', name: 'Lilás suave', hex: '#BCA0D5' },
-    { code: '2882', name: 'Mar noturno', hex: '#181840' }, { code: '2196', name: 'Turquesa', hex: '#109888' },
-    { code: '5092', name: 'Floresta selvagem', hex: '#284820' }, { code: '8225', name: 'Crômio', hex: '#9898A0' },
-    { code: '8243', name: 'Cinza resina', hex: '#525255' }, { code: '7684', name: 'Porcelana', hex: '#F0F0EC' },
-    { code: '8990', name: 'Preto', hex: '#0A0A0A' }
+    { code: '3881', name: 'Maçã do Amor', hex: '#FF6252' },
+    { code: '3748', name: 'Rosa Vermelha', hex: '#E20146' },
+    { code: '3528', name: 'Carmim', hex: '#CD002E' },
+    { code: '5427', name: 'Brotinho', hex: '#C4DDB6' },
+    { code: '8990', name: 'Preto', hex: '#21222D' },
+    { code: '2012', name: 'Azul-Candy', hex: '#9BD2E6' },
+    { code: '2972', name: 'Maré Cheia', hex: '#549CA6' },
+    { code: '3161', name: 'Rosa Algodão', hex: '#F4B3C9' },
+    { code: '6630', name: 'Lilás Suave', hex: '#B7A6C6' },
+    { code: '6859', name: 'Roxo Brilhante', hex: '#79366A' },
+    { code: '2802', name: 'Mar Noturno', hex: '#36476A' },
+    { code: '3986', name: 'Picante', hex: '#770703' },
+    { code: '3559', name: 'Tomate', hex: '#B52C28' },
+    { code: '7288', name: 'Chocolate em Pó', hex: '#522310' }
   ];
+  function cbg(c) { return c.hex + " url('img/fio-" + c.code + ".webp') center / cover"; }
   function bcolor(code) { for (var i = 0; i < BCOLORS.length; i++) if (BCOLORS[i].code === code) return BCOLORS[i]; return null; }
   function bmodel(id) { for (var i = 0; i < BMODELS.length; i++) if (BMODELS[i].id === id) return BMODELS[i]; return null; }
   function bmodelByKey(k) { for (var i = 0; i < BMODELS.length; i++) if (BMODELS[i].key === k) return BMODELS[i].id; return null; }
@@ -856,7 +862,7 @@ details p { padding-bottom: 18px; font-size: 17px; }
     var sc = b.strapColor ? bcolor(b.strapColor) : null;
     var m = hasModel ? bmodel(b.model) : null;
     var c1 = b.colors[0] ? bcolor(b.colors[0]) : null, c2 = b.colors[1] ? bcolor(b.colors[1]) : null;
-    function ball(c, label) { return '<span class="bball"><span class="dotc' + (c ? ' on' : '') + '" style="' + (c ? 'background: ' + c.hex : '') + '"></span><small>' + esc(c ? c.name : label) + '</small></span>'; }
+    function ball(c, label) { return '<span class="bball"><span class="dotc' + (c ? ' on' : '') + '" style="' + (c ? 'background: ' + cbg(c) : '') + '"></span><small>' + esc(c ? c.name : label) + '</small></span>'; }
     var preview = '<div class="bprev">' +
         '<span class="label muted bprev-tag">Sua bolsa</span>' +
         (m ? '<img class="bprev-img" src="' + m.img + '" alt="Modelo ' + esc(m.id) + '">' : '<div class="bprev-empty"><img src="img/simbolo-rosa.svg" alt=""><span class="label muted">Escolha um modelo para começar</span></div>') +
@@ -864,19 +870,19 @@ details p { padding-bottom: 18px; font-size: 17px; }
           '<div><span class="label muted">Modelo</span><p class="bval">' + (m ? esc(m.id) : '—') + '</p></div>' +
           '<div><span class="label muted">' + (b.colors.length === 0 ? 'Cores · nenhuma ainda' : b.colors.length === 1 ? 'Cor · pode escolher mais 1' : 'Cores') + '</span>' +
             '<div class="bcombo">' + ball(c1, 'Cor 1') + '<span class="op" aria-hidden="true">+</span>' + ball(c2, 'Cor 2') +
-            (twoColors ? '<span class="op" aria-hidden="true">=</span><span class="bball"><span class="dotc on half" style="background: linear-gradient(90deg, ' + c1.hex + ' 50%, ' + c2.hex + ' 50%)"></span><small>Combinação</small></span>' : '') + '</div></div>' +
+            (twoColors ? '<span class="op" aria-hidden="true">=</span><span class="bball"><span class="dotc on half" style="background: url(\'img/fio-' + c1.code + '.webp\') left / 50% 100% no-repeat, url(\'img/fio-' + c2.code + '.webp\') right / 50% 100% no-repeat, linear-gradient(90deg, ' + c1.hex + ' 50%, ' + c2.hex + ' 50%)"></span><small>Combinação</small></span>' : '') + '</div></div>' +
           '<div><span class="label muted">Alça tiracolo</span>' + (b.strap && sc ? '<div class="bcombo">' + ball(sc, '') + '</div>' : '<p class="bval">' + (b.strap === null ? '—' : b.strap ? 'Escolha a cor da alça' : 'Sem alça') + '</p>') + '</div>' +
         '</div></div>';
     var models = '<div class="bmodels">' + BMODELS.map(function (x) { return '<button class="bmodel" data-bmodel="' + esc(x.id) + '" aria-pressed="' + (x.id === b.model) + '"><img src="' + (x.img.indexOf('/pers/') > -1 ? x.img : sm(x.img)) + '" alt="" loading="lazy" decoding="async"><span class="label">' + esc(x.id) + '</span></button>'; }).join('') + '</div>';
     var swatches = '<div class="bswatches">' + BCOLORS.map(function (c) {
       var idx = b.colors.indexOf(c.code);
-      return '<button class="bsw" data-bcolor="' + c.code + '" aria-pressed="' + (idx > -1) + '" aria-label="' + c.code + ' ' + esc(c.name) + '"><span class="dotc" style="background: ' + c.hex + '">' + (idx > -1 ? '<b>' + (idx + 1) + '</b>' : '') + '</span><span class="code">' + c.code + '</span><span class="nm">' + esc(c.name) + '</span></button>';
+      return '<button class="bsw" data-bcolor="' + c.code + '" aria-pressed="' + (idx > -1) + '" aria-label="' + c.code + ' ' + esc(c.name) + '"><span class="dotc" style="background: ' + cbg(c) + '">' + (idx > -1 ? '<b>' + (idx + 1) + '</b>' : '') + '</span><span class="code">' + c.code + '</span><span class="nm">' + esc(c.name) + '</span></button>';
     }).join('') + '</div>';
     var strapSw = b.strap ? '<p class="label muted" style="margin-top: 10px">Cor da alça · escolha 1</p><div class="bswatches">' + BCOLORS.map(function (c) {
       var on = b.strapColor === c.code;
-      return '<button class="bsw" data-scolor="' + c.code + '" aria-pressed="' + on + '" aria-label="Alça ' + c.code + ' ' + esc(c.name) + '"><span class="dotc" style="background: ' + c.hex + '"></span><span class="code">' + c.code + '</span><span class="nm">' + esc(c.name) + '</span></button>';
+      return '<button class="bsw" data-scolor="' + c.code + '" aria-pressed="' + on + '" aria-label="Alça ' + c.code + ' ' + esc(c.name) + '"><span class="dotc" style="background: ' + cbg(c) + '"></span><span class="code">' + c.code + '</span><span class="nm">' + esc(c.name) + '</span></button>';
     }).join('') + '</div>' : '';
-    var chips = b.colors.length ? '<div class="bchips">' + b.colors.map(function (code, i) { var c = bcolor(code); return '<span class="bchip"><i style="background: ' + c.hex + '"></i>Cor ' + (i + 1) + ': ' + esc(c.name) + '</span>'; }).join('') + '</div>' : '';
+    var chips = b.colors.length ? '<div class="bchips">' + b.colors.map(function (code, i) { var c = bcolor(code); return '<span class="bchip"><i style="background: ' + cbg(c) + '"></i>Cor ' + (i + 1) + ': ' + esc(c.name) + '</span>'; }).join('') + '</div>' : '';
     var buy = done
       ? '<a class="pill solid wa" href="https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(bMessage()) + '" target="_blank" rel="noopener">' + WA_ICON + 'Comprar agora pelo WhatsApp</a>'
       : '<button class="pill solid wa" disabled>' + WA_ICON + 'Complete as etapas para continuar</button>';
@@ -889,9 +895,9 @@ details p { padding-bottom: 18px; font-size: 17px; }
         '<fieldset class="bstep' + (hasColors ? '' : ' dim') + '"' + (hasColors ? '' : ' disabled') + '><legend class="label">Passo 03 · Deseja adicionar alça tiracolo?</legend><div class="chips"><button class="chip" data-strap="yes" aria-pressed="' + (b.strap === true) + '">Sim</button><button class="chip" data-strap="no" aria-pressed="' + (b.strap === false) + '">Não</button></div>' + strapSw + '</fieldset>' +
         (done ? '<div class="summary"><span class="label muted">Seu pedido</span>' +
           '<span><b>Modelo:</b> ' + esc(b.model) + '</span>' +
-          '<span><b>' + (c2 ? 'Cor 1:' : 'Cor:') + '</b> <i class="sdot" style="background: ' + c1.hex + '"></i>' + esc(c1.code + ' · ' + c1.name) + '</span>' +
-          (c2 ? '<span><b>Cor 2:</b> <i class="sdot" style="background: ' + c2.hex + '"></i>' + esc(c2.code + ' · ' + c2.name) + '</span>' : '') +
-          '<span><b>Alça tiracolo:</b> ' + (b.strap ? '<i class="sdot" style="background: ' + sc.hex + '"></i>' + esc(sc.code + ' · ' + sc.name) : 'Não') + '</span></div>' +
+          '<span><b>' + (c2 ? 'Cor 1:' : 'Cor:') + '</b> <i class="sdot" style="background: ' + cbg(c1) + '"></i>' + esc(c1.code + ' · ' + c1.name) + '</span>' +
+          (c2 ? '<span><b>Cor 2:</b> <i class="sdot" style="background: ' + cbg(c2) + '"></i>' + esc(c2.code + ' · ' + c2.name) + '</span>' : '') +
+          '<span><b>Alça tiracolo:</b> ' + (b.strap ? '<i class="sdot" style="background: ' + cbg(sc) + '"></i>' + esc(sc.code + ' · ' + sc.name) : 'Não') + '</span></div>' +
           '<div class="bmsg"><span class="label muted">Mensagem que será enviada</span><p>' + esc(bMessage()) + '</p></div>' : '') +
         '<div class="buyrow">' + buy + '</div>' +
         '<p class="label muted" style="line-height: 1.7">O pedido abre uma conversa no WhatsApp com a Luli, onde você recebe o orçamento e o prazo.</p>' +
