@@ -208,11 +208,27 @@ p { margin: 0; }
 .tile img.contain { width: 86%; height: 86%; object-fit: contain; }
 @media (max-width: 860px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tiles .tile:nth-child(5) { display: none; } }
 
+/* Policies */
+.policy { padding-block: clamp(48px, 7vw, 104px); border-bottom: 1px solid var(--hair); }
+.policy-in { max-width: 760px; }
+.policy header { display: flex; flex-direction: column; gap: 18px; margin-bottom: 16px; }
+.policy h2 { font-size: clamp(26px, 2.6vw, 34px); line-height: 1.15; margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--hair); scroll-margin-top: calc(env(safe-area-inset-top, 0px) + var(--bar-h) + 8px); }
+.policy h3 { font-size: 22px; line-height: 1.25; margin-top: 36px; }
+.policy p, .policy ul, .policy ol { margin: 16px 0 0; font-size: 18px; line-height: 1.6; overflow-wrap: anywhere; }
+.policy ul { padding-left: 20px; }
+.policy li + li { margin-top: 8px; }
+.policy ol.roman { list-style: none; padding: 0; }
+.policy ol.roman li { display: grid; grid-template-columns: 44px minmax(0, 1fr); }
+.policy .num { font-family: var(--mono); font-size: 13px; color: var(--pink-ink); }
+.policy a { text-decoration: underline; text-underline-offset: 3px; }
+.policy strong { font-weight: 600; }
+
 /* Footer */
 footer { --night: #FDF2F4; --on-night: var(--ink); --on-night-muted: var(--muted); border-top: 1px solid var(--hair); background: var(--night); color: var(--on-night); padding-block: 80px 28px; display: flex; flex-direction: column; gap: 64px; }
 footer a, footer .flink { color: var(--on-night); background: none; border: 0; padding: 4px 0; cursor: pointer; text-align: left; font-size: 17px; font-family: var(--serif); }
+.finfo .flink { text-decoration: underline; text-underline-offset: 3px; }
 footer a:hover, footer .flink:hover { color: var(--pink-ink); text-decoration: none; }
-.fcols { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+.fcols { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
 .fcol { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .fcol .label { color: var(--on-night-muted); margin-bottom: 8px; }
 .news { display: flex; border-bottom: 1px solid var(--on-night); max-width: 380px; }
@@ -378,6 +394,236 @@ details p { padding-bottom: 18px; font-size: 17px; }
 
 <main id="app"></main>
 
+<template id="pol-privacidade">
+<article class="policy wrap"><div class="policy-in">
+<header><span class="label muted">Informações</span><h1 class="h2">Política de Privacidade</h1><span class="label muted">Última atualização: 08 de novembro de 2026</span></header>
+<h2>Aviso de privacidade</h2>
+<p>Este site é administrado pela empresa <strong>Luli Bags</strong>, inscrita no CNPJ sob nº66.015.820/0001-65, responsável pela marca <strong>Luli Bags</strong>.</p>
+<p>A <strong>Luli Bags</strong> possui o compromisso de respeitar a privacidade de seus clientes e proteger seus DADOS PESSOAIS, adotando medidas para garantir a segurança e a transparência no tratamento dessas informações, em conformidade com a Lei nº 13.709/2018, Lei Geral de Proteção de Dados Pessoais ("LGPD").</p>
+<p>A presente Política de Privacidade descreve como são coletados, utilizados, armazenados e compartilhados os DADOS PESSOAIS dos usuários durante a navegação em nosso site, realização de cadastros, compras e utilização de nossos canais de atendimento.</p>
+<p>Esta Política poderá ser atualizada sempre que necessário, sendo recomendada sua consulta periódica por meio do site oficial da marca.</p>
+<p>Em caso de dúvidas ou solicitações relacionadas aos seus dados pessoais, o usuário poderá entrar em contato pelo e-mail <a href="mailto:lulibags.store@gmail.com">lulibags.store@gmail.com</a>.</p>
+<h2 id="priv-1">1. Definições</h2>
+<p>Para os fins desta Política de Privacidade, os termos abaixo possuem os seguintes significados:</p>
+<ul><li><strong>LGPD:</strong> Lei nº 13.709/2018, que dispõe sobre a proteção de dados pessoais.</li><li><strong>DADOS PESSOAIS:</strong> qualquer informação relacionada a uma pessoa natural identificada ou identificável.</li><li><strong>TITULAR:</strong> pessoa natural a quem se referem os dados pessoais.</li><li><strong>TRATAMENTO:</strong> qualquer operação realizada com dados pessoais, incluindo coleta, utilização, armazenamento, compartilhamento e eliminação.</li><li><strong>CONTROLADOR:</strong> pessoa física ou jurídica responsável pelas decisões referentes ao tratamento de dados pessoais.</li><li><strong>OPERADOR:</strong> pessoa física ou jurídica que realiza o tratamento de dados pessoais em nome do controlador.</li><li><strong>COOKIES:</strong> pequenos arquivos armazenados no dispositivo do usuário que permitem registrar informações relacionadas à navegação no site.</li></ul>
+<h2 id="priv-2">2. Dados pessoais que coletamos</h2>
+<p>A <strong>Luli Bags</strong> poderá coletar informações fornecidas diretamente pelo usuário durante o cadastro, realização de compras, preenchimento de formulários ou contato com nossos canais de atendimento.</p>
+<p>Entre os dados pessoais que poderão ser coletados estão nome completo, CPF, endereço de e-mail, telefone, endereço de entrega e informações necessárias ao processamento dos pedidos.</p>
+<p>Durante a realização de compras, também poderão ser tratados dados relacionados aos produtos adquiridos, histórico de pedidos, informações de pagamento e dados necessários à entrega.</p>
+<p>Além disso, nosso site poderá coletar automaticamente determinadas informações relacionadas à navegação, como endereço IP, páginas acessadas, data e horário de acesso, tipo de dispositivo e navegador utilizado.</p>
+<p>Os dados fornecidos serão utilizados exclusivamente para finalidades legítimas e compatíveis com as atividades da empresa, respeitando os princípios estabelecidos pela LGPD.</p>
+<p>Algumas informações são necessárias para que possamos concluir a compra, processar o pagamento, emitir documentos fiscais e realizar a entrega dos produtos.</p>
+<h2 id="priv-3">3. Como utilizamos seus dados pessoais</h2>
+<p>Os dados pessoais coletados poderão ser utilizados para:</p>
+<ul><li>Realizar e administrar o cadastro dos usuários;</li><li>Processar, confirmar e acompanhar pedidos;</li><li>Efetuar pagamentos e emitir documentos fiscais;</li><li>Realizar a entrega dos produtos adquiridos;</li><li>Encaminhar informações sobre o andamento das compras;</li><li>Responder dúvidas, solicitações e reclamações;</li><li>Realizar procedimentos de troca, devolução e reembolso;</li><li>Cumprir obrigações legais e regulatórias;</li><li>Prevenir fraudes e garantir a segurança das operações;</li><li>Melhorar a experiência de navegação e os serviços oferecidos;</li><li>Encaminhar novidades, lançamentos, promoções e campanhas comerciais, quando houver base legal adequada.</li></ul>
+<p>O tratamento dos dados pessoais ocorrerá de acordo com as hipóteses previstas no art. 7º da LGPD, especialmente para cumprimento de obrigações legais, execução de contratos, exercício regular de direitos, legítimo interesse e consentimento, quando necessário.</p>
+<p>As comunicações relacionadas aos pedidos poderão ser encaminhadas por e-mail, telefone ou WhatsApp, conforme os dados fornecidos pelo consumidor.</p>
+<p>O usuário poderá solicitar o cancelamento do recebimento de mensagens promocionais a qualquer momento, sem que isso prejudique o recebimento de informações necessárias à realização de suas compras.</p>
+<h2 id="priv-4">4. Compartilhamento de dados pessoais</h2>
+<p>A <strong>Luli Bags</strong> poderá compartilhar os dados pessoais dos usuários com empresas e prestadores de serviços que auxiliem no desenvolvimento de suas atividades comerciais.</p>
+<p>Esse compartilhamento poderá ocorrer com plataformas de comércio eletrônico, empresas responsáveis pelo processamento de pagamentos, transportadoras, serviços de logística, prestadores de serviços tecnológicos, ferramentas de comunicação e empresas responsáveis por ações de marketing, quando aplicável.</p>
+<p>Os dados também poderão ser compartilhados com autoridades públicas e órgãos competentes quando houver obrigação legal ou determinação judicial.</p>
+<p>O compartilhamento será limitado às informações necessárias para a finalidade pretendida, observando-se as disposições da LGPD.</p>
+<p>A empresa não comercializa dados pessoais de seus consumidores de maneira incompatível com esta Política e com a legislação aplicável.</p>
+<h2 id="priv-5">5. Responsabilidade e segurança dos dados</h2>
+<p>A <strong>Luli Bags</strong> adota medidas técnicas e administrativas destinadas a proteger os dados pessoais contra acessos não autorizados, perda, alteração, divulgação ou qualquer forma de tratamento inadequado.</p>
+<p>O acesso às informações é limitado às pessoas e aos prestadores de serviços que necessitem desses dados para o desempenho de suas atividades.</p>
+<p>Embora sejam adotadas medidas de segurança, nenhum sistema eletrônico está completamente livre de riscos. Por esse motivo, a empresa compromete-se a adotar as providências necessárias diante de eventuais incidentes, conforme as exigências da legislação aplicável.</p>
+<h2 id="priv-6">6. Armazenamento e eliminação dos dados</h2>
+<p>Os dados pessoais serão armazenados pelo período necessário ao cumprimento das finalidades para as quais foram coletados.</p>
+<p>Após o encerramento da relação comercial, determinadas informações poderão permanecer armazenadas quando necessárias ao cumprimento de obrigações legais, regulatórias ou para o exercício regular de direitos da empresa.</p>
+<p>Quando não houver mais necessidade de manutenção dos dados, estes serão eliminados ou anonimizados, ressalvadas as hipóteses autorizadas pela legislação.</p>
+<h2 id="priv-7">7. Cookies</h2>
+<p>Nosso site poderá utilizar cookies e tecnologias semelhantes para melhorar a experiência de navegação, memorizar preferências, analisar o funcionamento da plataforma e compreender a utilização do site pelos usuários.</p>
+<p>Os cookies são pequenos arquivos armazenados no dispositivo utilizado para acessar o site, permitindo reconhecer determinadas informações relacionadas à navegação.</p>
+<p>Alguns cookies são necessários para o funcionamento adequado da loja virtual, enquanto outros poderão ser utilizados para análise de desempenho, personalização de conteúdo e publicidade.</p>
+<p>Os cookies não essenciais deverão observar as exigências legais aplicáveis, inclusive quanto à obtenção de consentimento quando necessário.</p>
+<p>O usuário poderá gerenciar suas preferências por meio das ferramentas disponibilizadas no site ou pelas configurações de seu navegador. A desativação de determinados cookies poderá afetar algumas funcionalidades da plataforma.</p>
+<h2 id="priv-8">8. Direitos dos titulares de dados pessoais</h2>
+<p>Nos termos da LGPD, o usuário possui direitos relacionados aos seus dados pessoais, podendo solicitar:</p>
+<ul><li>Confirmação da existência de tratamento de seus dados;</li><li>Acesso aos dados pessoais;</li><li>Correção de informações incompletas, inexatas ou desatualizadas;</li><li>Anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade com a legislação;</li><li>Informações sobre o compartilhamento de seus dados;</li><li>Eliminação dos dados tratados com consentimento, ressalvadas as hipóteses legais de conservação;</li><li>Revogação do consentimento, quando aplicável;</li><li>Oposição ao tratamento realizado em desconformidade com a LGPD.</li></ul>
+<p>Para exercer seus direitos ou apresentar solicitações relacionadas ao tratamento de dados pessoais, o titular poderá entrar em contato pelo e-mail <a href="mailto:lulibags.store@gmail.com">lulibags.store@gmail.com</a>.</p>
+<p>As solicitações serão analisadas e atendidas conforme os procedimentos e prazos estabelecidos pela legislação aplicável.</p>
+<h2 id="priv-9">9. Alterações desta política</h2>
+<p>A presente Política de Privacidade poderá ser modificada ou atualizada a qualquer momento, especialmente em razão de alterações legislativas, mudanças nas atividades da empresa ou implementação de novas tecnologias.</p>
+<p>A versão atualizada estará sempre disponível no site oficial da <strong>Luli Bags</strong>, acompanhada da respectiva data de atualização.</p>
+<h2 id="priv-10">10. Dúvidas e contato</h2>
+<p>Em caso de dúvidas, solicitações ou reclamações relacionadas a esta Política de Privacidade ou ao tratamento de dados pessoais, o usuário poderá entrar em contato por meio dos seguintes canais:</p>
+<p><strong>Marca:</strong> Luli Bags<br><strong>CNPJ:</strong> 66.015.820/0001-65<br><strong>E-mail:</strong> <a href="mailto:lulibags.store@gmail.com">lulibags.store@gmail.com</a></p>
+</div></article>
+</template>
+<template id="pol-trocas">
+<article class="policy wrap"><div class="policy-in">
+<header><span class="label muted">Informações</span><h1 class="h2">Política de Entrega, Troca, Devolução, Cancelamento e Reembolso</h1><span class="label muted">Última atualização: 08.11.2026</span></header>
+<p>A Luli Bags, doravante denominada simplesmente <strong>MARCA</strong>, estabelece a presente Política de Entrega, Troca, Devolução, Cancelamento e Reembolso, aplicável às compras realizadas por meio de seu site, plataformas digitais e demais canais eletrônicos oficiais de comercialização.</p>
+<p>O presente documento tem por finalidade estabelecer, de maneira clara e transparente, os direitos dos consumidores e os procedimentos adotados pela MARCA em relação às operações de compra e venda de seus produtos, especialmente bolsas e respectivos acessórios.</p>
+<p>Esta política observa as disposições da Lei nº 8.078/1990 (Código de Defesa do Consumidor – CDC), do Decreto nº 7.962/2013, que regulamenta as contratações realizadas no comércio eletrônico, e demais normas aplicáveis às relações de consumo.</p>
+<h2 id="pol-1">1. Disposições preliminares e abrangência</h2>
+<p><span class="num">1.1.</span> Esta política aplica-se às compras realizadas por consumidores nos canais oficiais de comercialização da MARCA, abrangendo todas as etapas da relação de consumo, desde a confirmação do pedido até a entrega do produto e eventual solicitação de troca, devolução, cancelamento ou reembolso.</p>
+<p><span class="num">1.2.</span> A MARCA compromete-se a fornecer informações claras, precisas, ostensivas e adequadas sobre seus produtos, incluindo características, materiais, dimensões, cores, funcionalidades, preços, condições de pagamento, disponibilidade e prazos de entrega.</p>
+<p><span class="num">1.3.</span> As informações disponibilizadas na oferta, nas páginas dos produtos, nas campanhas publicitárias e nos demais canais de divulgação integram a relação contratual e vinculam a MARCA, nos termos do artigo 30 do CDC.</p>
+<p><span class="num">1.4.</span> A presente política deverá ser disponibilizada ao consumidor em local de fácil visualização e acesso, antes da conclusão da compra, possibilitando o conhecimento prévio das condições aplicáveis à contratação.</p>
+<p><span class="num">1.5.</span> Nenhuma disposição deste documento poderá ser interpretada como renúncia, limitação ou exclusão dos direitos assegurados ao consumidor pela legislação vigente.</p>
+<h2 id="pol-2">2. Informações sobre os produtos</h2>
+<p><span class="num">2.1.</span> Os produtos comercializados pela MARCA serão apresentados com informações suficientes para permitir que o consumidor conheça suas características essenciais antes da realização da compra.</p>
+<p><span class="num">2.2.</span> As descrições dos produtos deverão apresentar, conforme aplicável:</p>
+<ol class="roman"><li><span class="num">I</span><span>Nome e identificação do modelo;</span></li><li><span class="num">II</span><span>Composição e materiais utilizados na fabricação;</span></li><li><span class="num">III</span><span>Dimensões e medidas aproximadas;</span></li><li><span class="num">IV</span><span>Informações sobre cores, acabamentos e detalhes;</span></li><li><span class="num">V</span><span>Características de uso, funcionalidades e capacidade;</span></li><li><span class="num">VI</span><span>Acessórios que acompanham o produto;</span></li><li><span class="num">VII</span><span>Preço, condições de pagamento e eventuais despesas adicionais;</span></li><li><span class="num">VIII</span><span>Disponibilidade em estoque e eventuais limitações da oferta.</span></li></ol>
+<p><span class="num">2.3.</span> Eventuais diferenças de tonalidade decorrentes de iluminação, configurações de tela ou condições de visualização poderão ocorrer na apresentação digital dos produtos, desde que não representem divergência relevante entre o produto anunciado e aquele efetivamente entregue.</p>
+<p><span class="num">2.4.</span> A MARCA deverá assegurar que as informações e imagens utilizadas na divulgação correspondam, de maneira adequada, às características reais dos produtos, não podendo induzir o consumidor a erro.</p>
+<p><span class="num">2.5.</span> As disposições deste item observam especialmente os artigos 6º, III, 30, 31 e 37 do CDC e o artigo 2º do Decreto nº 7.962/2013.</p>
+<p><span class="num">2.6.</span> Considerando que os produtos comercializados pela MARCA são confeccionados artesanalmente, poderão ocorrer pequenas variações de acabamento, formato e disposição dos pontos entre as peças, decorrentes do processo manual de produção. Tais particularidades fazem parte da natureza artesanal dos produtos.</p>
+<p><span class="num">2.7.</span> A MARCA comercializa produtos disponíveis em estoque e produtos confeccionados sob encomenda. A disponibilidade, bem como a eventual necessidade de prazo para produção, será informada ao consumidor antes da conclusão da compra.</p>
+<p><span class="num">2.8.</span> As pequenas variações inerentes à produção artesanal não caracterizam, por si só, vício ou defeito, desde que não comprometam a qualidade, a funcionalidade ou as características essenciais do produto anunciado. Essas particularidades não afastam os direitos do consumidor previstos na legislação vigente.</p>
+<h2 id="pol-3">3. Política de entrega</h2>
+<h3><span class="num">3.1.</span> Processamento e confirmação do pedido</h3>
+<p><span class="num">3.1.1.</span> Após a finalização da compra, o consumidor receberá a confirmação do pedido por meio eletrônico, contendo as informações necessárias à identificação da contratação.</p>
+<p><span class="num">3.1.2.</span> O processamento do pedido estará condicionado à confirmação do pagamento pela instituição financeira, administradora do cartão ou plataforma responsável pela transação.</p>
+<p><span class="num">3.1.3.</span> A MARCA disponibilizará ao consumidor as informações referentes à disponibilidade do produto, às condições da oferta e ao prazo estimado de entrega antes da conclusão da compra.</p>
+<h3><span class="num">3.2.</span> Prazo de entrega</h3>
+<p><span class="num">3.2.1.</span> Para produtos disponíveis em estoque, o prazo estimado de postagem e entrega será informado ao consumidor no momento da compra.</p>
+<p><span class="num">3.2.2.</span> Para produtos confeccionados sob encomenda, o prazo estimado de produção será informado previamente ao consumidor, considerando o modelo escolhido e a demanda de produção da MARCA.</p>
+<p><span class="num">3.2.3.</span> Nos pedidos sob encomenda, o prazo total de recebimento compreenderá o período necessário para a confecção do produto, acrescido do prazo de transporte dos Correios, conforme a modalidade de envio escolhida.</p>
+<p><span class="num">3.2.4.</span> A MARCA compromete-se a respeitar os prazos de produção, postagem e entrega informados no momento da contratação, comunicando ao consumidor eventuais situações que possam impactar seu cumprimento.</p>
+<h3><span class="num">3.3.</span> Valor do frete</h3>
+<p><span class="num">3.3.1.</span> O valor do frete deverá ser informado de maneira discriminada e previamente à finalização da compra.</p>
+<p><span class="num">3.3.2.</span> O consumidor deverá ter acesso às informações relativas às modalidades de entrega disponíveis, respectivos custos e prazos estimados.</p>
+<p><span class="num">3.3.3.</span> Nenhuma despesa adicional de entrega poderá ser cobrada sem prévia informação e concordância do consumidor.</p>
+<h3><span class="num">3.4.</span> Rastreamento do pedido</h3>
+<p><span class="num">3.4.1.</span> Após a postagem do produto, a MARCA disponibilizará, quando fornecido pela transportadora ou serviço postal, o código ou link de rastreamento da encomenda.</p>
+<p><span class="num">3.4.2.</span> O consumidor poderá acompanhar o andamento da entrega por meio das ferramentas disponibilizadas pelo serviço responsável pelo transporte.</p>
+<p><span class="num">3.4.3.</span> A indisponibilidade temporária de informações de rastreamento não afastará a responsabilidade da MARCA pelo cumprimento da oferta e pela adequada entrega do produto.</p>
+<h3><span class="num">3.5.</span> Responsabilidade pela entrega</h3>
+<p><span class="num">3.5.1.</span> A MARCA será responsável por assegurar o cumprimento das condições de entrega contratadas, incluindo prazo, quantidade, qualidade e adequação do produto.</p>
+<p><span class="num">3.5.2.</span> Eventuais problemas decorrentes da atuação de transportadoras ou prestadores de serviços contratados pela MARCA deverão ser tratados pela própria empresa, sem transferência indevida de responsabilidade ao consumidor.</p>
+<p><span class="num">3.5.3.</span> Em caso de extravio, avaria, atraso injustificado ou não recebimento do produto, o consumidor poderá solicitar providências à MARCA, que deverá acompanhar a ocorrência e apresentar solução adequada.</p>
+<p><span class="num">3.5.4.</span> Caso a oferta não seja cumprida, serão asseguradas ao consumidor as alternativas previstas no artigo 35 do CDC, observada sua livre escolha:</p>
+<ol class="roman"><li><span class="num">I</span><span>Exigir o cumprimento forçado da obrigação, nos termos da oferta;</span></li><li><span class="num">II</span><span>Aceitar outro produto ou prestação de serviço equivalente;</span></li><li><span class="num">III</span><span>Rescindir o contrato, com direito à restituição da quantia eventualmente antecipada, monetariamente atualizada, sem prejuízo de eventuais perdas e danos.</span></li></ol>
+<h3><span class="num">3.6.</span> Endereço incorreto ou ausência do destinatário</h3>
+<p><span class="num">3.6.1.</span> É responsabilidade do consumidor fornecer corretamente os dados necessários à entrega, incluindo endereço completo, número, complemento, CEP e informações de contato.</p>
+<p><span class="num">3.6.2.</span> Caso seja identificada alguma inconsistência nos dados fornecidos, o consumidor deverá comunicar a MARCA imediatamente, para que seja verificada a possibilidade de correção antes da expedição do pedido.</p>
+<p><span class="num">3.6.3.</span> Em caso de ausência do destinatário, serão observados os procedimentos de novas tentativas de entrega estabelecidos pela modalidade de transporte contratada.</p>
+<p><span class="num">3.6.4.</span> Caso o produto retorne à MARCA em razão de informações incorretas fornecidas pelo consumidor ou de impossibilidade de entrega devidamente comprovada, a empresa entrará em contato para verificar as providências cabíveis.</p>
+<p><span class="num">3.6.5.</span> A eventual cobrança de novo frete somente poderá ocorrer quando juridicamente cabível, devidamente justificada e previamente informada, não podendo ser utilizada para afastar direitos legalmente assegurados ao consumidor.</p>
+<h3><span class="num">3.7.</span> Recebimento do produto</h3>
+<p><span class="num">3.7.1.</span> Recomenda-se que o consumidor confira as condições externas da embalagem no momento do recebimento.</p>
+<p><span class="num">3.7.2.</span> Caso sejam identificados sinais aparentes de violação, avaria ou danos na embalagem, o consumidor poderá registrar a ocorrência e, quando possível, recusar o recebimento, comunicando imediatamente a MARCA.</p>
+<p><span class="num">3.7.3.</span> O recebimento da encomenda não representa renúncia ao direito de reclamar posteriormente de vícios aparentes, ocultos ou divergências constatadas no produto.</p>
+<h2 id="pol-4">4. Política de troca por preferência pessoal</h2>
+<h3><span class="num">4.1.</span> Troca voluntária</h3>
+<p><span class="num">4.1.1.</span> A troca por mera preferência pessoal, como escolha de outra cor, modelo ou tamanho, quando não decorrer de vício ou descumprimento da oferta, constitui uma condição comercial voluntariamente oferecida pela MARCA, sem prejuízo dos direitos previstos em lei.</p>
+<p><span class="num">4.1.2.</span> A MARCA poderá disponibilizar condições próprias para a realização dessas trocas, que deverão ser previamente informadas ao consumidor.</p>
+<p><span class="num">4.1.3.</span> <strong>Para a realização da troca voluntária por preferência pessoal, a MARCA estabelece as seguintes condições:</strong></p>
+<ol class="roman"><li><span class="num">I</span><span><strong>Prazo para solicitação:</strong> a solicitação deverá ser realizada em até 7 (sete) dias corridos, contados a partir do recebimento da bolsa.</span></li><li><span class="num">II</span><span><strong>Canal de atendimento:</strong> o pedido de troca deverá ser feito por meio do WhatsApp oficial da MARCA, com a informação do número do pedido e do produto que se deseja trocar.</span></li><li><span class="num">III</span><span><strong>Condição do produto:</strong> para a troca voluntária por preferência, a bolsa deverá estar sem sinais de uso, em boas condições de conservação e sem danos, manchas ou alterações decorrentes de seu uso.</span></li><li><span class="num">IV</span><span><strong>Procedimento de postagem:</strong> após a confirmação da solicitação pela MARCA, o consumidor receberá as orientações necessárias para o envio da bolsa. A postagem deverá ser realizada conforme as instruções fornecidas.</span></li><li><span class="num">V</span><span><strong>Responsabilidade pelo frete:</strong> nas trocas voluntárias por preferência pessoal, os custos de envio da bolsa à MARCA e de envio da nova bolsa ao consumidor serão de responsabilidade do consumidor. Essa condição não se aplica ao exercício do direito legal de arrependimento ou às situações de defeito ou descumprimento da oferta.</span></li><li><span class="num">VI</span><span><strong>Disponibilização da nova bolsa:</strong> a troca estará sujeita à disponibilidade do modelo e da cor escolhidos. Caso o produto não esteja disponível em estoque, poderá ser produzido sob encomenda, com prazo estimado informado previamente ao consumidor. Se houver diferença de preço entre os produtos, o ajuste será informado antes da confirmação da troca.</span></li></ol>
+<p><span class="num">4.1.4.</span> Caso a troca seja oferecida voluntariamente, suas condições deverão ser cumpridas pela MARCA, conforme a oferta divulgada, nos termos do artigo 30 do CDC.</p>
+<p><span class="num">4.1.5.</span> As exigências comerciais desta modalidade não poderão ser aplicadas às hipóteses de exercício do direito de arrependimento ou de reclamação por vícios do produto.</p>
+<h3><span class="num">4.2.</span> Condições de conservação do produto</h3>
+<p><span class="num">4.2.1.</span> Nas trocas voluntárias, a MARCA poderá estabelecer critérios razoáveis de conservação, considerando a natureza do produto.</p>
+<p><span class="num">4.2.2.</span> Poderão ser solicitados o envio da bolsa, seus acessórios e itens que originalmente a acompanham, desde que tais exigências sejam previamente informadas e compatíveis com a modalidade de troca solicitada.</p>
+<p><span class="num">4.2.3.</span> A ausência da embalagem original, por si só, não poderá ser utilizada para afastar direitos legais de arrependimento ou de reclamação por vício.</p>
+<h2 id="pol-5">5. Direito de arrependimento</h2>
+<h3><span class="num">5.1.</span> Previsão legal e prazo</h3>
+<p><span class="num">5.1.1.</span> Nos termos do artigo 49 do CDC, o consumidor poderá desistir da contratação realizada fora do estabelecimento comercial, especialmente por meio eletrônico, no prazo de 7 (sete) dias.</p>
+<p><span class="num">5.1.2.</span> Nas compras de produtos, o prazo será contado a partir do recebimento efetivo do produto pelo consumidor.</p>
+<p><span class="num">5.1.3.</span> O exercício do direito de arrependimento independe de justificativa, não sendo necessário que o consumidor apresente motivo para a desistência da compra.</p>
+<h3><span class="num">5.2.</span> Procedimento para exercício do direito</h3>
+<p><span class="num">5.2.1.</span> Para exercer o direito de arrependimento, o consumidor poderá encaminhar sua solicitação por meio dos canais oficiais de atendimento da MARCA.</p>
+<p><span class="num">5.2.2.</span> O pedido deverá ser identificado, preferencialmente, mediante informação do número da compra, nome do titular e dados necessários à localização do pedido.</p>
+<p><span class="num">5.2.3.</span> A MARCA disponibilizará meios adequados e eficazes para o exercício do direito de arrependimento, inclusive pela mesma ferramenta utilizada para a contratação, conforme artigo 5º, § 1º, do Decreto nº 7.962/2013.</p>
+<p><span class="num">5.2.4.</span> A MARCA deverá confirmar imediatamente o recebimento da manifestação de arrependimento, nos termos do artigo 5º, § 4º, do referido Decreto.</p>
+<h3><span class="num">5.3.</span> Condições para devolução</h3>
+<p><span class="num">5.3.1.</span> O exercício do direito de arrependimento não poderá ser condicionado à apresentação de justificativa, ao pagamento de multa ou à aceitação de crédito para compras futuras.</p>
+<p><span class="num">5.3.2.</span> A MARCA fornecerá as orientações necessárias para a devolução do produto, inclusive quanto à forma de postagem ou coleta, quando disponibilizada.</p>
+<p><span class="num">5.3.3.</span> Não serão transferidos ao consumidor os custos necessários à devolução decorrente do exercício regular do direito de arrependimento.</p>
+<p><span class="num">5.3.4.</span> A exigência de embalagem original, etiqueta intacta ou ausência absoluta de manuseio não poderá ser utilizada como condição automática para impedir o exercício do direito legal.</p>
+<p><span class="num">5.3.5.</span> Eventuais situações de utilização que ultrapassem a análise razoável do produto e indiquem dano ou uso indevido deverão ser examinadas individualmente, sem afastamento automático do direito de arrependimento.</p>
+<h3><span class="num">5.4.</span> Restituição dos valores</h3>
+<p><span class="num">5.4.1.</span> Exercido o direito de arrependimento, o consumidor terá direito à restituição integral dos valores pagos, incluindo o preço do produto e as despesas de frete eventualmente suportadas.</p>
+<p><span class="num">5.4.2.</span> A restituição deverá ocorrer de imediato e monetariamente atualizada, conforme artigo 49, parágrafo único, do CDC.</p>
+<p><span class="num">5.4.3.</span> A MARCA comunicará imediatamente a instituição financeira ou administradora do cartão de crédito para que a transação não seja lançada na fatura ou para que seja realizado o respectivo estorno, conforme artigo 5º, § 3º, do Decreto nº 7.962/2013.</p>
+<p><span class="num">5.4.4.</span> A efetivação do estorno poderá depender dos procedimentos operacionais da instituição financeira, sem que isso afaste a obrigação da MARCA de adotar imediatamente as providências que lhe competem.</p>
+<h2 id="pol-6">6. Produtos com vícios ou defeitos</h2>
+<h3><span class="num">6.1.</span> Responsabilidade da MARCA</h3>
+<p><span class="num">6.1.1.</span> A MARCA responde pelos vícios de qualidade ou quantidade que tornem o produto impróprio ou inadequado ao consumo, diminuam seu valor ou apresentem divergência em relação às informações constantes da oferta, embalagem, descrição ou publicidade.</p>
+<p><span class="num">6.1.2.</span> A responsabilidade observará o artigo 18 do CDC, inclusive quanto à responsabilidade solidária dos fornecedores integrantes da cadeia de fornecimento.</p>
+<p><span class="num">6.1.3.</span> A existência de vício não poderá ser afastada simplesmente pela ausência de conhecimento prévio da empresa sobre o defeito.</p>
+<h3><span class="num">6.2.</span> Exemplos de vícios em bolsas</h3>
+<p>Poderão caracterizar vícios de qualidade, conforme a análise de cada situação:</p>
+<ol class="roman"><li><span class="num">I</span><span>Costuras desfeitas ou inadequadamente realizadas;</span></li><li><span class="num">II</span><span>Alças, fechos, zíperes ou ferragens que apresentem falhas de fabricação;</span></li><li><span class="num">III</span><span>Forro interno descolado ou danificado por falha de fabricação;</span></li><li><span class="num">IV</span><span>Defeitos estruturais que comprometam a utilização regular da bolsa;</span></li><li><span class="num">V</span><span>Material que apresente deterioração incompatível com as características e condições normais de uso anunciadas;</span></li><li><span class="num">VI</span><span>Produto entregue com características diferentes daquelas informadas na oferta;</span></li><li><span class="num">VII</span><span>Falhas de acabamento que comprometam a qualidade ou diminuam o valor do produto.</span></li></ol>
+<p><span class="num">6.2.1.</span> A caracterização do vício deverá considerar a natureza do material, as características do produto, as informações fornecidas pela MARCA e as condições normais de utilização.</p>
+<p><span class="num">6.2.2.</span> Considerando a natureza artesanal dos produtos comercializados pela MARCA, pequenas variações nos pontos, na textura, no formato e no acabamento poderão ocorrer entre peças do mesmo modelo, sendo características inerentes ao processo de confecção manual. Essas variações, quando não comprometerem a qualidade, a funcionalidade ou as características essenciais anunciadas, não serão consideradas, por si só, vícios ou defeitos do produto, sem prejuízo dos direitos assegurados ao consumidor pela legislação vigente.</p>
+<h3><span class="num">6.3.</span> Prazo para reclamação</h3>
+<p><span class="num">6.3.1.</span> Considerando que as bolsas são produtos duráveis, o prazo para reclamação de vícios aparentes ou de fácil constatação será de 90 (noventa) dias, contados da efetiva entrega do produto, conforme artigo 26, inciso II, do CDC.</p>
+<p><span class="num">6.3.2.</span> Em se tratando de vício oculto, ou seja, aquele que não pode ser identificado imediatamente, o prazo decadencial terá início no momento em que o defeito ficar evidenciado, conforme artigo 26, § 3º, do CDC.</p>
+<p><span class="num">6.3.3.</span> A reclamação comprovadamente formulada perante a MARCA obstará a decadência até a resposta negativa correspondente, que deverá ser transmitida de maneira inequívoca ao consumidor, conforme artigo 26, § 2º, inciso I, do CDC.</p>
+<h3><span class="num">6.4.</span> Procedimento para análise do vício</h3>
+<p><span class="num">6.4.1.</span> O consumidor deverá comunicar a ocorrência pelos canais oficiais da MARCA, informando o número do pedido e descrevendo o problema identificado.</p>
+<p><span class="num">6.4.2.</span> Poderão ser solicitadas fotografias, vídeos ou outras informações que auxiliem na identificação preliminar do vício, sem que essa exigência represente obstáculo injustificado ao atendimento.</p>
+<p><span class="num">6.4.3.</span> Caso seja necessária avaliação física do produto, a MARCA fornecerá as instruções para encaminhamento, observando as regras legais aplicáveis.</p>
+<p><span class="num">6.4.4.</span> A análise deverá ser realizada de maneira individualizada, considerando as características do produto e as informações apresentadas pelo consumidor.</p>
+<p><span class="num">6.4.5.</span> Eventual negativa de reconhecimento do vício deverá ser fundamentada e comunicada de maneira clara ao consumidor.</p>
+<h3><span class="num">6.5.</span> Prazo para solução</h3>
+<p><span class="num">6.5.1.</span> Nos termos do artigo 18, § 1º, do CDC, a MARCA terá o prazo máximo de 30 (trinta) dias para sanar o vício, quando aplicável.</p>
+<p><span class="num">6.5.2.</span> O prazo legal não poderá ser ampliado unilateralmente pela empresa.</p>
+<p><span class="num">6.5.3.</span> Não sendo o vício sanado no prazo legal, caberá ao consumidor escolher, alternativamente e à sua livre escolha:</p>
+<ol class="roman"><li><span class="num">I</span><span>A substituição do produto por outro da mesma espécie, em perfeitas condições de uso;</span></li><li><span class="num">II</span><span>A restituição imediata da quantia paga, monetariamente atualizada, sem prejuízo de eventuais perdas e danos;</span></li><li><span class="num">III</span><span>O abatimento proporcional do preço.</span></li></ol>
+<p><span class="num">6.5.4.</span> Nas hipóteses previstas no artigo 18, § 3º, do CDC, quando a extensão do vício comprometer a qualidade ou as características do produto, diminuir-lhe o valor ou se tratar de produto essencial, o consumidor poderá exercer imediatamente as alternativas legais, sem necessidade de aguardar o prazo de 30 dias.</p>
+<h3><span class="num">6.6.</span> Situações que não caracterizam necessariamente vício de fabricação</h3>
+<p><span class="num">6.6.1.</span> A análise de eventual vício deverá distinguir falhas de fabricação de danos decorrentes de utilização inadequada, acidentes ou conservação incompatível com as orientações fornecidas.</p>
+<p><span class="num">6.6.2.</span> Desgastes decorrentes do uso regular, quando compatíveis com a natureza, composição e características do material, não caracterizam automaticamente vício de fabricação.</p>
+<p><span class="num">6.6.3.</span> Danos comprovadamente ocasionados por quedas, cortes, exposição inadequada a agentes externos, armazenamento impróprio ou intervenções de terceiros poderão afastar a responsabilidade da MARCA, desde que demonstrada a relação entre a conduta e o dano.</p>
+<p><span class="num">6.6.4.</span> A simples alegação de mau uso não será suficiente para afastar a responsabilidade legal da empresa, devendo a conclusão estar fundamentada nas circunstâncias concretas da ocorrência.</p>
+<h2 id="pol-7">7. Cancelamento de pedidos</h2>
+<h3><span class="num">7.1.</span> Cancelamento antes do envio</h3>
+<p><span class="num">7.1.1.</span> O consumidor poderá solicitar o cancelamento do pedido antes de sua expedição, por meio dos canais oficiais de atendimento da MARCA.</p>
+<p><span class="num">7.1.2.</span> A solicitação será analisada considerando o estágio de processamento do pedido e as providências logísticas já realizadas.</p>
+<p><span class="num">7.1.3.</span> Caso o pedido ainda não tenha sido expedido, a MARCA deverá adotar as providências necessárias ao cancelamento e à restituição dos valores, quando cabível.</p>
+<h3><span class="num">7.2.</span> Cancelamento após a expedição</h3>
+<p><span class="num">7.2.1.</span> Caso o pedido já tenha sido encaminhado para transporte, a MARCA orientará o consumidor quanto aos procedimentos necessários para a devolução.</p>
+<p><span class="num">7.2.2.</span> A expedição do produto não poderá ser utilizada para impedir o exercício do direito de arrependimento, desde que observado o prazo e os requisitos legais.</p>
+<h3><span class="num">7.3.</span> Cancelamento por iniciativa da MARCA</h3>
+<p><span class="num">7.3.1.</span> Caso ocorra impossibilidade de cumprimento da oferta por responsabilidade da MARCA, como indisponibilidade do produto após a confirmação da compra, deverão ser asseguradas ao consumidor as alternativas previstas no artigo 35 do CDC.</p>
+<p><span class="num">7.3.2.</span> A restituição dos valores deverá observar a legislação aplicável, sem prejuízo de eventual direito à reparação por perdas e danos.</p>
+<p><span class="num">7.3.3.</span> O cancelamento unilateral não poderá ocorrer de maneira arbitrária ou em desacordo com as condições da oferta.</p>
+<h2 id="pol-8">8. Política de reembolso</h2>
+<h3><span class="num">8.1.</span> Hipóteses de restituição</h3>
+<p><span class="num">8.1.1.</span> O reembolso será realizado nas hipóteses previstas na legislação consumerista, especialmente:</p>
+<ol class="roman"><li><span class="num">I</span><span>Exercício regular do direito de arrependimento;</span></li><li><span class="num">II</span><span>Vício do produto não sanado no prazo legal, quando o consumidor optar pela restituição;</span></li><li><span class="num">III</span><span>Descumprimento da oferta, quando o consumidor optar pela rescisão contratual;</span></li><li><span class="num">IV</span><span>Cancelamento de pedido nas hipóteses em que houver direito à restituição;</span></li><li><span class="num">V</span><span>Demais situações em que a legislação assegure a devolução dos valores pagos.</span></li></ol>
+<h3><span class="num">8.2.</span> Valores abrangidos</h3>
+<p><span class="num">8.2.1.</span> Nos casos de exercício do direito de arrependimento, serão restituídos integralmente os valores pagos pelo consumidor, incluindo o preço do produto e o frete, conforme artigo 49, parágrafo único, do CDC.</p>
+<p><span class="num">8.2.2.</span> Nas hipóteses de vício não sanado, serão observadas as disposições do artigo 18, § 1º, inciso II, do CDC.</p>
+<p><span class="num">8.2.3.</span> Nas hipóteses de descumprimento da oferta, a restituição observará o artigo 35, inciso III, do CDC.</p>
+<p><span class="num">8.2.4.</span> Não poderão ser descontadas taxas administrativas, multas ou despesas que representem restrição indevida aos direitos legalmente assegurados ao consumidor.</p>
+<h3><span class="num">8.3.</span> Modalidade de restituição</h3>
+<p><span class="num">8.3.1.</span> A restituição será realizada, preferencialmente, pelo mesmo meio de pagamento utilizado na contratação, observados os procedimentos aplicáveis à modalidade de pagamento.</p>
+<p><span class="num">8.3.2.</span> Nas compras realizadas por cartão de crédito, a MARCA solicitará o estorno à administradora responsável.</p>
+<p><span class="num">8.3.3.</span> Nas compras realizadas por PIX ou transferência bancária, a devolução será realizada por meio de transferência, mediante os dados necessários e observados os procedimentos de segurança.</p>
+<h3><span class="num">8.4.</span> Prazos e processamento</h3>
+<p><span class="num">8.4.1.</span> A MARCA adotará imediatamente as providências necessárias à restituição dos valores, respeitando os prazos e obrigações estabelecidos na legislação aplicável.</p>
+<p><span class="num">8.4.2.</span> Nas operações realizadas por cartão de crédito, o lançamento do estorno na fatura poderá depender dos procedimentos internos da administradora, circunstância que deverá ser informada ao consumidor.</p>
+<p><span class="num">8.4.3.</span> Eventuais prazos operacionais de terceiros não afastarão o dever da MARCA de encaminhar tempestivamente a solicitação de estorno ou restituição.</p>
+<h2 id="pol-9">9. Atendimento ao consumidor</h2>
+<p><span class="num">9.1.</span> A MARCA disponibilizará canais eletrônicos adequados e eficazes para o recebimento e tratamento de solicitações relacionadas a informações, dúvidas, reclamações, cancelamentos, trocas e devoluções.</p>
+<p><span class="num">9.2.</span> O consumidor poderá utilizar os seguintes canais:</p>
+<ul><li>E-mail: <a href="mailto:lulibags.store@gmail.com">lulibags.store@gmail.com</a>;</li><li>WhatsApp: (11) 98834-1230;</li><li>Site: <a href="https://www.lulibags.com.br/">https://www.lulibags.com.br/</a>;</li><li>Outros canais oficiais: Instagram - @lulibags.store.</li></ul>
+<p><span class="num">9.3.</span> O atendimento deverá permitir que o consumidor apresente suas demandas e acompanhe os procedimentos necessários à solução da ocorrência.</p>
+<p><span class="num">9.4.</span> A MARCA deverá confirmar imediatamente o recebimento das demandas encaminhadas pelo consumidor, pelo mesmo meio utilizado na solicitação, conforme artigo 4º, inciso VI, do Decreto nº 7.962/2013.</p>
+<p><span class="num">9.5.</span> A manifestação da MARCA às demandas do consumidor deverá ser encaminhada no prazo máximo de 5 (cinco) dias, conforme artigo 4º, parágrafo único, do Decreto nº 7.962/2013.</p>
+<p><span class="num">9.6.</span> O atendimento não poderá impor obstáculos injustificados ao exercício dos direitos do consumidor, tampouco exigir procedimentos excessivamente burocráticos.</p>
+<h2 id="pol-10">10. Obrigações da MARCA</h2>
+<p><span class="num">10.1.</span> Constituem obrigações da MARCA:</p>
+<ol class="roman"><li><span class="num">I</span><span>Disponibilizar informações claras e completas sobre os produtos comercializados;</span></li><li><span class="num">II</span><span>Informar previamente os preços, condições de pagamento, disponibilidade e despesas de entrega;</span></li><li><span class="num">III</span><span>Cumprir as condições anunciadas na oferta e publicidade;</span></li><li><span class="num">IV</span><span>Respeitar os prazos de entrega informados;</span></li><li><span class="num">V</span><span>Disponibilizar meios eficazes de atendimento ao consumidor;</span></li><li><span class="num">VI</span><span>Confirmar o recebimento dos pedidos e das solicitações encaminhadas pelos consumidores;</span></li><li><span class="num">VII</span><span>Respeitar o direito de arrependimento e os prazos legalmente estabelecidos;</span></li><li><span class="num">VIII</span><span>Responsabilizar-se pelo tratamento das reclamações relacionadas a vícios dos produtos;</span></li><li><span class="num">IX</span><span>Adotar as providências necessárias à substituição, restituição ou abatimento do preço, quando legalmente cabível;</span></li><li><span class="num">X</span><span>Não impor cláusulas ou condições que representem renúncia ou restrição indevida aos direitos do consumidor.</span></li></ol>
+<h2 id="pol-11">11. Disposições finais</h2>
+<p><span class="num">11.1.</span> A presente política integra as informações contratuais disponibilizadas ao consumidor no momento da compra, devendo ser interpretada em conjunto com a oferta, a descrição do produto e as demais condições da contratação.</p>
+<p><span class="num">11.2.</span> As cláusulas deste documento deverão ser interpretadas de maneira mais favorável ao consumidor, conforme artigo 47 do CDC.</p>
+<p><span class="num">11.3.</span> Eventuais disposições que contrariem normas de proteção ao consumidor não produzirão efeitos na extensão de sua incompatibilidade com a legislação vigente, observando-se especialmente o artigo 51 do CDC.</p>
+<p><span class="num">11.4.</span> A MARCA poderá atualizar esta política sempre que necessário, devendo manter sua versão vigente disponível nos canais oficiais de comercialização, sem prejuízo dos direitos decorrentes das compras já realizadas.</p>
+<p><span class="num">11.5.</span> As situações não previstas expressamente neste documento serão solucionadas conforme as disposições do Código de Defesa do Consumidor, do Decreto nº 7.962/2013 e das demais normas aplicáveis.</p>
+<p><span class="num">11.6.</span> A disponibilização desta política não representa renúncia ou limitação de qualquer direito legalmente assegurado ao consumidor.</p>
+<p><strong>São Paulo, 08 de novembro de 2026.</strong></p>
+<p><strong>Luli Bags</strong><br><strong>Razão social:</strong> 66.015.820 LUISA DE ALMEIDA LAPENTA BARBOSA</p>
+<p><strong>CNPJ:</strong> 66.015.820/0001-65</p>
+</div></article>
+</template>
 <footer class="wrap" id="footer">
   <div class="fcols">
     <div class="fcol wide">
@@ -395,6 +641,12 @@ details p { padding-bottom: 18px; font-size: 17px; }
       <a href="https://www.instagram.com/lulibags.store/" target="_blank" rel="noopener">Instagram @lulibags.store</a>
       <a href="https://wa.me/5511988341230" target="_blank" rel="noopener">WhatsApp (11) 98834-1230</a>
       <span style="font-size: 17px; padding: 4px 0; user-select: all">lulibags.store@gmail.com</span>
+    </div>
+    <div class="fcol finfo">
+      <span class="label">Info</span>
+      <button class="flink" data-policy="trocas" data-anchor="pol-3" data-hash="entregas">Entregas</button>
+      <button class="flink" data-policy="trocas" data-anchor="pol-4" data-hash="trocas">Trocas e Devoluções</button>
+      <button class="flink" data-policy="privacidade" data-hash="privacidade">Política de Privacidade</button>
     </div>
   </div>
   <img class="fmark" src="img/nome-rosa.svg" alt="Luli Bags">
@@ -652,13 +904,14 @@ details p { padding-bottom: 18px; font-size: 17px; }
   function render(scrollTarget) {
     if (state.view === 'home') app.innerHTML = homeHTML();
     else if (state.view === 'product') app.innerHTML = productHTML();
+    else if (state.view === 'policy') app.innerHTML = document.getElementById('pol-' + state.policy).innerHTML;
     else app.innerHTML = builderHTML();
     app.className = 'view-enter';
     document.querySelectorAll('.navlink[data-go="personalizar"]').forEach(function (b) { b.setAttribute('aria-current', state.view === 'personalizar' ? 'page' : 'false'); });
     setupMark();
     setupCarousel();
     if (scrollTarget === 'keep') return;
-    if (scrollTarget) { var el = document.getElementById(scrollTarget); if (el) { el.scrollIntoView({ block: 'start' }); return; } }
+    if (scrollTarget) { var el = document.getElementById(scrollTarget); if (el) { el.scrollIntoView({ block: 'start' }); if (state.view === 'policy' && document.fonts && document.fonts.ready) { var again = function () { if (el.isConnected) el.scrollIntoView({ block: 'start' }); }; requestAnimationFrame(again); document.fonts.ready.then(again); window.addEventListener('load', again, { once: true }); } return; } }
     window.scrollTo(0, 0);
   }
 
@@ -667,9 +920,10 @@ details p { padding-bottom: 18px; font-size: 17px; }
     state.view = view;
     if (opts.model) { if (isModel(opts.model)) state.model = opts.model; var bm = bmodelByKey(opts.model); if (bm) state.b.model = bm; }
     if (opts.color) state.color = opts.color;
+    if (opts.policy) state.policy = opts.policy;
     state.qty = 1;
     closeMenu();
-    var hash = view === 'product' ? state.model : view === 'personalizar' ? 'personalizar' : '';
+    var hash = view === 'product' ? state.model : view === 'personalizar' ? 'personalizar' : view === 'policy' ? opts.hash : '';
     try { history.replaceState(null, '', hash ? '#' + hash : location.pathname + location.search); } catch (e) {}
     render(opts.scroll);
   }
@@ -775,6 +1029,7 @@ details p { padding-bottom: 18px; font-size: 17px; }
     var t = e.target.closest('button, a');
     if (!t) return;
     if (t.hasAttribute('data-close-cart')) closeCart();
+    if (t.dataset.policy) { e.preventDefault(); go('policy', { policy: t.dataset.policy, scroll: t.dataset.anchor, hash: t.dataset.hash }); return; }
     if (t.dataset.go) { e.preventDefault(); var v = t.dataset.go; go(v === 'home' ? 'home' : 'personalizar', { scroll: t.dataset.scroll, model: t.dataset.model }); return; }
     if (t.dataset.scrollto) { e.preventDefault(); var el = document.getElementById(t.dataset.scrollto); if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); return; }
     if (t.dataset.open && isModel(t.dataset.open)) { go('product', { model: t.dataset.open, color: t.dataset.color || MODELS[t.dataset.open].colors[0].id }); return; }
@@ -806,6 +1061,8 @@ details p { padding-bottom: 18px; font-size: 17px; }
   renderCart();
   if (isModel(h)) go('product', { model: h, color: MODELS[h].colors[0].id });
   else if (h === 'personalizar') go('personalizar');
+  else if (h === 'privacidade') go('policy', { policy: 'privacidade', hash: h });
+  else if (h === 'trocas' || h === 'entregas') go('policy', { policy: 'trocas', scroll: h === 'trocas' ? 'pol-4' : 'pol-3', hash: h });
   else render(h === 'todos' || h === 'concha' || h === 'modelos' ? h : null);
 })();
 </script>
