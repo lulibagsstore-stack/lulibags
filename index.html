@@ -129,11 +129,11 @@ p { margin: 0; }
   .cell .cap { padding: 0 12px 18px; font-size: 16px; flex-direction: column; gap: 2px; }
 }
 
-.made-wide { grid-column: span 3; display: flex; align-items: center; gap: clamp(24px, 4vw, 64px); background: var(--blush); border: 0; border-left: 1px solid var(--hair); padding: 40px clamp(24px, 4vw, 64px); text-align: left; cursor: pointer; color: var(--ink); min-width: 0; }
+.made-wide { grid-column: span 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 24px; background: var(--blush); border: 0; border-left: 1px solid var(--hair); padding: 32px clamp(20px, 2vw, 32px); text-align: left; cursor: pointer; color: var(--ink); min-width: 0; }
 .grid4.all { border-bottom: 0; }
 .grid4.all > .cell { border-bottom: 1px solid var(--hair); }
 .made-wide img { width: clamp(90px, 9vw, 150px); height: auto; flex-shrink: 0; }
-.made-wide .big { font-size: clamp(26px, 2.8vw, 42px); line-height: 1.1; }
+.made-wide .big { font-size: clamp(24px, 2.2vw, 34px); line-height: 1.1; }
 .made-wide .go { color: var(--pink-ink); font-size: 18px; }
 .made-wide:hover .go { text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 860px) { .made-wide { grid-column: span 1; flex-direction: column; align-items: flex-start; padding: 24px 16px; border-left: 0; } .made-wide .big { font-size: 22px; } }
@@ -421,7 +421,7 @@ details p { padding-bottom: 18px; font-size: 17px; }
     scallop: { name: 'Scallop', price: 320, line: 'Coleção Concha', desc: 'Ponto concha que abre em leque e alça de ombro trançada no mesmo fio. Feita à mão, peça por peça.',
       colors: [{ id: 'marrom', name: 'Marrom', hex: '#6B2E24', img: 'img/scallop-marrom.webp' }, { id: 'preta', name: 'Preta', hex: '#161414', img: 'img/scallop-preta.webp' }, { id: 'branca', name: 'Branca', hex: '#F1E9DA', img: 'img/scallop-branca.webp' }] },
     olive: { name: 'Olive', price: 240, full: true, line: 'Coleção Concha', desc: 'Ponto concha, alça curta de mão e alça longa trançada para usar transversal. Feita à mão, peça por peça.',
-      colors: [{ id: 'lilas', name: 'Lilás', hex: '#B9A6D6', img: 'img/olive-lilas.webp' }, { id: 'preta', name: 'Preta', hex: '#161414', img: 'img/olive-preta.webp' }, { id: 'azul-marinho', name: 'Azul-Marinho', hex: '#232A4E', img: 'img/olive-azul-marinho.webp' }, { id: 'vermelha', name: 'Vermelha', hex: '#C0122E', img: 'img/olive-vermelha.webp' }, { id: 'branca', name: 'Branca', hex: '#F1E9DA', img: 'img/olive-branca.webp' }] },
+      colors: [{ id: 'lilas', name: 'Lilás', hex: '#B9A6D6', img: 'img/olive-lilas.webp' }, { id: 'preta', name: 'Preta', hex: '#161414', img: 'img/olive-preta.webp' }, { id: 'branca', name: 'Branca', hex: '#F1E9DA', img: 'img/olive-branca.webp' }] },
     classic: { name: 'Classic', price: 290, line: 'Linha permanente', desc: 'Formato sacola com alças curtas e base larga. Feita à mão, peça por peça.',
       colors: [{ id: 'rosa', name: 'Rosa', hex: '#E0234E', img: 'img/classic-rosa.webp' }, { id: 'vinho', name: 'Vinho', hex: '#7E1426', img: 'img/classic-vinho.webp' }] }
   };
@@ -445,7 +445,7 @@ details p { padding-bottom: 18px; font-size: 17px; }
     });
     return out.join('');
   }
-  var GRID = [['shoulder','azul'],['shoulder','rosa'],['shoulder','roxa'],['arco-maxi','roxa'],['arco-maxi','vinho'],['arco-mini','cinza'],['arco-mini','roxa'],['classic','rosa'],['classic','vinho'],['scallop','marrom'],['scallop','preta'],['scallop','branca'],['olive','lilas'],['olive','preta'],['olive','azul-marinho'],['olive','vermelha'],['olive','branca']];
+  var GRID = [['shoulder','azul'],['shoulder','rosa'],['shoulder','roxa'],['arco-maxi','roxa'],['arco-maxi','vinho'],['arco-mini','cinza'],['arco-mini','roxa'],['classic','rosa'],['classic','vinho'],['scallop','marrom'],['scallop','preta'],['scallop','branca'],['olive','lilas'],['olive','preta'],['olive','branca']];
   var INDEX = [
     { id: 'scallop', name: 'Scallop', img: 'img/scallop-marrom.webp', fit: 'contain', alt: 'Bolsa Scallop marrom', note: 'Scallop. Ponto concha em leque, da Coleção Concha.', go: 'scallop' },
     { id: 'olive', name: 'Olive', img: 'img/olive-lilas.webp', fit: 'cover', alt: 'Bolsa Olive lilás com alça longa', note: 'Olive. Ponto concha com alça curta e alça longa.', go: 'olive' },
@@ -509,7 +509,7 @@ details p { padding-bottom: 18px; font-size: 17px; }
       '<button class="made" data-go="personalizar" data-model="olive"><span class="label">Sob medida</span><img src="img/simbolo-rosa.svg" alt=""><span style="display: flex; flex-direction: column; gap: 14px"><p>Personalize sua bolsa<br><em>da Coleção Concha.</em></p><span style="font-size: 17px; line-height: 1.5">Escolha o modelo, até duas cores e a alça.</span><span class="go">Criar a minha →</span></span></button>' +
     '</section>' +
 
-    '<section class="head wrap" id="todos"><div class="t"><span class="label muted">Modelos · 6 modelos · 17 peças</span><h2 class="h2">Todos os modelos</h2></div><button class="link-arrow" data-go="personalizar">Prefere outra cor? Personalize →</button></section>' +
+    '<section class="head wrap" id="todos"><div class="t"><span class="label muted">Modelos · 6 modelos · 15 peças</span><h2 class="h2">Todos os modelos</h2></div><button class="link-arrow" data-go="personalizar">Prefere outra cor? Personalize →</button></section>' +
     '<section class="grid4 all" aria-label="Produtos">' + GRID.map(function (g) { return cellHTML(g[0], g[1]); }).join('') + '<button class="made-wide" data-go="personalizar"><img src="img/simbolo-rosa.svg" alt=""><span style="display: flex; flex-direction: column; gap: 12px; min-width: 0"><span class="label">Sob medida</span><span class="big">Não achou a sua cor?<br><em>Monte a sua combinação.</em></span><span class="go">Personalizar →</span></span></button></section>' +
 
     '<section class="models wrap" id="modelos" aria-label="Modelos">' +
