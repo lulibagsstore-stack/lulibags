@@ -1,0 +1,306 @@
+# Painel de edição do site Luli Bags (Pages CMS)
+# Cada item de "content" vira uma seção do painel e edita um arquivo da pasta content/.
+
+media:
+  input: img
+  output: img
+  extensions: [jpg, jpeg, png, webp]
+  rename: safe
+
+content:
+  # ------------------------------------------------------------------ BOLSAS
+  - name: bolsas
+    label: Bolsas à venda
+    type: file
+    path: content/bolsas.json
+    format: json
+    fields:
+      - name: bolsas
+        label: Bolsas
+        description: A ordem aqui é a ordem em que as bolsas aparecem no site. Arraste para reordenar.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nome} · R$ {preco}"
+        fields:
+          - name: nome
+            label: Nome do modelo
+            type: string
+            required: true
+          - name: preco
+            label: Preço (R$)
+            description: "Só o número, sem R$. Ex.: 290"
+            type: number
+            required: true
+            options:
+              min: 0
+          - name: mostrar
+            label: Mostrar no site
+            description: Desligue para esconder a bolsa sem apagar.
+            type: boolean
+            default: true
+          - name: linha
+            label: Linha ou coleção
+            description: "Texto pequeno acima do nome. Ex.: Linha permanente, Coleção Concha, Lançamento."
+            type: string
+          - name: descricao
+            label: Descrição
+            type: text
+          - name: cores
+            label: Cores disponíveis
+            description: Cada cor tem a sua foto. A primeira cor é a que abre primeiro.
+            type: object
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{nome}"
+            fields:
+              - name: nome
+                label: Nome da cor
+                type: string
+                required: true
+              - name: cor
+                label: Código da cor (bolinha)
+                description: "Código hexadecimal, ex.: #E7B4C6. Dá para pegar em sites como htmlcolorcodes.com."
+                type: string
+                pattern: "^#?[0-9A-Fa-f]{6}$"
+              - name: foto
+                label: Foto da vitrine
+                description: Aparece na grade de bolsas. Fundo branco ou recortado funciona melhor.
+                type: image
+                required: true
+              - name: foto_pagina
+                label: Foto da página da bolsa (opcional)
+                description: Se ficar vazio, usa a foto da vitrine.
+                type: image
+              - name: foto_inteira
+                label: Foto da bolsa inteira com alça longa (opcional)
+                description: Use só se a bolsa tiver alça longa e você quiser mostrá-la inteira na página.
+                type: image
+          - name: lista_frase
+            label: Frase na lista de modelos
+            description: "Aparece ao lado da foto na seção \"Modelos\". Ex.: Shoulder. Formato trapézio e alça curta."
+            type: string
+          - name: lista_foto
+            label: Foto na lista de modelos (opcional)
+            description: Se ficar vazio, usa a foto da primeira cor.
+            type: image
+          - name: lista_ajuste
+            label: Ajuste da foto na lista de modelos
+            type: select
+            default: inteira
+            options:
+              values:
+                - name: inteira
+                  label: Mostrar a bolsa inteira
+                - name: preencher
+                  label: Preencher o quadro (corta as bordas)
+          - name: foto_preenche
+            label: Foto da vitrine ocupa o quadro todo
+            description: Ligue para fotos com fundo (ex. com mão ou cenário). Desligue para fotos recortadas.
+            type: boolean
+            default: false
+          - name: no_carrossel
+            label: Mostrar no carrossel da coleção
+            description: As cores desta bolsa aparecem no carrossel da coleção, no topo do site.
+            type: boolean
+            default: false
+
+  # ------------------------------------------------------------------ COLEÇÃO
+  - name: colecao
+    label: Coleção em destaque
+    type: file
+    path: content/colecao.json
+    format: json
+    fields:
+      - name: mostrar
+        label: Mostrar a seção da coleção
+        type: boolean
+        default: true
+      - name: nome
+        label: Nome da coleção
+        description: "Aparece no título da seção e no menu. Ex.: Coleção Concha"
+        type: string
+      - name: etiqueta
+        label: Texto pequeno acima do título
+        type: string
+      - name: fotos_campanha
+        label: Fotos da campanha (carrossel)
+        description: Ficam misturadas com as bolsas marcadas como "Mostrar no carrossel".
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "Foto {index}"
+        fields:
+          - name: foto
+            label: Foto
+            type: image
+            required: true
+          - name: descricao
+            label: Descrição da foto
+            description: "Para leitores de tela e para o Google. Ex.: Modelo segurando a bolsa Olive preta."
+            type: string
+          - name: fundo
+            label: Cor de fundo enquanto a foto carrega
+            type: string
+            default: "#2A2624"
+      - name: cartao_titulo
+        label: Cartão rosa · título
+        type: string
+      - name: cartao_italico
+        label: Cartão rosa · segunda linha (itálico)
+        type: string
+      - name: cartao_texto
+        label: Cartão rosa · texto
+        type: string
+      - name: cartao_modelo
+        label: Cartão rosa · modelo que já vem marcado no Personalizar
+        description: "Igual ao nome do modelo na seção Personalizar. Ex.: Olive"
+        type: string
+
+  # ------------------------------------------------------------------ PÁGINA INICIAL
+  - name: inicio
+    label: Página inicial
+    type: file
+    path: content/inicio.json
+    format: json
+    fields:
+      - name: capa_esquerda
+        label: Capa · foto da esquerda
+        type: object
+        fields:
+          - { name: foto, label: Foto, type: image, required: true }
+          - { name: rotulo, label: Texto sobre a foto, type: string }
+          - { name: descricao, label: Descrição da foto, type: string }
+          - name: leva_para
+            label: Ao clicar, leva para
+            type: select
+            options:
+              values:
+                - { name: colecao, label: Coleção em destaque }
+                - { name: modelos, label: Todos os modelos }
+                - { name: personalizar, label: Personalizar }
+      - name: capa_direita
+        label: Capa · foto da direita
+        type: object
+        fields:
+          - { name: foto, label: Foto, type: image, required: true }
+          - { name: rotulo, label: Texto sobre a foto, type: string }
+          - { name: descricao, label: Descrição da foto, type: string }
+          - name: leva_para
+            label: Ao clicar, leva para
+            type: select
+            options:
+              values:
+                - { name: colecao, label: Coleção em destaque }
+                - { name: modelos, label: Todos os modelos }
+                - { name: personalizar, label: Personalizar }
+      - { name: botao_capa, label: Botão da capa, type: string }
+      - { name: modelos_titulo, label: Título da grade de bolsas, type: string }
+      - { name: modelos_link, label: Link ao lado do título da grade, type: string }
+      - { name: cartao_sob_medida_titulo, label: Cartão no fim da grade · título, type: string }
+      - { name: cartao_sob_medida_italico, label: Cartão no fim da grade · itálico, type: string }
+      - { name: personalizar_foto_1, label: Faixa Personalizar · foto de cima, type: image }
+      - { name: personalizar_legenda_1, label: Faixa Personalizar · legenda de cima, type: string }
+      - { name: personalizar_detalhe_1, label: Faixa Personalizar · detalhe de cima (ex. 5 cores), type: string }
+      - { name: personalizar_foto_2, label: Faixa Personalizar · foto de baixo, type: image }
+      - { name: personalizar_legenda_2, label: Faixa Personalizar · legenda de baixo, type: string }
+      - { name: personalizar_detalhe_2, label: Faixa Personalizar · detalhe de baixo, type: string }
+      - { name: personalizar_titulo, label: Faixa Personalizar · título, type: string }
+      - { name: personalizar_titulo_italico, label: Faixa Personalizar · título em itálico, type: string }
+      - { name: personalizar_texto, label: Faixa Personalizar · texto, type: text }
+      - { name: frase_etiqueta, label: Frase de destaque · texto pequeno, type: string }
+      - { name: frase, label: Frase de destaque, type: string }
+      - { name: frase_italico, label: Frase de destaque · continuação em itálico, type: text }
+      - name: galeria
+        label: Galeria de fotos (fim da página)
+        description: O símbolo rosa da Luli entra sozinho na terceira posição.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "Foto {index}"
+        fields:
+          - { name: foto, label: Foto, type: image, required: true }
+          - name: ajuste
+            label: Ajuste
+            type: select
+            default: preencher
+            options:
+              values:
+                - { name: preencher, label: Preencher o quadro (foto com cenário) }
+                - { name: inteira, label: Mostrar inteira (bolsa recortada) }
+          - name: foco_vertical
+            label: Enquadramento vertical (0 = topo, 100 = base)
+            type: number
+            default: 50
+            options: { min: 0, max: 100 }
+          - { name: fundo, label: Cor de fundo, type: string, default: "#E6DED4" }
+          - { name: descricao, label: Descrição da foto, type: string }
+
+  # ------------------------------------------------------------------ PERSONALIZAR
+  - name: personalizar
+    label: Personalizar
+    type: file
+    path: content/personalizar.json
+    format: json
+    fields:
+      - { name: titulo, label: Título da página, type: string }
+      - { name: subtitulo, label: Subtítulo, type: string }
+      - { name: aviso, label: Aviso abaixo do botão do WhatsApp, type: text }
+      - name: modelos
+        label: Modelos para personalizar
+        description: O nome precisa ser igual ao da bolsa à venda para o botão "Personalizar este modelo" funcionar.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nome}"
+        fields:
+          - { name: nome, label: Nome do modelo, type: string, required: true }
+          - { name: foto, label: Foto, type: image, required: true }
+      - name: cores
+        label: Cores de fio disponíveis
+        description: Servem para a bolsa e para a alça tiracolo.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{codigo} · {nome}"
+        fields:
+          - { name: codigo, label: Código do fio, type: string }
+          - { name: nome, label: Nome da cor, type: string, required: true }
+          - name: cor
+            label: Código da cor (bolinha)
+            description: "Ex.: #BCA0D5"
+            type: string
+            required: true
+            pattern: "^#?[0-9A-Fa-f]{6}$"
+          - name: foto
+            label: Foto do fio (opcional)
+            description: Uma foto bem de perto do fio. Aparece dentro da bolinha. Se ficar vazio, usa a cor acima.
+            type: image
+
+  # ------------------------------------------------------------------ LOJA
+  - name: loja
+    label: Contato e textos gerais
+    type: file
+    path: content/loja.json
+    format: json
+    fields:
+      - name: whatsapp
+        label: WhatsApp para pedidos (só números, com 55 e DDD)
+        description: "Ex.: 5511988341230. Todos os botões de compra usam este número."
+        type: string
+        required: true
+        pattern: "^[0-9]{12,13}$"
+      - { name: whatsapp_exibido, label: WhatsApp como aparece no rodapé, type: string }
+      - { name: instagram, label: Instagram (sem @), type: string }
+      - { name: email, label: E-mail, type: string }
+      - { name: faixa_topo, label: Faixa rosa no topo · texto, type: string }
+      - { name: faixa_topo_link, label: Faixa rosa no topo · link para o Personalizar, type: string }
+      - { name: rodape_frase, label: Frase no rodapé, type: string }
+      - { name: aviso_whatsapp_sacola, label: Aviso na sacola, type: text }
