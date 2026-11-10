@@ -1,0 +1,195 @@
+{
+  "bolsas": [
+    {
+      "nome": "Shoulder",
+      "preco": 290,
+      "linha": "Linha permanente",
+      "mostrar": true,
+      "no_carrossel": false,
+      "foto_preenche": false,
+      "descricao": "Formato trapézio em crochê de fio de malha e alça curta para levar na mão ou no antebraço. Cada peça é tecida à mão depois do pedido.",
+      "lista_foto": "img/shoulder-azul.webp",
+      "lista_ajuste": "inteira",
+      "lista_frase": "Shoulder. Formato trapézio e alça curta.",
+      "cores": [
+        {
+          "nome": "Azul",
+          "cor": "#4E95A6",
+          "foto": "img/shoulder-azul.webp",
+          "foto_pagina": "img/pdp-shoulder-azul.webp"
+        },
+        {
+          "nome": "Rosa",
+          "cor": "#E7B4C6",
+          "foto": "img/shoulder-rosa.webp",
+          "foto_pagina": "img/pdp-shoulder-rosa.webp"
+        },
+        {
+          "nome": "Roxa",
+          "cor": "#6E2F8C",
+          "foto": "img/shoulder-roxa.webp",
+          "foto_pagina": "img/pdp-shoulder-roxa.webp"
+        }
+      ]
+    },
+    {
+      "nome": "Arco Maxi",
+      "preco": 290,
+      "linha": "Linha permanente",
+      "mostrar": true,
+      "no_carrossel": false,
+      "foto_preenche": false,
+      "descricao": "Alça em arco alta e faixa mesclada na base. Feita à mão, peça por peça.",
+      "lista_foto": "img/arco-maxi-vinho.webp",
+      "lista_ajuste": "inteira",
+      "lista_frase": "Arco Maxi. Alça em arco alta e faixa mesclada.",
+      "cores": [
+        {
+          "nome": "Roxa",
+          "cor": "#6E2F8C",
+          "foto": "img/arco-maxi-roxa.webp",
+          "foto_pagina": "img/pdp-arco-maxi-roxa.webp"
+        },
+        {
+          "nome": "Vinho",
+          "cor": "#8E1B33",
+          "foto": "img/arco-maxi-vinho.webp",
+          "foto_pagina": "img/pdp-arco-maxi-vinho.webp"
+        }
+      ]
+    },
+    {
+      "nome": "Arco Mini",
+      "preco": 240,
+      "linha": "Linha permanente",
+      "mostrar": true,
+      "no_carrossel": false,
+      "foto_preenche": false,
+      "descricao": "Versão compacta do Arco, com formato retangular e alça em arco trançada. Feita à mão, peça por peça.",
+      "lista_foto": "img/arco-mini-cinza.webp",
+      "lista_ajuste": "inteira",
+      "lista_frase": "Arco Mini. A versão compacta do Arco.",
+      "cores": [
+        {
+          "nome": "Cinza",
+          "cor": "#9C9C9A",
+          "foto": "img/arco-mini-cinza.webp",
+          "foto_pagina": "img/pdp-arco-mini-cinza.webp"
+        },
+        {
+          "nome": "Roxa",
+          "cor": "#6B3AA0",
+          "foto": "img/arco-mini-roxa.webp",
+          "foto_pagina": "img/pdp-arco-mini-roxa.webp"
+        }
+      ]
+    },
+    {
+      "nome": "Classic",
+      "preco": 290,
+      "linha": "Linha permanente",
+      "mostrar": true,
+      "no_carrossel": false,
+      "foto_preenche": false,
+      "descricao": "Formato sacola com alças curtas e base larga. Feita à mão, peça por peça.",
+      "lista_foto": "img/classic-rosa.webp",
+      "lista_ajuste": "inteira",
+      "lista_frase": "Classic. Formato sacola com base larga.",
+      "cores": [
+        {
+          "nome": "Rosa",
+          "cor": "#E0234E",
+          "foto": "img/classic-rosa.webp",
+          "foto_pagina": "img/pdp-classic-rosa.webp"
+        },
+        {
+          "nome": "Vinho",
+          "cor": "#7E1426",
+          "foto": "img/classic-vinho.webp",
+          "foto_pagina": "img/pdp-classic-vinho.webp"
+        }
+      ]
+    },
+    {
+      "nome": "Scallop",
+      "preco": 320,
+      "linha": "Coleção Concha",
+      "mostrar": true,
+      "no_carrossel": true,
+      "foto_preenche": true,
+      "descricao": "Ponto concha que abre em leque e alça de ombro trançada no mesmo fio. Feita à mão, peça por peça.",
+      "lista_foto": "img/scallop-marrom.webp",
+      "lista_ajuste": "inteira",
+      "lista_frase": "Scallop. Ponto concha em leque, da Coleção Concha.",
+      "cores": [
+        {
+          "nome": "Marrom",
+          "cor": "#6B2E24",
+          "foto": "img/scallop-marrom.webp",
+          "foto_pagina": "img/pdp-scallop-marrom.webp"
+        },
+        {
+          "nome": "Preta",
+          "cor": "#161414",
+          "foto": "img/scallop-preta.webp",
+          "foto_pagina": "img/pdp-scallop-preta.webp"
+        },
+        {
+          "nome": "Branca",
+          "cor": "#F1E9DA",
+          "foto": "img/scallop-branca.webp",
+          "foto_pagina": "img/pdp-scallop-branca.webp"
+        }
+      ]
+    },
+    {
+      "nome": "Olive",
+      "preco": 240,
+      "linha": "Coleção Concha",
+      "mostrar": true,
+      "no_carrossel": false,
+      "foto_preenche": true,
+      "descricao": "Ponto concha, alça curta de mão e alça longa trançada para usar transversal. Feita à mão, peça por peça.",
+      "lista_foto": "img/olive-lilas.webp",
+      "lista_ajuste": "preencher",
+      "lista_frase": "Olive. Ponto concha com alça curta e alça longa.",
+      "cores": [
+        {
+          "nome": "Lilás",
+          "cor": "#B9A6D6",
+          "foto": "img/olive-lilas.webp",
+          "foto_pagina": "img/pdp-olive-lilas.webp",
+          "foto_inteira": "img/pdp-full-olive-lilas.webp"
+        },
+        {
+          "nome": "Preta",
+          "cor": "#161414",
+          "foto": "img/olive-preta.webp",
+          "foto_pagina": "img/pdp-olive-preta.webp",
+          "foto_inteira": "img/pdp-full-olive-preta.webp"
+        },
+        {
+          "nome": "Azul-Marinho",
+          "cor": "#232A4E",
+          "foto": "img/olive-azul-marinho.webp",
+          "foto_pagina": "img/pdp-olive-azul-marinho.webp",
+          "foto_inteira": "img/pdp-full-olive-azul-marinho.webp"
+        },
+        {
+          "nome": "Vermelha",
+          "cor": "#C0122E",
+          "foto": "img/olive-vermelha.webp",
+          "foto_pagina": "img/pdp-olive-vermelha.webp",
+          "foto_inteira": "img/pdp-full-olive-vermelha.webp"
+        },
+        {
+          "nome": "Branca",
+          "cor": "#F1E9DA",
+          "foto": "img/olive-branca.webp",
+          "foto_pagina": "img/pdp-olive-branca.webp",
+          "foto_inteira": "img/pdp-full-olive-branca.webp"
+        }
+      ]
+    }
+  ]
+}

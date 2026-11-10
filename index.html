@@ -129,11 +129,11 @@ p { margin: 0; }
   .cell .cap { padding: 0 12px 18px; font-size: 16px; flex-direction: column; gap: 2px; }
 }
 
-.made-wide { grid-column: span 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 24px; background: var(--blush); border: 0; border-left: 1px solid var(--hair); padding: 32px clamp(20px, 2vw, 32px); text-align: left; cursor: pointer; color: var(--ink); min-width: 0; }
+.made-wide { grid-column: span 3; display: flex; align-items: center; gap: clamp(24px, 4vw, 64px); background: var(--blush); border: 0; border-left: 1px solid var(--hair); padding: 40px clamp(24px, 4vw, 64px); text-align: left; cursor: pointer; color: var(--ink); min-width: 0; }
 .grid4.all { border-bottom: 0; }
 .grid4.all > .cell { border-bottom: 1px solid var(--hair); }
 .made-wide img { width: clamp(90px, 9vw, 150px); height: auto; flex-shrink: 0; }
-.made-wide .big { font-size: clamp(24px, 2.2vw, 34px); line-height: 1.1; }
+.made-wide .big { font-size: clamp(26px, 2.8vw, 42px); line-height: 1.1; }
 .made-wide .go { color: var(--pink-ink); font-size: 18px; }
 .made-wide:hover .go { text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 860px) { .made-wide { grid-column: span 1; flex-direction: column; align-items: flex-start; padding: 24px 16px; border-left: 0; } .made-wide .big { font-size: 22px; } }
@@ -208,27 +208,11 @@ p { margin: 0; }
 .tile img.contain { width: 86%; height: 86%; object-fit: contain; }
 @media (max-width: 860px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tiles .tile:nth-child(5) { display: none; } }
 
-/* Policies */
-.policy { padding-block: clamp(48px, 7vw, 104px); border-bottom: 1px solid var(--hair); }
-.policy-in { max-width: 760px; }
-.policy header { display: flex; flex-direction: column; gap: 18px; margin-bottom: 16px; }
-.policy h2 { font-size: clamp(26px, 2.6vw, 34px); line-height: 1.15; margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--hair); scroll-margin-top: calc(env(safe-area-inset-top, 0px) + var(--bar-h) + 8px); }
-.policy h3 { font-size: 22px; line-height: 1.25; margin-top: 36px; }
-.policy p, .policy ul, .policy ol { margin: 16px 0 0; font-size: 18px; line-height: 1.6; overflow-wrap: anywhere; }
-.policy ul { padding-left: 20px; }
-.policy li + li { margin-top: 8px; }
-.policy ol.roman { list-style: none; padding: 0; }
-.policy ol.roman li { display: grid; grid-template-columns: 44px minmax(0, 1fr); }
-.policy .num { font-family: var(--mono); font-size: 13px; color: var(--pink-ink); }
-.policy a { text-decoration: underline; text-underline-offset: 3px; }
-.policy strong { font-weight: 600; }
-
 /* Footer */
 footer { --night: #FDF2F4; --on-night: var(--ink); --on-night-muted: var(--muted); border-top: 1px solid var(--hair); background: var(--night); color: var(--on-night); padding-block: 80px 28px; display: flex; flex-direction: column; gap: 64px; }
 footer a, footer .flink { color: var(--on-night); background: none; border: 0; padding: 4px 0; cursor: pointer; text-align: left; font-size: 17px; font-family: var(--serif); }
-.finfo .flink { text-decoration: underline; text-underline-offset: 3px; }
 footer a:hover, footer .flink:hover { color: var(--pink-ink); text-decoration: none; }
-.fcols { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+.fcols { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
 .fcol { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .fcol .label { color: var(--on-night-muted); margin-bottom: 8px; }
 .news { display: flex; border-bottom: 1px solid var(--on-night); max-width: 380px; }
@@ -356,19 +340,21 @@ details p { padding-bottom: 18px; font-size: 17px; }
 .view-enter { animation: fade .35s ease both; }
 @keyframes fade { from { opacity: .3; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .view-enter { animation: none; } .half img, .cell .ph img { transition: none; } }
+.up { mix-blend-mode: multiply; filter: brightness(1.06) contrast(1.08); }
+.cell .ph:has(> img.up), .bmodel:not([aria-pressed="true"]):not(:hover):has(img.up) { background-color: var(--canvas); }
 </style>
 </head>
 <body>
 
 
 <div class="announce label wrap">
-  <span>Bolsas de crochê feitas à mão</span><span aria-hidden="true">·</span><button class="link-arrow label" style="color: var(--ink); font-size: 11px; text-decoration: underline; text-underline-offset: 3px" data-go="personalizar">Crie a sua</button>
+  <span data-t="faixa">Bolsas de crochê feitas à mão</span><span aria-hidden="true">·</span><button class="link-arrow label" style="color: var(--ink); font-size: 11px; text-decoration: underline; text-underline-offset: 3px" data-go="personalizar" data-t="faixa-link">Crie a sua</button>
 </div>
 
 <header class="bar wrap" id="bar">
   <nav aria-label="Principal">
     <button class="navlink" data-go="home" data-scroll="todos">Modelos</button>
-    <button class="navlink" data-go="home" data-scroll="concha">Coleção Concha</button>
+    <button class="navlink" data-go="home" data-scroll="concha" data-t="colecao">Coleção Concha</button>
     <button class="navlink" data-go="personalizar">Personalizar</button>
   </nav>
   <button class="menu-btn iconbtn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
@@ -387,270 +373,34 @@ details p { padding-bottom: 18px; font-size: 17px; }
     <button class="iconbtn" id="menuClose" aria-label="Fechar menu"><svg width="20" height="20" viewBox="0 0 20 20" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 3l14 14M17 3L3 17"/></svg></button>
   </div>
   <button class="big" data-go="home" data-scroll="todos">Modelos</button>
-  <button class="big" data-go="home" data-scroll="concha"><em>Coleção Concha</em></button>
+  <button class="big" data-go="home" data-scroll="concha" data-t="colecao"><em>Coleção Concha</em></button>
   <button class="big" data-go="personalizar">Personalizar</button>
   <button class="big" data-go="home" data-scroll="footer">Contato</button>
 </div>
 
 <main id="app"></main>
 
-<template id="pol-privacidade">
-<article class="policy wrap"><div class="policy-in">
-<header><span class="label muted">Informações</span><h1 class="h2">Política de Privacidade</h1><span class="label muted">Última atualização: 08 de novembro de 2026</span></header>
-<h2>Aviso de privacidade</h2>
-<p>Este site é administrado pela empresa <strong>Luli Bags</strong>, inscrita no CNPJ sob nº66.015.820/0001-65, responsável pela marca <strong>Luli Bags</strong>.</p>
-<p>A <strong>Luli Bags</strong> possui o compromisso de respeitar a privacidade de seus clientes e proteger seus DADOS PESSOAIS, adotando medidas para garantir a segurança e a transparência no tratamento dessas informações, em conformidade com a Lei nº 13.709/2018, Lei Geral de Proteção de Dados Pessoais ("LGPD").</p>
-<p>A presente Política de Privacidade descreve como são coletados, utilizados, armazenados e compartilhados os DADOS PESSOAIS dos usuários durante a navegação em nosso site, realização de cadastros, compras e utilização de nossos canais de atendimento.</p>
-<p>Esta Política poderá ser atualizada sempre que necessário, sendo recomendada sua consulta periódica por meio do site oficial da marca.</p>
-<p>Em caso de dúvidas ou solicitações relacionadas aos seus dados pessoais, o usuário poderá entrar em contato pelo e-mail <a href="mailto:lulibags.store@gmail.com">lulibags.store@gmail.com</a>.</p>
-<h2 id="priv-1">1. Definições</h2>
-<p>Para os fins desta Política de Privacidade, os termos abaixo possuem os seguintes significados:</p>
-<ul><li><strong>LGPD:</strong> Lei nº 13.709/2018, que dispõe sobre a proteção de dados pessoais.</li><li><strong>DADOS PESSOAIS:</strong> qualquer informação relacionada a uma pessoa natural identificada ou identificável.</li><li><strong>TITULAR:</strong> pessoa natural a quem se referem os dados pessoais.</li><li><strong>TRATAMENTO:</strong> qualquer operação realizada com dados pessoais, incluindo coleta, utilização, armazenamento, compartilhamento e eliminação.</li><li><strong>CONTROLADOR:</strong> pessoa física ou jurídica responsável pelas decisões referentes ao tratamento de dados pessoais.</li><li><strong>OPERADOR:</strong> pessoa física ou jurídica que realiza o tratamento de dados pessoais em nome do controlador.</li><li><strong>COOKIES:</strong> pequenos arquivos armazenados no dispositivo do usuário que permitem registrar informações relacionadas à navegação no site.</li></ul>
-<h2 id="priv-2">2. Dados pessoais que coletamos</h2>
-<p>A <strong>Luli Bags</strong> poderá coletar informações fornecidas diretamente pelo usuário durante o cadastro, realização de compras, preenchimento de formulários ou contato com nossos canais de atendimento.</p>
-<p>Entre os dados pessoais que poderão ser coletados estão nome completo, CPF, endereço de e-mail, telefone, endereço de entrega e informações necessárias ao processamento dos pedidos.</p>
-<p>Durante a realização de compras, também poderão ser tratados dados relacionados aos produtos adquiridos, histórico de pedidos, informações de pagamento e dados necessários à entrega.</p>
-<p>Além disso, nosso site poderá coletar automaticamente determinadas informações relacionadas à navegação, como endereço IP, páginas acessadas, data e horário de acesso, tipo de dispositivo e navegador utilizado.</p>
-<p>Os dados fornecidos serão utilizados exclusivamente para finalidades legítimas e compatíveis com as atividades da empresa, respeitando os princípios estabelecidos pela LGPD.</p>
-<p>Algumas informações são necessárias para que possamos concluir a compra, processar o pagamento, emitir documentos fiscais e realizar a entrega dos produtos.</p>
-<h2 id="priv-3">3. Como utilizamos seus dados pessoais</h2>
-<p>Os dados pessoais coletados poderão ser utilizados para:</p>
-<ul><li>Realizar e administrar o cadastro dos usuários;</li><li>Processar, confirmar e acompanhar pedidos;</li><li>Efetuar pagamentos e emitir documentos fiscais;</li><li>Realizar a entrega dos produtos adquiridos;</li><li>Encaminhar informações sobre o andamento das compras;</li><li>Responder dúvidas, solicitações e reclamações;</li><li>Realizar procedimentos de troca, devolução e reembolso;</li><li>Cumprir obrigações legais e regulatórias;</li><li>Prevenir fraudes e garantir a segurança das operações;</li><li>Melhorar a experiência de navegação e os serviços oferecidos;</li><li>Encaminhar novidades, lançamentos, promoções e campanhas comerciais, quando houver base legal adequada.</li></ul>
-<p>O tratamento dos dados pessoais ocorrerá de acordo com as hipóteses previstas no art. 7º da LGPD, especialmente para cumprimento de obrigações legais, execução de contratos, exercício regular de direitos, legítimo interesse e consentimento, quando necessário.</p>
-<p>As comunicações relacionadas aos pedidos poderão ser encaminhadas por e-mail, telefone ou WhatsApp, conforme os dados fornecidos pelo consumidor.</p>
-<p>O usuário poderá solicitar o cancelamento do recebimento de mensagens promocionais a qualquer momento, sem que isso prejudique o recebimento de informações necessárias à realização de suas compras.</p>
-<h2 id="priv-4">4. Compartilhamento de dados pessoais</h2>
-<p>A <strong>Luli Bags</strong> poderá compartilhar os dados pessoais dos usuários com empresas e prestadores de serviços que auxiliem no desenvolvimento de suas atividades comerciais.</p>
-<p>Esse compartilhamento poderá ocorrer com plataformas de comércio eletrônico, empresas responsáveis pelo processamento de pagamentos, transportadoras, serviços de logística, prestadores de serviços tecnológicos, ferramentas de comunicação e empresas responsáveis por ações de marketing, quando aplicável.</p>
-<p>Os dados também poderão ser compartilhados com autoridades públicas e órgãos competentes quando houver obrigação legal ou determinação judicial.</p>
-<p>O compartilhamento será limitado às informações necessárias para a finalidade pretendida, observando-se as disposições da LGPD.</p>
-<p>A empresa não comercializa dados pessoais de seus consumidores de maneira incompatível com esta Política e com a legislação aplicável.</p>
-<h2 id="priv-5">5. Responsabilidade e segurança dos dados</h2>
-<p>A <strong>Luli Bags</strong> adota medidas técnicas e administrativas destinadas a proteger os dados pessoais contra acessos não autorizados, perda, alteração, divulgação ou qualquer forma de tratamento inadequado.</p>
-<p>O acesso às informações é limitado às pessoas e aos prestadores de serviços que necessitem desses dados para o desempenho de suas atividades.</p>
-<p>Embora sejam adotadas medidas de segurança, nenhum sistema eletrônico está completamente livre de riscos. Por esse motivo, a empresa compromete-se a adotar as providências necessárias diante de eventuais incidentes, conforme as exigências da legislação aplicável.</p>
-<h2 id="priv-6">6. Armazenamento e eliminação dos dados</h2>
-<p>Os dados pessoais serão armazenados pelo período necessário ao cumprimento das finalidades para as quais foram coletados.</p>
-<p>Após o encerramento da relação comercial, determinadas informações poderão permanecer armazenadas quando necessárias ao cumprimento de obrigações legais, regulatórias ou para o exercício regular de direitos da empresa.</p>
-<p>Quando não houver mais necessidade de manutenção dos dados, estes serão eliminados ou anonimizados, ressalvadas as hipóteses autorizadas pela legislação.</p>
-<h2 id="priv-7">7. Cookies</h2>
-<p>Nosso site poderá utilizar cookies e tecnologias semelhantes para melhorar a experiência de navegação, memorizar preferências, analisar o funcionamento da plataforma e compreender a utilização do site pelos usuários.</p>
-<p>Os cookies são pequenos arquivos armazenados no dispositivo utilizado para acessar o site, permitindo reconhecer determinadas informações relacionadas à navegação.</p>
-<p>Alguns cookies são necessários para o funcionamento adequado da loja virtual, enquanto outros poderão ser utilizados para análise de desempenho, personalização de conteúdo e publicidade.</p>
-<p>Os cookies não essenciais deverão observar as exigências legais aplicáveis, inclusive quanto à obtenção de consentimento quando necessário.</p>
-<p>O usuário poderá gerenciar suas preferências por meio das ferramentas disponibilizadas no site ou pelas configurações de seu navegador. A desativação de determinados cookies poderá afetar algumas funcionalidades da plataforma.</p>
-<h2 id="priv-8">8. Direitos dos titulares de dados pessoais</h2>
-<p>Nos termos da LGPD, o usuário possui direitos relacionados aos seus dados pessoais, podendo solicitar:</p>
-<ul><li>Confirmação da existência de tratamento de seus dados;</li><li>Acesso aos dados pessoais;</li><li>Correção de informações incompletas, inexatas ou desatualizadas;</li><li>Anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade com a legislação;</li><li>Informações sobre o compartilhamento de seus dados;</li><li>Eliminação dos dados tratados com consentimento, ressalvadas as hipóteses legais de conservação;</li><li>Revogação do consentimento, quando aplicável;</li><li>Oposição ao tratamento realizado em desconformidade com a LGPD.</li></ul>
-<p>Para exercer seus direitos ou apresentar solicitações relacionadas ao tratamento de dados pessoais, o titular poderá entrar em contato pelo e-mail <a href="mailto:lulibags.store@gmail.com">lulibags.store@gmail.com</a>.</p>
-<p>As solicitações serão analisadas e atendidas conforme os procedimentos e prazos estabelecidos pela legislação aplicável.</p>
-<h2 id="priv-9">9. Alterações desta política</h2>
-<p>A presente Política de Privacidade poderá ser modificada ou atualizada a qualquer momento, especialmente em razão de alterações legislativas, mudanças nas atividades da empresa ou implementação de novas tecnologias.</p>
-<p>A versão atualizada estará sempre disponível no site oficial da <strong>Luli Bags</strong>, acompanhada da respectiva data de atualização.</p>
-<h2 id="priv-10">10. Dúvidas e contato</h2>
-<p>Em caso de dúvidas, solicitações ou reclamações relacionadas a esta Política de Privacidade ou ao tratamento de dados pessoais, o usuário poderá entrar em contato por meio dos seguintes canais:</p>
-<p><strong>Marca:</strong> Luli Bags<br><strong>CNPJ:</strong> 66.015.820/0001-65<br><strong>E-mail:</strong> <a href="mailto:lulibags.store@gmail.com">lulibags.store@gmail.com</a></p>
-</div></article>
-</template>
-<template id="pol-trocas">
-<article class="policy wrap"><div class="policy-in">
-<header><span class="label muted">Informações</span><h1 class="h2">Política de Entrega, Troca, Devolução, Cancelamento e Reembolso</h1><span class="label muted">Última atualização: 08.11.2026</span></header>
-<p>A Luli Bags, doravante denominada simplesmente <strong>MARCA</strong>, estabelece a presente Política de Entrega, Troca, Devolução, Cancelamento e Reembolso, aplicável às compras realizadas por meio de seu site, plataformas digitais e demais canais eletrônicos oficiais de comercialização.</p>
-<p>O presente documento tem por finalidade estabelecer, de maneira clara e transparente, os direitos dos consumidores e os procedimentos adotados pela MARCA em relação às operações de compra e venda de seus produtos, especialmente bolsas e respectivos acessórios.</p>
-<p>Esta política observa as disposições da Lei nº 8.078/1990 (Código de Defesa do Consumidor – CDC), do Decreto nº 7.962/2013, que regulamenta as contratações realizadas no comércio eletrônico, e demais normas aplicáveis às relações de consumo.</p>
-<h2 id="pol-1">1. Disposições preliminares e abrangência</h2>
-<p><span class="num">1.1.</span> Esta política aplica-se às compras realizadas por consumidores nos canais oficiais de comercialização da MARCA, abrangendo todas as etapas da relação de consumo, desde a confirmação do pedido até a entrega do produto e eventual solicitação de troca, devolução, cancelamento ou reembolso.</p>
-<p><span class="num">1.2.</span> A MARCA compromete-se a fornecer informações claras, precisas, ostensivas e adequadas sobre seus produtos, incluindo características, materiais, dimensões, cores, funcionalidades, preços, condições de pagamento, disponibilidade e prazos de entrega.</p>
-<p><span class="num">1.3.</span> As informações disponibilizadas na oferta, nas páginas dos produtos, nas campanhas publicitárias e nos demais canais de divulgação integram a relação contratual e vinculam a MARCA, nos termos do artigo 30 do CDC.</p>
-<p><span class="num">1.4.</span> A presente política deverá ser disponibilizada ao consumidor em local de fácil visualização e acesso, antes da conclusão da compra, possibilitando o conhecimento prévio das condições aplicáveis à contratação.</p>
-<p><span class="num">1.5.</span> Nenhuma disposição deste documento poderá ser interpretada como renúncia, limitação ou exclusão dos direitos assegurados ao consumidor pela legislação vigente.</p>
-<h2 id="pol-2">2. Informações sobre os produtos</h2>
-<p><span class="num">2.1.</span> Os produtos comercializados pela MARCA serão apresentados com informações suficientes para permitir que o consumidor conheça suas características essenciais antes da realização da compra.</p>
-<p><span class="num">2.2.</span> As descrições dos produtos deverão apresentar, conforme aplicável:</p>
-<ol class="roman"><li><span class="num">I</span><span>Nome e identificação do modelo;</span></li><li><span class="num">II</span><span>Composição e materiais utilizados na fabricação;</span></li><li><span class="num">III</span><span>Dimensões e medidas aproximadas;</span></li><li><span class="num">IV</span><span>Informações sobre cores, acabamentos e detalhes;</span></li><li><span class="num">V</span><span>Características de uso, funcionalidades e capacidade;</span></li><li><span class="num">VI</span><span>Acessórios que acompanham o produto;</span></li><li><span class="num">VII</span><span>Preço, condições de pagamento e eventuais despesas adicionais;</span></li><li><span class="num">VIII</span><span>Disponibilidade em estoque e eventuais limitações da oferta.</span></li></ol>
-<p><span class="num">2.3.</span> Eventuais diferenças de tonalidade decorrentes de iluminação, configurações de tela ou condições de visualização poderão ocorrer na apresentação digital dos produtos, desde que não representem divergência relevante entre o produto anunciado e aquele efetivamente entregue.</p>
-<p><span class="num">2.4.</span> A MARCA deverá assegurar que as informações e imagens utilizadas na divulgação correspondam, de maneira adequada, às características reais dos produtos, não podendo induzir o consumidor a erro.</p>
-<p><span class="num">2.5.</span> As disposições deste item observam especialmente os artigos 6º, III, 30, 31 e 37 do CDC e o artigo 2º do Decreto nº 7.962/2013.</p>
-<p><span class="num">2.6.</span> Considerando que os produtos comercializados pela MARCA são confeccionados artesanalmente, poderão ocorrer pequenas variações de acabamento, formato e disposição dos pontos entre as peças, decorrentes do processo manual de produção. Tais particularidades fazem parte da natureza artesanal dos produtos.</p>
-<p><span class="num">2.7.</span> A MARCA comercializa produtos disponíveis em estoque e produtos confeccionados sob encomenda. A disponibilidade, bem como a eventual necessidade de prazo para produção, será informada ao consumidor antes da conclusão da compra.</p>
-<p><span class="num">2.8.</span> As pequenas variações inerentes à produção artesanal não caracterizam, por si só, vício ou defeito, desde que não comprometam a qualidade, a funcionalidade ou as características essenciais do produto anunciado. Essas particularidades não afastam os direitos do consumidor previstos na legislação vigente.</p>
-<h2 id="pol-3">3. Política de entrega</h2>
-<h3><span class="num">3.1.</span> Processamento e confirmação do pedido</h3>
-<p><span class="num">3.1.1.</span> Após a finalização da compra, o consumidor receberá a confirmação do pedido por meio eletrônico, contendo as informações necessárias à identificação da contratação.</p>
-<p><span class="num">3.1.2.</span> O processamento do pedido estará condicionado à confirmação do pagamento pela instituição financeira, administradora do cartão ou plataforma responsável pela transação.</p>
-<p><span class="num">3.1.3.</span> A MARCA disponibilizará ao consumidor as informações referentes à disponibilidade do produto, às condições da oferta e ao prazo estimado de entrega antes da conclusão da compra.</p>
-<h3><span class="num">3.2.</span> Prazo de entrega</h3>
-<p><span class="num">3.2.1.</span> Para produtos disponíveis em estoque, o prazo estimado de postagem e entrega será informado ao consumidor no momento da compra.</p>
-<p><span class="num">3.2.2.</span> Para produtos confeccionados sob encomenda, o prazo estimado de produção será informado previamente ao consumidor, considerando o modelo escolhido e a demanda de produção da MARCA.</p>
-<p><span class="num">3.2.3.</span> Nos pedidos sob encomenda, o prazo total de recebimento compreenderá o período necessário para a confecção do produto, acrescido do prazo de transporte dos Correios, conforme a modalidade de envio escolhida.</p>
-<p><span class="num">3.2.4.</span> A MARCA compromete-se a respeitar os prazos de produção, postagem e entrega informados no momento da contratação, comunicando ao consumidor eventuais situações que possam impactar seu cumprimento.</p>
-<h3><span class="num">3.3.</span> Valor do frete</h3>
-<p><span class="num">3.3.1.</span> O valor do frete deverá ser informado de maneira discriminada e previamente à finalização da compra.</p>
-<p><span class="num">3.3.2.</span> O consumidor deverá ter acesso às informações relativas às modalidades de entrega disponíveis, respectivos custos e prazos estimados.</p>
-<p><span class="num">3.3.3.</span> Nenhuma despesa adicional de entrega poderá ser cobrada sem prévia informação e concordância do consumidor.</p>
-<h3><span class="num">3.4.</span> Rastreamento do pedido</h3>
-<p><span class="num">3.4.1.</span> Após a postagem do produto, a MARCA disponibilizará, quando fornecido pela transportadora ou serviço postal, o código ou link de rastreamento da encomenda.</p>
-<p><span class="num">3.4.2.</span> O consumidor poderá acompanhar o andamento da entrega por meio das ferramentas disponibilizadas pelo serviço responsável pelo transporte.</p>
-<p><span class="num">3.4.3.</span> A indisponibilidade temporária de informações de rastreamento não afastará a responsabilidade da MARCA pelo cumprimento da oferta e pela adequada entrega do produto.</p>
-<h3><span class="num">3.5.</span> Responsabilidade pela entrega</h3>
-<p><span class="num">3.5.1.</span> A MARCA será responsável por assegurar o cumprimento das condições de entrega contratadas, incluindo prazo, quantidade, qualidade e adequação do produto.</p>
-<p><span class="num">3.5.2.</span> Eventuais problemas decorrentes da atuação de transportadoras ou prestadores de serviços contratados pela MARCA deverão ser tratados pela própria empresa, sem transferência indevida de responsabilidade ao consumidor.</p>
-<p><span class="num">3.5.3.</span> Em caso de extravio, avaria, atraso injustificado ou não recebimento do produto, o consumidor poderá solicitar providências à MARCA, que deverá acompanhar a ocorrência e apresentar solução adequada.</p>
-<p><span class="num">3.5.4.</span> Caso a oferta não seja cumprida, serão asseguradas ao consumidor as alternativas previstas no artigo 35 do CDC, observada sua livre escolha:</p>
-<ol class="roman"><li><span class="num">I</span><span>Exigir o cumprimento forçado da obrigação, nos termos da oferta;</span></li><li><span class="num">II</span><span>Aceitar outro produto ou prestação de serviço equivalente;</span></li><li><span class="num">III</span><span>Rescindir o contrato, com direito à restituição da quantia eventualmente antecipada, monetariamente atualizada, sem prejuízo de eventuais perdas e danos.</span></li></ol>
-<h3><span class="num">3.6.</span> Endereço incorreto ou ausência do destinatário</h3>
-<p><span class="num">3.6.1.</span> É responsabilidade do consumidor fornecer corretamente os dados necessários à entrega, incluindo endereço completo, número, complemento, CEP e informações de contato.</p>
-<p><span class="num">3.6.2.</span> Caso seja identificada alguma inconsistência nos dados fornecidos, o consumidor deverá comunicar a MARCA imediatamente, para que seja verificada a possibilidade de correção antes da expedição do pedido.</p>
-<p><span class="num">3.6.3.</span> Em caso de ausência do destinatário, serão observados os procedimentos de novas tentativas de entrega estabelecidos pela modalidade de transporte contratada.</p>
-<p><span class="num">3.6.4.</span> Caso o produto retorne à MARCA em razão de informações incorretas fornecidas pelo consumidor ou de impossibilidade de entrega devidamente comprovada, a empresa entrará em contato para verificar as providências cabíveis.</p>
-<p><span class="num">3.6.5.</span> A eventual cobrança de novo frete somente poderá ocorrer quando juridicamente cabível, devidamente justificada e previamente informada, não podendo ser utilizada para afastar direitos legalmente assegurados ao consumidor.</p>
-<h3><span class="num">3.7.</span> Recebimento do produto</h3>
-<p><span class="num">3.7.1.</span> Recomenda-se que o consumidor confira as condições externas da embalagem no momento do recebimento.</p>
-<p><span class="num">3.7.2.</span> Caso sejam identificados sinais aparentes de violação, avaria ou danos na embalagem, o consumidor poderá registrar a ocorrência e, quando possível, recusar o recebimento, comunicando imediatamente a MARCA.</p>
-<p><span class="num">3.7.3.</span> O recebimento da encomenda não representa renúncia ao direito de reclamar posteriormente de vícios aparentes, ocultos ou divergências constatadas no produto.</p>
-<h2 id="pol-4">4. Política de troca por preferência pessoal</h2>
-<h3><span class="num">4.1.</span> Troca voluntária</h3>
-<p><span class="num">4.1.1.</span> A troca por mera preferência pessoal, como escolha de outra cor, modelo ou tamanho, quando não decorrer de vício ou descumprimento da oferta, constitui uma condição comercial voluntariamente oferecida pela MARCA, sem prejuízo dos direitos previstos em lei.</p>
-<p><span class="num">4.1.2.</span> A MARCA poderá disponibilizar condições próprias para a realização dessas trocas, que deverão ser previamente informadas ao consumidor.</p>
-<p><span class="num">4.1.3.</span> <strong>Para a realização da troca voluntária por preferência pessoal, a MARCA estabelece as seguintes condições:</strong></p>
-<ol class="roman"><li><span class="num">I</span><span><strong>Prazo para solicitação:</strong> a solicitação deverá ser realizada em até 7 (sete) dias corridos, contados a partir do recebimento da bolsa.</span></li><li><span class="num">II</span><span><strong>Canal de atendimento:</strong> o pedido de troca deverá ser feito por meio do WhatsApp oficial da MARCA, com a informação do número do pedido e do produto que se deseja trocar.</span></li><li><span class="num">III</span><span><strong>Condição do produto:</strong> para a troca voluntária por preferência, a bolsa deverá estar sem sinais de uso, em boas condições de conservação e sem danos, manchas ou alterações decorrentes de seu uso.</span></li><li><span class="num">IV</span><span><strong>Procedimento de postagem:</strong> após a confirmação da solicitação pela MARCA, o consumidor receberá as orientações necessárias para o envio da bolsa. A postagem deverá ser realizada conforme as instruções fornecidas.</span></li><li><span class="num">V</span><span><strong>Responsabilidade pelo frete:</strong> nas trocas voluntárias por preferência pessoal, os custos de envio da bolsa à MARCA e de envio da nova bolsa ao consumidor serão de responsabilidade do consumidor. Essa condição não se aplica ao exercício do direito legal de arrependimento ou às situações de defeito ou descumprimento da oferta.</span></li><li><span class="num">VI</span><span><strong>Disponibilização da nova bolsa:</strong> a troca estará sujeita à disponibilidade do modelo e da cor escolhidos. Caso o produto não esteja disponível em estoque, poderá ser produzido sob encomenda, com prazo estimado informado previamente ao consumidor. Se houver diferença de preço entre os produtos, o ajuste será informado antes da confirmação da troca.</span></li></ol>
-<p><span class="num">4.1.4.</span> Caso a troca seja oferecida voluntariamente, suas condições deverão ser cumpridas pela MARCA, conforme a oferta divulgada, nos termos do artigo 30 do CDC.</p>
-<p><span class="num">4.1.5.</span> As exigências comerciais desta modalidade não poderão ser aplicadas às hipóteses de exercício do direito de arrependimento ou de reclamação por vícios do produto.</p>
-<h3><span class="num">4.2.</span> Condições de conservação do produto</h3>
-<p><span class="num">4.2.1.</span> Nas trocas voluntárias, a MARCA poderá estabelecer critérios razoáveis de conservação, considerando a natureza do produto.</p>
-<p><span class="num">4.2.2.</span> Poderão ser solicitados o envio da bolsa, seus acessórios e itens que originalmente a acompanham, desde que tais exigências sejam previamente informadas e compatíveis com a modalidade de troca solicitada.</p>
-<p><span class="num">4.2.3.</span> A ausência da embalagem original, por si só, não poderá ser utilizada para afastar direitos legais de arrependimento ou de reclamação por vício.</p>
-<h2 id="pol-5">5. Direito de arrependimento</h2>
-<h3><span class="num">5.1.</span> Previsão legal e prazo</h3>
-<p><span class="num">5.1.1.</span> Nos termos do artigo 49 do CDC, o consumidor poderá desistir da contratação realizada fora do estabelecimento comercial, especialmente por meio eletrônico, no prazo de 7 (sete) dias.</p>
-<p><span class="num">5.1.2.</span> Nas compras de produtos, o prazo será contado a partir do recebimento efetivo do produto pelo consumidor.</p>
-<p><span class="num">5.1.3.</span> O exercício do direito de arrependimento independe de justificativa, não sendo necessário que o consumidor apresente motivo para a desistência da compra.</p>
-<h3><span class="num">5.2.</span> Procedimento para exercício do direito</h3>
-<p><span class="num">5.2.1.</span> Para exercer o direito de arrependimento, o consumidor poderá encaminhar sua solicitação por meio dos canais oficiais de atendimento da MARCA.</p>
-<p><span class="num">5.2.2.</span> O pedido deverá ser identificado, preferencialmente, mediante informação do número da compra, nome do titular e dados necessários à localização do pedido.</p>
-<p><span class="num">5.2.3.</span> A MARCA disponibilizará meios adequados e eficazes para o exercício do direito de arrependimento, inclusive pela mesma ferramenta utilizada para a contratação, conforme artigo 5º, § 1º, do Decreto nº 7.962/2013.</p>
-<p><span class="num">5.2.4.</span> A MARCA deverá confirmar imediatamente o recebimento da manifestação de arrependimento, nos termos do artigo 5º, § 4º, do referido Decreto.</p>
-<h3><span class="num">5.3.</span> Condições para devolução</h3>
-<p><span class="num">5.3.1.</span> O exercício do direito de arrependimento não poderá ser condicionado à apresentação de justificativa, ao pagamento de multa ou à aceitação de crédito para compras futuras.</p>
-<p><span class="num">5.3.2.</span> A MARCA fornecerá as orientações necessárias para a devolução do produto, inclusive quanto à forma de postagem ou coleta, quando disponibilizada.</p>
-<p><span class="num">5.3.3.</span> Não serão transferidos ao consumidor os custos necessários à devolução decorrente do exercício regular do direito de arrependimento.</p>
-<p><span class="num">5.3.4.</span> A exigência de embalagem original, etiqueta intacta ou ausência absoluta de manuseio não poderá ser utilizada como condição automática para impedir o exercício do direito legal.</p>
-<p><span class="num">5.3.5.</span> Eventuais situações de utilização que ultrapassem a análise razoável do produto e indiquem dano ou uso indevido deverão ser examinadas individualmente, sem afastamento automático do direito de arrependimento.</p>
-<h3><span class="num">5.4.</span> Restituição dos valores</h3>
-<p><span class="num">5.4.1.</span> Exercido o direito de arrependimento, o consumidor terá direito à restituição integral dos valores pagos, incluindo o preço do produto e as despesas de frete eventualmente suportadas.</p>
-<p><span class="num">5.4.2.</span> A restituição deverá ocorrer de imediato e monetariamente atualizada, conforme artigo 49, parágrafo único, do CDC.</p>
-<p><span class="num">5.4.3.</span> A MARCA comunicará imediatamente a instituição financeira ou administradora do cartão de crédito para que a transação não seja lançada na fatura ou para que seja realizado o respectivo estorno, conforme artigo 5º, § 3º, do Decreto nº 7.962/2013.</p>
-<p><span class="num">5.4.4.</span> A efetivação do estorno poderá depender dos procedimentos operacionais da instituição financeira, sem que isso afaste a obrigação da MARCA de adotar imediatamente as providências que lhe competem.</p>
-<h2 id="pol-6">6. Produtos com vícios ou defeitos</h2>
-<h3><span class="num">6.1.</span> Responsabilidade da MARCA</h3>
-<p><span class="num">6.1.1.</span> A MARCA responde pelos vícios de qualidade ou quantidade que tornem o produto impróprio ou inadequado ao consumo, diminuam seu valor ou apresentem divergência em relação às informações constantes da oferta, embalagem, descrição ou publicidade.</p>
-<p><span class="num">6.1.2.</span> A responsabilidade observará o artigo 18 do CDC, inclusive quanto à responsabilidade solidária dos fornecedores integrantes da cadeia de fornecimento.</p>
-<p><span class="num">6.1.3.</span> A existência de vício não poderá ser afastada simplesmente pela ausência de conhecimento prévio da empresa sobre o defeito.</p>
-<h3><span class="num">6.2.</span> Exemplos de vícios em bolsas</h3>
-<p>Poderão caracterizar vícios de qualidade, conforme a análise de cada situação:</p>
-<ol class="roman"><li><span class="num">I</span><span>Costuras desfeitas ou inadequadamente realizadas;</span></li><li><span class="num">II</span><span>Alças, fechos, zíperes ou ferragens que apresentem falhas de fabricação;</span></li><li><span class="num">III</span><span>Forro interno descolado ou danificado por falha de fabricação;</span></li><li><span class="num">IV</span><span>Defeitos estruturais que comprometam a utilização regular da bolsa;</span></li><li><span class="num">V</span><span>Material que apresente deterioração incompatível com as características e condições normais de uso anunciadas;</span></li><li><span class="num">VI</span><span>Produto entregue com características diferentes daquelas informadas na oferta;</span></li><li><span class="num">VII</span><span>Falhas de acabamento que comprometam a qualidade ou diminuam o valor do produto.</span></li></ol>
-<p><span class="num">6.2.1.</span> A caracterização do vício deverá considerar a natureza do material, as características do produto, as informações fornecidas pela MARCA e as condições normais de utilização.</p>
-<p><span class="num">6.2.2.</span> Considerando a natureza artesanal dos produtos comercializados pela MARCA, pequenas variações nos pontos, na textura, no formato e no acabamento poderão ocorrer entre peças do mesmo modelo, sendo características inerentes ao processo de confecção manual. Essas variações, quando não comprometerem a qualidade, a funcionalidade ou as características essenciais anunciadas, não serão consideradas, por si só, vícios ou defeitos do produto, sem prejuízo dos direitos assegurados ao consumidor pela legislação vigente.</p>
-<h3><span class="num">6.3.</span> Prazo para reclamação</h3>
-<p><span class="num">6.3.1.</span> Considerando que as bolsas são produtos duráveis, o prazo para reclamação de vícios aparentes ou de fácil constatação será de 90 (noventa) dias, contados da efetiva entrega do produto, conforme artigo 26, inciso II, do CDC.</p>
-<p><span class="num">6.3.2.</span> Em se tratando de vício oculto, ou seja, aquele que não pode ser identificado imediatamente, o prazo decadencial terá início no momento em que o defeito ficar evidenciado, conforme artigo 26, § 3º, do CDC.</p>
-<p><span class="num">6.3.3.</span> A reclamação comprovadamente formulada perante a MARCA obstará a decadência até a resposta negativa correspondente, que deverá ser transmitida de maneira inequívoca ao consumidor, conforme artigo 26, § 2º, inciso I, do CDC.</p>
-<h3><span class="num">6.4.</span> Procedimento para análise do vício</h3>
-<p><span class="num">6.4.1.</span> O consumidor deverá comunicar a ocorrência pelos canais oficiais da MARCA, informando o número do pedido e descrevendo o problema identificado.</p>
-<p><span class="num">6.4.2.</span> Poderão ser solicitadas fotografias, vídeos ou outras informações que auxiliem na identificação preliminar do vício, sem que essa exigência represente obstáculo injustificado ao atendimento.</p>
-<p><span class="num">6.4.3.</span> Caso seja necessária avaliação física do produto, a MARCA fornecerá as instruções para encaminhamento, observando as regras legais aplicáveis.</p>
-<p><span class="num">6.4.4.</span> A análise deverá ser realizada de maneira individualizada, considerando as características do produto e as informações apresentadas pelo consumidor.</p>
-<p><span class="num">6.4.5.</span> Eventual negativa de reconhecimento do vício deverá ser fundamentada e comunicada de maneira clara ao consumidor.</p>
-<h3><span class="num">6.5.</span> Prazo para solução</h3>
-<p><span class="num">6.5.1.</span> Nos termos do artigo 18, § 1º, do CDC, a MARCA terá o prazo máximo de 30 (trinta) dias para sanar o vício, quando aplicável.</p>
-<p><span class="num">6.5.2.</span> O prazo legal não poderá ser ampliado unilateralmente pela empresa.</p>
-<p><span class="num">6.5.3.</span> Não sendo o vício sanado no prazo legal, caberá ao consumidor escolher, alternativamente e à sua livre escolha:</p>
-<ol class="roman"><li><span class="num">I</span><span>A substituição do produto por outro da mesma espécie, em perfeitas condições de uso;</span></li><li><span class="num">II</span><span>A restituição imediata da quantia paga, monetariamente atualizada, sem prejuízo de eventuais perdas e danos;</span></li><li><span class="num">III</span><span>O abatimento proporcional do preço.</span></li></ol>
-<p><span class="num">6.5.4.</span> Nas hipóteses previstas no artigo 18, § 3º, do CDC, quando a extensão do vício comprometer a qualidade ou as características do produto, diminuir-lhe o valor ou se tratar de produto essencial, o consumidor poderá exercer imediatamente as alternativas legais, sem necessidade de aguardar o prazo de 30 dias.</p>
-<h3><span class="num">6.6.</span> Situações que não caracterizam necessariamente vício de fabricação</h3>
-<p><span class="num">6.6.1.</span> A análise de eventual vício deverá distinguir falhas de fabricação de danos decorrentes de utilização inadequada, acidentes ou conservação incompatível com as orientações fornecidas.</p>
-<p><span class="num">6.6.2.</span> Desgastes decorrentes do uso regular, quando compatíveis com a natureza, composição e características do material, não caracterizam automaticamente vício de fabricação.</p>
-<p><span class="num">6.6.3.</span> Danos comprovadamente ocasionados por quedas, cortes, exposição inadequada a agentes externos, armazenamento impróprio ou intervenções de terceiros poderão afastar a responsabilidade da MARCA, desde que demonstrada a relação entre a conduta e o dano.</p>
-<p><span class="num">6.6.4.</span> A simples alegação de mau uso não será suficiente para afastar a responsabilidade legal da empresa, devendo a conclusão estar fundamentada nas circunstâncias concretas da ocorrência.</p>
-<h2 id="pol-7">7. Cancelamento de pedidos</h2>
-<h3><span class="num">7.1.</span> Cancelamento antes do envio</h3>
-<p><span class="num">7.1.1.</span> O consumidor poderá solicitar o cancelamento do pedido antes de sua expedição, por meio dos canais oficiais de atendimento da MARCA.</p>
-<p><span class="num">7.1.2.</span> A solicitação será analisada considerando o estágio de processamento do pedido e as providências logísticas já realizadas.</p>
-<p><span class="num">7.1.3.</span> Caso o pedido ainda não tenha sido expedido, a MARCA deverá adotar as providências necessárias ao cancelamento e à restituição dos valores, quando cabível.</p>
-<h3><span class="num">7.2.</span> Cancelamento após a expedição</h3>
-<p><span class="num">7.2.1.</span> Caso o pedido já tenha sido encaminhado para transporte, a MARCA orientará o consumidor quanto aos procedimentos necessários para a devolução.</p>
-<p><span class="num">7.2.2.</span> A expedição do produto não poderá ser utilizada para impedir o exercício do direito de arrependimento, desde que observado o prazo e os requisitos legais.</p>
-<h3><span class="num">7.3.</span> Cancelamento por iniciativa da MARCA</h3>
-<p><span class="num">7.3.1.</span> Caso ocorra impossibilidade de cumprimento da oferta por responsabilidade da MARCA, como indisponibilidade do produto após a confirmação da compra, deverão ser asseguradas ao consumidor as alternativas previstas no artigo 35 do CDC.</p>
-<p><span class="num">7.3.2.</span> A restituição dos valores deverá observar a legislação aplicável, sem prejuízo de eventual direito à reparação por perdas e danos.</p>
-<p><span class="num">7.3.3.</span> O cancelamento unilateral não poderá ocorrer de maneira arbitrária ou em desacordo com as condições da oferta.</p>
-<h2 id="pol-8">8. Política de reembolso</h2>
-<h3><span class="num">8.1.</span> Hipóteses de restituição</h3>
-<p><span class="num">8.1.1.</span> O reembolso será realizado nas hipóteses previstas na legislação consumerista, especialmente:</p>
-<ol class="roman"><li><span class="num">I</span><span>Exercício regular do direito de arrependimento;</span></li><li><span class="num">II</span><span>Vício do produto não sanado no prazo legal, quando o consumidor optar pela restituição;</span></li><li><span class="num">III</span><span>Descumprimento da oferta, quando o consumidor optar pela rescisão contratual;</span></li><li><span class="num">IV</span><span>Cancelamento de pedido nas hipóteses em que houver direito à restituição;</span></li><li><span class="num">V</span><span>Demais situações em que a legislação assegure a devolução dos valores pagos.</span></li></ol>
-<h3><span class="num">8.2.</span> Valores abrangidos</h3>
-<p><span class="num">8.2.1.</span> Nos casos de exercício do direito de arrependimento, serão restituídos integralmente os valores pagos pelo consumidor, incluindo o preço do produto e o frete, conforme artigo 49, parágrafo único, do CDC.</p>
-<p><span class="num">8.2.2.</span> Nas hipóteses de vício não sanado, serão observadas as disposições do artigo 18, § 1º, inciso II, do CDC.</p>
-<p><span class="num">8.2.3.</span> Nas hipóteses de descumprimento da oferta, a restituição observará o artigo 35, inciso III, do CDC.</p>
-<p><span class="num">8.2.4.</span> Não poderão ser descontadas taxas administrativas, multas ou despesas que representem restrição indevida aos direitos legalmente assegurados ao consumidor.</p>
-<h3><span class="num">8.3.</span> Modalidade de restituição</h3>
-<p><span class="num">8.3.1.</span> A restituição será realizada, preferencialmente, pelo mesmo meio de pagamento utilizado na contratação, observados os procedimentos aplicáveis à modalidade de pagamento.</p>
-<p><span class="num">8.3.2.</span> Nas compras realizadas por cartão de crédito, a MARCA solicitará o estorno à administradora responsável.</p>
-<p><span class="num">8.3.3.</span> Nas compras realizadas por PIX ou transferência bancária, a devolução será realizada por meio de transferência, mediante os dados necessários e observados os procedimentos de segurança.</p>
-<h3><span class="num">8.4.</span> Prazos e processamento</h3>
-<p><span class="num">8.4.1.</span> A MARCA adotará imediatamente as providências necessárias à restituição dos valores, respeitando os prazos e obrigações estabelecidos na legislação aplicável.</p>
-<p><span class="num">8.4.2.</span> Nas operações realizadas por cartão de crédito, o lançamento do estorno na fatura poderá depender dos procedimentos internos da administradora, circunstância que deverá ser informada ao consumidor.</p>
-<p><span class="num">8.4.3.</span> Eventuais prazos operacionais de terceiros não afastarão o dever da MARCA de encaminhar tempestivamente a solicitação de estorno ou restituição.</p>
-<h2 id="pol-9">9. Atendimento ao consumidor</h2>
-<p><span class="num">9.1.</span> A MARCA disponibilizará canais eletrônicos adequados e eficazes para o recebimento e tratamento de solicitações relacionadas a informações, dúvidas, reclamações, cancelamentos, trocas e devoluções.</p>
-<p><span class="num">9.2.</span> O consumidor poderá utilizar os seguintes canais:</p>
-<ul><li>E-mail: <a href="mailto:lulibags.store@gmail.com">lulibags.store@gmail.com</a>;</li><li>WhatsApp: (11) 98834-1230;</li><li>Site: <a href="https://www.lulibags.com.br/">https://www.lulibags.com.br/</a>;</li><li>Outros canais oficiais: Instagram - @lulibags.store.</li></ul>
-<p><span class="num">9.3.</span> O atendimento deverá permitir que o consumidor apresente suas demandas e acompanhe os procedimentos necessários à solução da ocorrência.</p>
-<p><span class="num">9.4.</span> A MARCA deverá confirmar imediatamente o recebimento das demandas encaminhadas pelo consumidor, pelo mesmo meio utilizado na solicitação, conforme artigo 4º, inciso VI, do Decreto nº 7.962/2013.</p>
-<p><span class="num">9.5.</span> A manifestação da MARCA às demandas do consumidor deverá ser encaminhada no prazo máximo de 5 (cinco) dias, conforme artigo 4º, parágrafo único, do Decreto nº 7.962/2013.</p>
-<p><span class="num">9.6.</span> O atendimento não poderá impor obstáculos injustificados ao exercício dos direitos do consumidor, tampouco exigir procedimentos excessivamente burocráticos.</p>
-<h2 id="pol-10">10. Obrigações da MARCA</h2>
-<p><span class="num">10.1.</span> Constituem obrigações da MARCA:</p>
-<ol class="roman"><li><span class="num">I</span><span>Disponibilizar informações claras e completas sobre os produtos comercializados;</span></li><li><span class="num">II</span><span>Informar previamente os preços, condições de pagamento, disponibilidade e despesas de entrega;</span></li><li><span class="num">III</span><span>Cumprir as condições anunciadas na oferta e publicidade;</span></li><li><span class="num">IV</span><span>Respeitar os prazos de entrega informados;</span></li><li><span class="num">V</span><span>Disponibilizar meios eficazes de atendimento ao consumidor;</span></li><li><span class="num">VI</span><span>Confirmar o recebimento dos pedidos e das solicitações encaminhadas pelos consumidores;</span></li><li><span class="num">VII</span><span>Respeitar o direito de arrependimento e os prazos legalmente estabelecidos;</span></li><li><span class="num">VIII</span><span>Responsabilizar-se pelo tratamento das reclamações relacionadas a vícios dos produtos;</span></li><li><span class="num">IX</span><span>Adotar as providências necessárias à substituição, restituição ou abatimento do preço, quando legalmente cabível;</span></li><li><span class="num">X</span><span>Não impor cláusulas ou condições que representem renúncia ou restrição indevida aos direitos do consumidor.</span></li></ol>
-<h2 id="pol-11">11. Disposições finais</h2>
-<p><span class="num">11.1.</span> A presente política integra as informações contratuais disponibilizadas ao consumidor no momento da compra, devendo ser interpretada em conjunto com a oferta, a descrição do produto e as demais condições da contratação.</p>
-<p><span class="num">11.2.</span> As cláusulas deste documento deverão ser interpretadas de maneira mais favorável ao consumidor, conforme artigo 47 do CDC.</p>
-<p><span class="num">11.3.</span> Eventuais disposições que contrariem normas de proteção ao consumidor não produzirão efeitos na extensão de sua incompatibilidade com a legislação vigente, observando-se especialmente o artigo 51 do CDC.</p>
-<p><span class="num">11.4.</span> A MARCA poderá atualizar esta política sempre que necessário, devendo manter sua versão vigente disponível nos canais oficiais de comercialização, sem prejuízo dos direitos decorrentes das compras já realizadas.</p>
-<p><span class="num">11.5.</span> As situações não previstas expressamente neste documento serão solucionadas conforme as disposições do Código de Defesa do Consumidor, do Decreto nº 7.962/2013 e das demais normas aplicáveis.</p>
-<p><span class="num">11.6.</span> A disponibilização desta política não representa renúncia ou limitação de qualquer direito legalmente assegurado ao consumidor.</p>
-<p><strong>São Paulo, 08 de novembro de 2026.</strong></p>
-<p><strong>Luli Bags</strong><br><strong>Razão social:</strong> 66.015.820 LUISA DE ALMEIDA LAPENTA BARBOSA</p>
-<p><strong>CNPJ:</strong> 66.015.820/0001-65</p>
-</div></article>
-</template>
 <footer class="wrap" id="footer">
   <div class="fcols">
     <div class="fcol wide">
       <span class="label">Novidades e lançamentos</span>
-      <a class="news" href="https://www.instagram.com/lulibags.store/" target="_blank" rel="noopener" style="justify-content: space-between; align-items: center; padding: 12px 0; color: var(--on-night); text-decoration: none"><span>Siga @lulibags.store no Instagram</span><span class="label">Seguir →</span></a>
+      <a class="news" data-t="instagram" href="https://www.instagram.com/lulibags.store/" target="_blank" rel="noopener" style="justify-content: space-between; align-items: center; padding: 12px 0; color: var(--on-night); text-decoration: none"><span>Siga @lulibags.store no Instagram</span><span class="label">Seguir →</span></a>
     </div>
     <div class="fcol">
       <span class="label">Navegação</span>
       <button class="flink" data-go="home" data-scroll="todos">Modelos</button>
-      <button class="flink" data-go="home" data-scroll="concha">Coleção Concha</button>
+      <button class="flink" data-go="home" data-scroll="concha" data-t="colecao">Coleção Concha</button>
       <button class="flink" data-go="personalizar">Personalizar</button>
     </div>
     <div class="fcol">
       <span class="label">Contato</span>
-      <a href="https://www.instagram.com/lulibags.store/" target="_blank" rel="noopener">Instagram @lulibags.store</a>
-      <a href="https://wa.me/5511988341230" target="_blank" rel="noopener">WhatsApp (11) 98834-1230</a>
-      <span style="font-size: 17px; padding: 4px 0; user-select: all">lulibags.store@gmail.com</span>
-    </div>
-    <div class="fcol finfo">
-      <span class="label">Info</span>
-      <button class="flink" data-policy="trocas" data-anchor="pol-3" data-hash="entregas">Entregas</button>
-      <button class="flink" data-policy="trocas" data-anchor="pol-4" data-hash="trocas">Trocas e Devoluções</button>
-      <button class="flink" data-policy="privacidade" data-hash="privacidade">Política de Privacidade</button>
+      <a data-t="instagram" data-label href="https://www.instagram.com/lulibags.store/" target="_blank" rel="noopener">Instagram @lulibags.store</a>
+      <a data-t="whatsapp" href="https://wa.me/5511988341230" target="_blank" rel="noopener">WhatsApp (11) 98834-1230</a>
+      <span data-t="email" style="font-size: 17px; padding: 4px 0; user-select: all">lulibags.store@gmail.com</span>
     </div>
   </div>
   <img class="fmark" src="img/nome-rosa.svg" alt="Luli Bags">
-  <div class="fbase label"><span>© 2026 Luli Bags</span><span>Feitas à mão, peça por peça</span></div>
+  <div class="fbase label"><span data-t="ano">© 2026 Luli Bags</span><span data-t="rodape">Feitas à mão, peça por peça</span></div>
 </footer>
 
 <div class="scrim" id="scrim" hidden></div>
@@ -663,33 +413,12 @@ details p { padding-bottom: 18px; font-size: 17px; }
 
 <script>
 (function () {
-  var MODELS = {
-    shoulder: { name: 'Shoulder', price: 290, line: 'Linha permanente', desc: 'Formato trapézio em crochê de fio de malha e alça curta para levar na mão ou no antebraço. Cada peça é tecida à mão depois do pedido.',
-      colors: [{ id: 'rosa', name: 'Rosa', hex: '#E7B4C6', img: 'img/shoulder-rosa.webp' }, { id: 'azul', name: 'Azul', hex: '#4E95A6', img: 'img/shoulder-azul.webp' }, { id: 'roxa', name: 'Roxa', hex: '#6E2F8C', img: 'img/shoulder-roxa.webp' }] },
-    'arco-mini': { name: 'Arco Mini', price: 240, line: 'Linha permanente', desc: 'Versão compacta do Arco, com formato retangular e alça em arco trançada. Feita à mão, peça por peça.',
-      colors: [{ id: 'cinza', name: 'Cinza', hex: '#9C9C9A', img: 'img/arco-mini-cinza.webp' }, { id: 'roxa', name: 'Roxa', hex: '#6B3AA0', img: 'img/arco-mini-roxa.webp' }] },
-    'arco-maxi': { name: 'Arco Maxi', price: 290, line: 'Linha permanente', desc: 'Alça em arco alta e faixa mesclada na base. Feita à mão, peça por peça.',
-      colors: [{ id: 'vinho', name: 'Vinho', hex: '#8E1B33', img: 'img/arco-maxi-vinho.webp' }, { id: 'roxa', name: 'Roxa', hex: '#6E2F8C', img: 'img/arco-maxi-roxa.webp' }] },
-    scallop: { name: 'Scallop', price: 320, line: 'Coleção Concha', desc: 'Ponto concha que abre em leque e alça de ombro trançada no mesmo fio. Feita à mão, peça por peça.',
-      colors: [{ id: 'marrom', name: 'Marrom', hex: '#6B2E24', img: 'img/scallop-marrom.webp' }, { id: 'preta', name: 'Preta', hex: '#161414', img: 'img/scallop-preta.webp' }, { id: 'branca', name: 'Branca', hex: '#F1E9DA', img: 'img/scallop-branca.webp' }] },
-    olive: { name: 'Olive', price: 240, full: true, line: 'Coleção Concha', desc: 'Ponto concha, alça curta de mão e alça longa trançada para usar transversal. Feita à mão, peça por peça.',
-      colors: [{ id: 'lilas', name: 'Lilás', hex: '#B9A6D6', img: 'img/olive-lilas.webp' }, { id: 'preta', name: 'Preta', hex: '#161414', img: 'img/olive-preta.webp' }, { id: 'branca', name: 'Branca', hex: '#F1E9DA', img: 'img/olive-branca.webp' }] },
-    classic: { name: 'Classic', price: 290, line: 'Linha permanente', desc: 'Formato sacola com alças curtas e base larga. Feita à mão, peça por peça.',
-      colors: [{ id: 'rosa', name: 'Rosa', hex: '#E0234E', img: 'img/classic-rosa.webp' }, { id: 'vinho', name: 'Vinho', hex: '#7E1426', img: 'img/classic-vinho.webp' }] }
-  };
-  var CONCHA = [['scallop','marrom'],['scallop','preta'],['scallop','branca']];
-  var CAMP = [
-    { img: 'img/camp-1.webp', bg: '#3B3A2E', alt: 'Modelo de jaqueta de couro caminhando na rua com uma bolsa da Coleção Concha creme' },
-    { img: 'img/camp-2.webp', bg: '#2A2624', alt: 'Bolsa da Coleção Concha rosé segurada com as duas mãos à frente de um portão de ferro' },
-    { img: 'img/camp-3.webp', bg: '#2A2E36', alt: 'Modelo de branco encostada numa vitrine com uma bolsa da Coleção Concha preta' },
-    { img: 'img/camp-4.webp', bg: '#2E3440', alt: 'Bolsa da Coleção Concha azul-marinho com alça longa no colo, em luz de fim de tarde' },
-    { img: 'img/camp-6.webp', bg: '#4A3A32', alt: 'Bolsa da Coleção Concha creme usada transversal com suéter vinho' }
-  ];
   function campHTML(c) {
-    return '<figure class="edit camp" style="margin: 0; background: ' + c.bg + '"><div class="ph"><img src="' + c.img + '"' + rs(c.img, 640, 1000, '(max-width: 860px) 72vw, 25vw') + ' alt="' + esc(c.alt) + '" loading="lazy" decoding="async"></div></figure>';
+    return '<figure class="edit camp" style="margin: 0; background: ' + c.bg + '"><div class="ph"><img' + imgA(c.img, 640, 1000, '(max-width: 860px) 72vw, 25vw') + ' alt="' + esc(c.alt) + '" loading="lazy" decoding="async"></div></figure>';
   }
   function conchaTrack() {
     var out = [], ci = 0, n = 0;
+    if (!CONCHA.length) return CAMP.map(campHTML).join('');
     CONCHA.forEach(function (g, k) {
       out.push(cellHTML(g[0], g[1]));
       var take = k === CONCHA.length - 1 ? CAMP.length - ci : Math.ceil((CAMP.length - ci) / (CONCHA.length - k));
@@ -697,99 +426,138 @@ details p { padding-bottom: 18px; font-size: 17px; }
     });
     return out.join('');
   }
-  var GRID = [['shoulder','azul'],['shoulder','rosa'],['shoulder','roxa'],['arco-maxi','roxa'],['arco-maxi','vinho'],['arco-mini','cinza'],['arco-mini','roxa'],['classic','rosa'],['classic','vinho'],['scallop','marrom'],['scallop','preta'],['scallop','branca'],['olive','lilas'],['olive','preta'],['olive','branca']];
-  var INDEX = [
-    { id: 'scallop', name: 'Scallop', img: 'img/scallop-marrom.webp', fit: 'contain', alt: 'Bolsa Scallop marrom', note: 'Scallop. Ponto concha em leque, da Coleção Concha.', go: 'scallop' },
-    { id: 'olive', name: 'Olive', img: 'img/olive-lilas.webp', fit: 'cover', alt: 'Bolsa Olive lilás com alça longa', note: 'Olive. Ponto concha com alça curta e alça longa.', go: 'olive' },
-    { id: 'shoulder', name: 'Shoulder', img: 'img/shoulder-azul.webp', fit: 'contain', alt: 'Bolsa Shoulder azul mesclada', note: 'Shoulder. Formato trapézio e alça curta.', go: 'shoulder' },
-    { id: 'arco-maxi', name: 'Arco Maxi', img: 'img/arco-maxi-vinho.webp', fit: 'contain', alt: 'Bolsa Arco Maxi vinho', note: 'Arco Maxi. Alça em arco alta e faixa mesclada.', go: 'arco-maxi' },
-    { id: 'arco-mini', name: 'Arco Mini', img: 'img/arco-mini-cinza.webp', fit: 'contain', alt: 'Bolsa Arco Mini cinza', note: 'Arco Mini. A versão compacta do Arco.', go: 'arco-mini' },
-    { id: 'classic', name: 'Classic', img: 'img/classic-rosa.webp', fit: 'contain', alt: 'Bolsa Classic rosa', note: 'Classic. Formato sacola com base larga.', go: 'classic' }
-  ];
-  var YARNS = [
-    { id: 'rosa', name: 'Rosa', hex: '#E0234E' }, { id: 'rosa-claro', name: 'Rosa claro', hex: '#E7B4C6' }, { id: 'vinho', name: 'Vinho', hex: '#7E1426' },
-    { id: 'marrom', name: 'Marrom', hex: '#6B2E24' }, { id: 'roxa', name: 'Roxo', hex: '#6E2F8C' }, { id: 'lilas', name: 'Lilás', hex: '#B9A6D6' },
-    { id: 'azul', name: 'Azul', hex: '#4E95A6' }, { id: 'cinza', name: 'Cinza', hex: '#9C9C9A' }, { id: 'creme', name: 'Creme', hex: '#EFE4D2' }, { id: 'preta', name: 'Preto', hex: '#161414' }
-  ];
+  /* Content lives in content/*.json (edited in the Pages CMS panel) */
+  var MODELS = {}, CONCHA = [], CAMP = [], GRID = [], INDEX = [], BMODELS = [], BCOLORS = [], WHATSAPP = '', C = {};
+  var KNOWN = {"img/arco-maxi-vinho.webp":1,"img/shoulder-rosa.webp":1,"img/camp-6.webp":1,"img/idx-scallop-marrom.webp":0,"img/pdp-arco-maxi-vinho.webp":1,"img/camp-1.webp":1,"img/camp-2.webp":1,"img/pdp-olive-azul-marinho.webp":1,"img/pdp-olive-lilas.webp":1,"img/pdp-scallop-preta.webp":1,"img/pdp-arco-mini-roxa.webp":1,"img/pdp-scallop-branca.webp":1,"img/pdp-shoulder-rosa.webp":1,"img/pdp-shoulder-roxa.webp":1,"img/gal-vento.webp":1,"img/pdp-arco-mini-cinza.webp":1,"img/pers-corpos.webp":1,"img/olive-branca.webp":1,"img/arco-mini-cinza.webp":1,"img/idx-arco-maxi-vinho.webp":0,"img/idx-olive-lilas.webp":0,"img/pdp-shoulder-azul.webp":1,"img/hero-tricot.webp":1,"img/hero-rua.webp":1,"img/arco-mini-roxa.webp":1,"img/idx-arco-mini-cinza.webp":0,"img/shoulder-roxa.webp":1,"img/pdp-olive-branca.webp":1,"img/camp-3.webp":1,"img/pers-alcas.webp":1,"img/scallop-marrom.webp":1,"img/pdp-olive-preta.webp":1,"img/idx-shoulder-azul.webp":0,"img/pdp-scallop-marrom.webp":1,"img/pdp-full-olive-lilas.webp":0,"img/olive-vermelha.webp":1,"img/pdp-classic-vinho.webp":1,"img/arco-maxi-roxa.webp":1,"img/olive-lilas.webp":1,"img/scallop-branca.webp":1,"img/pdp-full-olive-azul-marinho.webp":0,"img/pdp-full-olive-vermelha.webp":0,"img/gal-tricot.webp":1,"img/pdp-olive-vermelha.webp":1,"img/pdp-classic-rosa.webp":1,"img/pdp-full-olive-branca.webp":0,"img/olive-azul-marinho.webp":1,"img/pdp-full-olive-preta.webp":0,"img/camp-4.webp":1,"img/classic-rosa.webp":1,"img/pdp-arco-maxi-roxa.webp":1,"img/shoulder-azul.webp":1,"img/scallop-preta.webp":1,"img/classic-vinho.webp":1,"img/olive-preta.webp":1,"img/idx-classic-rosa.webp":0,"img/pers/cherry.webp":0,"img/pers/boho.webp":0,"img/pers/olive.webp":0,"img/pers/baguete.webp":0};
+  function own(src) { return !!src && !Object.prototype.hasOwnProperty.call(KNOWN, src) && !/\.svg$/i.test(src); }
+  function slug(t) { return String(t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'item'; }
+  function uniq(base, used) { var k = base, n = 2; while (used[k]) k = base + '-' + n++; used[k] = 1; return k; }
+  function hexOk(h, d) { h = String(h || '').trim(); if (/^[0-9a-f]{3,8}$/i.test(h)) h = '#' + h; return /^#([0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(h) ? h : (d || '#E6DED4'); }
+  function str(v, d) { return v === undefined || v === null || v === '' ? (d || '') : String(v); }
+  function list(v) { return Array.isArray(v) ? v : []; }
+  function build(d) {
+    C = d;
+    var L = d.loja || {}, B = list((d.bolsas || {}).bolsas), used = {};
+    WHATSAPP = str(L.whatsapp).replace(/\D/g, '');
+    B.forEach(function (b) {
+      if (!b || b.mostrar === false || !str(b.nome)) return;
+      var usedC = {}, cols = list(b.cores).filter(function (c) { return c && str(c.foto); }).map(function (c) {
+        return { id: uniq(slug(c.nome), usedC), name: str(c.nome, 'Única'), hex: hexOk(c.cor), img: str(c.foto), pdp: str(c.foto_pagina, str(c.foto)), full: str(c.foto_inteira) };
+      });
+      if (!cols.length) return;
+      var id = uniq(slug(b.nome), used);
+      MODELS[id] = { name: str(b.nome), price: Math.max(0, Number(b.preco) || 0), line: str(b.linha), desc: str(b.descricao), cover: !!b.foto_preenche, colors: cols, carousel: !!b.no_carrossel,
+        listImg: str(b.lista_foto, cols[0].img), listFit: b.lista_ajuste === 'preencher' ? 'cover' : 'contain', note: str(b.lista_frase, str(b.nome)) };
+    });
+    Object.keys(MODELS).forEach(function (k) {
+      var m = MODELS[k];
+      m.colors.forEach(function (c) { GRID.push([k, c.id]); if (m.carousel) CONCHA.push([k, c.id]); });
+      INDEX.push({ id: k, name: m.name, img: m.listImg, fit: m.listFit, alt: 'Bolsa ' + m.name, note: m.note, go: k });
+    });
+    var col = d.colecao || {};
+    CAMP = col.mostrar === false ? [] : list(col.fotos_campanha).filter(function (x) { return x && str(x.foto); }).map(function (x) { return { img: str(x.foto), bg: hexOk(x.fundo, '#2A2624'), alt: str(x.descricao) }; });
+    if (col.mostrar === false) CONCHA = [];
+    var P = d.personalizar || {}, usedB = {}, usedK = {};
+    BMODELS = list(P.modelos).filter(function (x) { return x && str(x.nome); }).map(function (x) { return { id: uniq(str(x.nome), usedB), key: uniq(slug(x.nome), usedK), img: str(x.foto) }; });
+    var usedCo = {};
+    BCOLORS = list(P.cores).filter(function (x) { return x && str(x.nome); }).map(function (x) { return { code: uniq(str(x.codigo, slug(x.nome)), usedCo), name: str(x.nome), hex: hexOk(x.cor) }; });
+    var first = Object.keys(MODELS)[0];
+    state.model = first; state.color = first ? MODELS[first].colors[0].id : '';
+    state.idx = INDEX.length ? INDEX[0].id : '';
+    cart = (Array.isArray(cart) ? cart : []).map(function (it) {
+      var p = String(it && it.key || '').split(':'), m = p[0], c = p[1];
+      if (!Object.prototype.hasOwnProperty.call(MODELS, m)) return null;
+      var cc = MODELS[m].colors.filter(function (x) { return x.id === c; })[0]; if (!cc) return null;
+      var q = Math.max(1, Math.min(9, parseInt(it.qty, 10) || 1));
+      return { key: m + ':' + cc.id, title: MODELS[m].name + ' ' + cc.name, sub: 'Pronta para encomenda', img: cc.pdp, qty: q, price: MODELS[m].price };
+    }).filter(Boolean);
+  }
 
   var app = document.getElementById('app');
-  var state = { view: 'home', model: 'shoulder', color: 'rosa', qty: 1, idx: 'scallop',
+  var state = { view: 'home', model: '', color: '', qty: 1, idx: '',
     b: { model: null, colors: [], strap: null, strapColor: null } };
   var cart = [];
   try { cart = JSON.parse(localStorage.getItem('luli-cart') || '[]') || []; } catch (e) { cart = []; }
-  cart = (Array.isArray(cart) ? cart : []).map(function (it) {
-    var p = String(it && it.key || '').split(':'), m = p[0], c = p[1];
-    if (!Object.prototype.hasOwnProperty.call(MODELS, m)) return null;
-    var col = MODELS[m].colors.filter(function (x) { return x.id === c; })[0]; if (!col) return null;
-    var q = Math.max(1, Math.min(9, parseInt(it.qty, 10) || 1));
-    return { key: m + ':' + col.id, title: MODELS[m].name + ' ' + col.name, sub: 'Pronta para encomenda', img: col.img, qty: q, price: MODELS[m].price };
-  }).filter(Boolean);
 
   function isModel(k) { return Object.prototype.hasOwnProperty.call(MODELS, k); }
   function brl(n) { return 'R$ ' + Number(n).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
-  function priceOf(it) { if (it.price) return it.price; var m = it.key.replace(/^custom:/, '').split(/[:-]/)[0]; if (it.key.indexOf('arco-') > -1) m = it.key.indexOf('arco-mini') > -1 ? 'arco-mini' : 'arco-maxi'; return MODELS[m] ? MODELS[m].price : 0; }
+  function priceOf(it) { return it.price || 0; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-  function yarn(id) { for (var i = 0; i < YARNS.length; i++) if (YARNS[i].id === id) return YARNS[i]; return null; }
   function colorOf(m, c) { var cs = MODELS[m].colors; for (var i = 0; i < cs.length; i++) if (cs[i].id === c) return cs[i]; return cs[0]; }
 
   function sm(src) { return src.replace(/\.webp$/, '-sm.webp'); }
-  function rs(src, wSm, wFull, sizes) { return ' srcset="' + sm(src) + ' ' + wSm + 'w, ' + src + ' ' + wFull + 'w" sizes="' + sizes + '"'; }
+  function vimg(src, w) { return '/_vercel/image?url=' + encodeURIComponent('/' + src.replace(/^\/+/, '')) + '&w=' + w + '&q=75'; }
+  /* src + responsive attributes: built-in photos use their -sm copy, photos added in the panel go through Vercel's resizer */
+  function imgA(src, wSm, wFull, sizes) {
+    src = str(src);
+    if (KNOWN[src] === 1) return ' src="' + esc(src) + '" srcset="' + esc(sm(src)) + ' ' + wSm + 'w, ' + esc(src) + ' ' + wFull + 'w" sizes="' + sizes + '"';
+    if (own(src)) return ' src="' + esc(vimg(src, 800)) + '" srcset="' + [400, 800, 1200].map(function (w) { return esc(vimg(src, w)) + ' ' + w + 'w'; }).join(', ') + '" sizes="' + sizes + '" data-orig="' + esc(encodeURI(src)) + '"';
+    return ' src="' + esc(encodeURI(src)) + '"';
+  }
+  function thumbA(src) {
+    src = str(src);
+    if (KNOWN[src] === 1) return ' src="' + esc(sm(src)) + '"';
+    if (own(src)) return ' src="' + esc(vimg(src, 400)) + '" data-orig="' + esc(encodeURI(src)) + '"';
+    return ' src="' + esc(encodeURI(src)) + '"';
+  }
+  function up(src) { return own(src) ? ' up' : ''; }
   function cellHTML(m, c) {
     var col = colorOf(m, c);
-    return '<button class="cell" data-open="' + m + '" data-color="' + col.id + '"><div class="ph"><img' + (MODELS[m].line === 'Coleção Concha' ? ' class="cover"' : '') + ' src="' + col.img + '"' + rs(col.img, 400, 720, '(max-width: 860px) 50vw, 25vw') + ' alt="Bolsa ' + esc(MODELS[m].name) + ' em crochê ' + esc(col.name.toLowerCase()) + '" loading="lazy"></div>' +
+    return '<button class="cell" data-open="' + m + '" data-color="' + col.id + '"><div class="ph"><img class="' + (MODELS[m].cover ? 'cover' : '') + up(col.img) + '"' + imgA(col.img, 400, 720, '(max-width: 860px) 50vw, 25vw') + ' alt="Bolsa ' + esc(MODELS[m].name) + ' em crochê ' + esc(col.name.toLowerCase()) + '" loading="lazy"></div>' +
       '<div class="cap"><span>' + esc(MODELS[m].name) + ' <em>' + esc(col.name) + '</em></span><span class="label">' + brl(MODELS[m].price) + '</span></div></button>';
   }
 
+  function T(o, k, d) { return esc(str((o || {})[k], d)); }
   function homeHTML() {
-    var it = INDEX.filter(function (x) { return x.id === state.idx; })[0];
-    var fig = it.soon
-      ? '<div class="soon"><img src="img/simbolo-rosa.svg" alt=""><span class="label muted">Fotos novas em breve</span></div>'
-      : '<img class="' + it.fit + '" src="' + it.img + '" loading="lazy" decoding="async" alt="' + esc(it.alt) + '">';
+    var H = C.inicio || {}, K = C.colecao || {}, it = INDEX.filter(function (x) { return x.id === state.idx; })[0] || INDEX[0];
+    var fig = !it ? '' : '<img class="' + it.fit + up(it.img) + '"' + imgA(it.img, 400, 720, '(max-width: 860px) 100vw, 40vw') + ' loading="lazy" decoding="async" alt="' + esc(it.alt) + '">';
+    function half(h, bg, first) {
+      h = h || {}; var to = h.leva_para === 'colecao' && (CONCHA.length || CAMP.length) ? 'concha' : h.leva_para === 'personalizar' ? '' : 'todos';
+      return '<a class="half" href="#' + (to || 'personalizar') + '" ' + (to ? 'data-scrollto="' + to + '"' : 'data-go="personalizar"') + ' style="background: ' + bg + '"><img' + imgA(str(h.foto), 640, 1200, '(max-width: 860px) 100vw, 50vw') + (first ? ' fetchpriority="high"' : '') + ' decoding="async" alt="' + T(h, 'descricao') + '"><span class="label">' + T(h, 'rotulo') + '</span></a>';
+    }
+    var showCol = K.mostrar !== false && (CONCHA.length || CAMP.length);
+    var pieces = GRID.length, gal = list(H.galeria).filter(function (g) { return g && str(g.foto); });
+    var tiles = gal.map(function (g) {
+      var cover = g.ajuste !== 'inteira', fy = Math.max(0, Math.min(100, Number(g.foco_vertical) || 50));
+      return '<div class="tile" style="background: ' + hexOk(g.fundo, '#E6DED4') + '"><img class="' + (cover ? 'cover' : 'contain') + '"' + imgA(str(g.foto), 640, 1200, '(max-width: 860px) 100vw, 50vw') + ' alt="' + T(g, 'descricao') + '" loading="lazy" decoding="async"' + (cover ? ' style="object-position: 50% ' + fy + '%"' : '') + '></div>';
+    });
+    tiles.splice(Math.min(2, tiles.length), 0, '<div class="tile" style="background: var(--blush)"><img src="img/simbolo-rosa.svg" alt="" style="width: 52%; height: auto"></div>');
     return '' +
     '<section class="hero" id="hero">' +
-      '<div class="hero-grid">' +
-        '<a class="half" href="#concha" data-scrollto="concha" style="background: var(--stone-2)"><img src="img/hero-tricot.webp" srcset="img/hero-tricot-sm.webp 640w, img/hero-tricot.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" fetchpriority="high" decoding="async" alt="Bolsa Scallop em crochê bordô segurada à frente de um cardigã de tricô"><span class="label">Coleção Concha</span></a>' +
-        '<a class="half" href="#todos" data-scrollto="todos" style="background: #2A2E36"><img src="img/hero-rua.webp" srcset="img/hero-rua-sm.webp 640w, img/hero-rua.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" fetchpriority="high" decoding="async" alt="Mulher de branco caminhando na rua com uma bolsa de crochê preta na mão"><span class="label">Novidades</span></a>' +
-      '</div>' +
+      '<div class="hero-grid">' + half(H.capa_esquerda, 'var(--stone-2)', true) + half(H.capa_direita, '#2A2E36', false) + '</div>' +
       '<h1 id="mark"><img src="img/nome-rosa.svg" alt="Luli Bags"></h1>' +
-      '<button class="pill cta" data-scrollto="todos">Conheça os modelos →</button>' +
+      '<button class="pill cta" data-scrollto="todos">' + T(H, 'botao_capa', 'Conheça os modelos →') + '</button>' +
     '</section>' +
 
-    '<section class="car-head wrap" id="concha"><div style="display: flex; flex-direction: column; gap: 18px; max-width: 760px"><span class="label muted">Nova coleção · Concha</span><h2 class="h2">Coleção Concha</h2></div>' +
+    (showCol ?
+    '<section class="car-head wrap" id="concha"><div style="display: flex; flex-direction: column; gap: 18px; max-width: 760px"><span class="label muted">' + T(K, 'etiqueta') + '</span><h2 class="h2">' + T(K, 'nome') + '</h2></div>' +
       '<div class="car-nav"><button class="arrow" id="carPrev" aria-label="Anterior"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M11 3L5 9l6 6"/></svg></button><button class="arrow" id="carNext" aria-label="Próximo"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 3l6 6-6 6"/></svg></button></div></section>' +
-    '<section class="track" id="track" aria-label="Coleção Concha" tabindex="0">' + conchaTrack() +
-      '<button class="made" data-go="personalizar" data-model="olive"><span class="label">Sob medida</span><img src="img/simbolo-rosa.svg" alt=""><span style="display: flex; flex-direction: column; gap: 14px"><p>Personalize sua bolsa<br><em>da Coleção Concha.</em></p><span style="font-size: 17px; line-height: 1.5">Escolha o modelo, até duas cores e a alça.</span><span class="go">Criar a minha →</span></span></button>' +
-    '</section>' +
+    '<section class="track" id="track" aria-label="' + T(K, 'nome') + '" tabindex="0">' + conchaTrack() +
+      '<button class="made" data-go="personalizar" data-model="' + esc(slug(K.cartao_modelo)) + '"><span class="label">Sob medida</span><img src="img/simbolo-rosa.svg" alt=""><span style="display: flex; flex-direction: column; gap: 14px"><p>' + T(K, 'cartao_titulo') + '<br><em>' + T(K, 'cartao_italico') + '</em></p><span style="font-size: 17px; line-height: 1.5">' + T(K, 'cartao_texto') + '</span><span class="go">Criar a minha →</span></span></button>' +
+    '</section>' : '') +
 
-    '<section class="head wrap" id="todos"><div class="t"><span class="label muted">Modelos · 6 modelos · 15 peças</span><h2 class="h2">Todos os modelos</h2></div><button class="link-arrow" data-go="personalizar">Prefere outra cor? Personalize →</button></section>' +
-    '<section class="grid4 all" aria-label="Produtos">' + GRID.map(function (g) { return cellHTML(g[0], g[1]); }).join('') + '<button class="made-wide" data-go="personalizar"><img src="img/simbolo-rosa.svg" alt=""><span style="display: flex; flex-direction: column; gap: 12px; min-width: 0"><span class="label">Sob medida</span><span class="big">Não achou a sua cor?<br><em>Monte a sua combinação.</em></span><span class="go">Personalizar →</span></span></button></section>' +
+    '<section class="head wrap" id="todos"><div class="t"><span class="label muted">Modelos · ' + INDEX.length + (INDEX.length === 1 ? ' modelo · ' : ' modelos · ') + pieces + (pieces === 1 ? ' peça' : ' peças') + '</span><h2 class="h2">' + T(H, 'modelos_titulo', 'Todos os modelos') + '</h2></div><button class="link-arrow" data-go="personalizar">' + T(H, 'modelos_link') + '</button></section>' +
+    '<section class="grid4 all" aria-label="Produtos">' + GRID.map(function (g) { return cellHTML(g[0], g[1]); }).join('') + '<button class="made-wide" data-go="personalizar"><img src="img/simbolo-rosa.svg" alt=""><span style="display: flex; flex-direction: column; gap: 12px; min-width: 0"><span class="label">Sob medida</span><span class="big">' + T(H, 'cartao_sob_medida_titulo') + '<br><em>' + T(H, 'cartao_sob_medida_italico') + '</em></span><span class="go">Personalizar →</span></span></button></section>' +
 
-    '<section class="models wrap" id="modelos" aria-label="Modelos">' +
+    (it ? '<section class="models wrap" id="modelos" aria-label="Modelos">' +
       '<span class="label muted">Modelos · ' + INDEX.length + '</span><div class="mlist" role="group" aria-label="Escolha um modelo">' +
-      INDEX.map(function (x, i) { return '<button class="mitem" data-idx="' + x.id + '" aria-pressed="' + (x.id === state.idx) + '">' + esc(x.name) + '<span class="label">' + String(i + 1).padStart(2, '0') + (x.id === state.idx && x.go ? ' · ver →' : '') + '</span></button>'; }).join('') +
+      INDEX.map(function (x, i) { return '<button class="mitem" data-idx="' + x.id + '" aria-pressed="' + (x.id === it.id) + '">' + esc(x.name) + '<span class="label">' + String(i + 1).padStart(2, '0') + (x.id === it.id ? ' · ver →' : '') + '</span></button>'; }).join('') +
       '</div>' +
-      '<figure class="mfig"><div class="frame">' + fig + '</div><figcaption><span>' + esc(it.note) + '</span>' + (it.go ? '<button class="link-arrow" data-open="' + it.go + '">Ver modelo →</button>' : '<button class="link-arrow" data-go="personalizar">Encomendar →</button>') + '</figcaption></figure>' +
-    '</section>' +
+      '<figure class="mfig"><div class="frame">' + fig + '</div><figcaption><span>' + esc(it.note) + '</span><button class="link-arrow" data-open="' + it.go + '">Ver modelo →</button></figcaption></figure>' +
+    '</section>' : '') +
 
     '<section class="band" id="personalizar-band">' +
       '<div class="pstack">' +
-        '<figure><img src="img/pers-corpos.webp" srcset="img/pers-corpos-sm.webp 640w, img/pers-corpos.webp 1600w" sizes="(max-width: 860px) 100vw, 50vw" alt="Cinco bolsas Olive em crochê, sem alça longa, dispostas em leque: lilás, preto, branco, vermelho e azul-marinho" loading="lazy" decoding="async"><figcaption class="label"><span>01 · Escolha a cor da bolsa</span><span class="muted">5 cores</span></figcaption></figure>' +
-        '<figure><img src="img/pers-alcas.webp" srcset="img/pers-alcas-sm.webp 640w, img/pers-alcas.webp 1600w" sizes="(max-width: 860px) 100vw, 50vw" alt="Cinco alças longas trançadas em crochê nas cores vermelho, lilás, azul-marinho, preto e branco" loading="lazy" decoding="async"><figcaption class="label"><span>02 · Escolha a alça</span><span class="muted">5 cores</span></figcaption></figure>' +
+        [1, 2].filter(function (n) { return str(H['personalizar_foto_' + n]); }).map(function (n) { return '<figure><img' + imgA(str(H['personalizar_foto_' + n]), 640, 1600, '(max-width: 860px) 100vw, 50vw') + ' alt="" loading="lazy" decoding="async"><figcaption class="label"><span>' + T(H, 'personalizar_legenda_' + n) + '</span><span class="muted">' + T(H, 'personalizar_detalhe_' + n) + '</span></figcaption></figure>'; }).join('') +
       '</div>' +
-      '<div class="txt wrap"><span class="label">Personalizar</span><h2 class="h2">Crie uma bolsa<br><em>exclusiva para você.</em></h2><p style="font-size: 19px; line-height: 1.55">Escolha o modelo, as cores e faça sua combinação única. Cada peça é tecida à mão depois do seu pedido.</p>' +
+      '<div class="txt wrap"><span class="label">Personalizar</span><h2 class="h2">' + T(H, 'personalizar_titulo') + '<br><em>' + T(H, 'personalizar_titulo_italico') + '</em></h2><p style="font-size: 19px; line-height: 1.55">' + T(H, 'personalizar_texto') + '</p>' +
       '<ol class="steps label"><li><span>01</span>Escolha o modelo</li><li><span>02</span>Escolha uma ou duas cores</li><li><span>03</span>Decida se quer alça tiracolo</li></ol>' +
       '<div><button class="pill" data-go="personalizar">Personalizar agora →</button></div></div>' +
     '</section>' +
 
-    '<section class="quote wrap"><span class="label muted">Handmade crochet bag</span><p class="big">Nada sai de uma máquina. <em>Cada Luli é feita ponto a ponto, à mão, uma de cada vez.</em></p></section>' +
+    '<section class="quote wrap"><span class="label muted">' + T(H, 'frase_etiqueta') + '</span><p class="big">' + T(H, 'frase') + ' <em>' + T(H, 'frase_italico') + '</em></p></section>' +
 
-    '<section class="tiles" aria-label="Galeria">' +
-      '<div class="tile" style="background: #3A2F2A"><img class="cover" src="img/gal-tricot.webp" srcset="img/gal-tricot-sm.webp 640w, img/gal-tricot.webp 1000w" sizes="(max-width: 860px) 100vw, 50vw" alt="Bolsa Scallop marrom segurada à frente de um suéter de tricô" loading="lazy" decoding="async" style="object-position: 50% 60%"></div>' +
-      '<div class="tile" style="background: var(--stone)"><img class="contain" src="img/arco-mini-roxa.webp" alt="" loading="lazy" decoding="async"></div>' +
-      '<div class="tile" style="background: var(--blush)"><img src="img/simbolo-rosa.svg" alt="" style="width: 52%; height: auto"></div>' +
-      '<div class="tile" style="background: #2A2E36"><img class="cover" src="img/gal-vento.webp" srcset="img/gal-vento-sm.webp 640w, img/gal-vento.webp 1600w" sizes="(max-width: 860px) 100vw, 50vw" alt="Modelo de branco com o cabelo ao vento e uma bolsa de crochê preta no ombro" loading="lazy" decoding="async" style="object-position: 50% 40%"></div>' +
-      '<div class="tile" style="background: var(--stone)"><img class="contain" src="img/classic-rosa.webp" alt="" loading="lazy" decoding="async"></div>' +
-    '</section>';
+    (gal.length ? '<section class="tiles" aria-label="Galeria">' + tiles.join('') + '</section>' : '');
   }
 
   function productHTML() {
@@ -797,20 +565,20 @@ details p { padding-bottom: 18px; font-size: 17px; }
     var others = Object.keys(MODELS).filter(function (k) { return k !== state.model && MODELS[k].line === m.line; });
     if (others.length < 3) others = others.concat(Object.keys(MODELS).filter(function (k) { return k !== state.model && others.indexOf(k) < 0; }));
     others = others.slice(0, m.colors.length > 1 ? 3 : 4);
-    var full = m.full ? col.img.replace('img/', 'img/pdp-full-') : '';
+    var full = col.full;
     return '' +
     '<section class="pdp' + (full ? ' multi' : '') + '">' +
-      '<div class="pgal">' + (full ? '<div class="pmain full"><img src="' + full + '" alt="Bolsa ' + esc(m.name) + ' ' + esc(col.name.toLowerCase()) + ' inteira, com a alça longa"></div>' : '') + (full ? '' : '<div class="pmain"><img src="' + col.img.replace('img/', 'img/pdp-') + '" alt="Bolsa ' + esc(m.name) + ' em crochê ' + esc(col.name.toLowerCase()) + '"></div>') +
-      '<div class="pthumbs" style="--n: ' + Math.max(3, m.colors.length) + '">' + m.colors.map(function (c) { return '<button class="pthumb" data-color-pick="' + c.id + '" aria-pressed="' + (c.id === col.id) + '" aria-label="Ver cor ' + esc(c.name) + '"><img src="' + sm(c.img.replace('img/', 'img/pdp-')) + '" alt="" loading="lazy" decoding="async"></button>'; }).join('') +
+      '<div class="pgal">' + (full ? '<div class="pmain full"><img class="' + up(full) + '"' + imgA(full, 400, 1000, '(max-width: 860px) 100vw, 50vw') + ' alt=""Bolsa ' + esc(m.name) + ' ' + esc(col.name.toLowerCase()) + ' inteira, com a alça longa"></div>' : '') + (full ? '' : '<div class="pmain"><img class="' + up(col.pdp) + '"' + imgA(col.pdp, 400, 860, '(max-width: 860px) 100vw, 50vw') + ' alt=""Bolsa ' + esc(m.name) + ' em crochê ' + esc(col.name.toLowerCase()) + '"></div>') +
+      '<div class="pthumbs" style="--n: ' + Math.max(3, m.colors.length) + '">' + m.colors.map(function (c) { return '<button class="pthumb" data-color-pick="' + c.id + '" aria-pressed="' + (c.id === col.id) + '" aria-label="Ver cor ' + esc(c.name) + '"><img class="' + up(c.pdp) + '"' + thumbA(c.pdp) + ' alt="" loading="lazy" decoding="async"></button>'; }).join('') +
         (m.colors.length < 3 ? '<div class="pthumb" style="cursor: default; grid-column: span ' + (3 - m.colors.length) + '"><span class="label muted" style="padding: 12px; text-align: center">Outras cores no Personalizar</span></div>' : '') + '</div></div>' +
       '<div class="pinfo wrap">' +
         '<nav class="crumbs label" aria-label="Trilha"><button data-go="home">Início</button><span aria-hidden="true">/</span><button data-go="home" data-scroll="todos">Modelos</button><span aria-hidden="true">/</span><span>' + esc(m.name) + '</span></nav>' +
         '<div style="display: flex; flex-direction: column; gap: 10px"><span class="label">' + esc(m.line) + '</span><h1 class="ptitle">' + esc(m.name) + ' <em>' + esc(col.name) + '</em></h1><p style="font-size: 22px; font-variant-numeric: tabular-nums">' + brl(m.price) + '</p></div>' +
         '<p style="font-size: 19px; line-height: 1.55; max-width: 520px">' + esc(m.desc) + '</p>' +
-        '<fieldset><legend class="label">Cor · ' + esc(col.name) + '</legend><div class="sw-row">' + m.colors.map(function (c) { return '<button class="sw" data-color-pick="' + c.id + '" aria-pressed="' + (c.id === col.id) + '" aria-label="Cor ' + esc(c.name) + '"><span style="background: ' + c.hex + '"></span></button>'; }).join('') + '</div></fieldset>' +
+        '<fieldset><legend class="label">Cor · ' + esc(col.name) + '</legend><div class="sw-row">' + m.colors.map(function (c) { return '<button class="sw" data-color-pick="' + c.id + '" aria-pressed="' + (c.id === col.id) + '" aria-label="Cor ' + esc(c.name) + '"><span style="background: ' + esc(c.hex) + '"></span></button>'; }).join('') + '</div></fieldset>' +
         '<div style="display: flex; flex-direction: column; gap: 12px"><div class="buyrow"><div class="qty" role="group" aria-label="Quantidade"><button data-qty="-1" aria-label="Diminuir">−</button><output id="qtyOut">' + state.qty + '</output><button data-qty="1" aria-label="Aumentar">+</button></div><button class="pill" id="addBtn" style="flex: 1; min-width: 200px">Adicionar à sacola</button></div>' +
         '<a class="pill solid wa" id="buyNow" href="' + buyNowHref(m, col) + '" target="_blank" rel="noopener">' + WA_ICON + 'Comprar agora pelo WhatsApp</a>' +
-        '<button class="pill" data-go="personalizar" data-model="' + state.model + '">Personalizar este modelo →</button>' +
+        '' + (bmodelByKey(state.model) ? '<button class="pill" data-go="personalizar" data-model="' + state.model + '">Personalizar este modelo →</button>' : '') + '' +
         '</div>' +
       '</div>' +
     '</section>' +
@@ -818,38 +586,9 @@ details p { padding-bottom: 18px; font-size: 17px; }
     '<section class="grid4" aria-label="Outros modelos">' + others.map(function (k) { return cellHTML(k, MODELS[k].colors[0].id); }).join('') + (m.colors.length > 1 ? cellHTML(state.model, m.colors[(m.colors.indexOf(col) + 1) % m.colors.length].id) : '') + '</section>';
   }
 
-  var WHATSAPP = '5511988341230';
   function buyNowHref(m, col) {
     return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Oi, tudo bem? Quero comprar:\n• ' + state.qty + 'x ' + m.name + ' ' + col.name + ' · ' + brl(m.price * state.qty));
   }
-  var BMODELS = [
-    { id: 'Arco Mini', key: 'arco-mini', img: 'img/pdp-arco-mini-roxa.webp' },
-    { id: 'Shoulder', key: 'shoulder', img: 'img/pdp-shoulder-roxa.webp' },
-    { id: 'Classic', key: 'classic', img: 'img/pdp-classic-vinho.webp' },
-    { id: 'Arco Maxi', key: 'arco-maxi', img: 'img/pdp-arco-maxi-vinho.webp' },
-    { id: 'Baguete', key: 'baguete', img: 'img/pers/baguete.webp' },
-    { id: 'Boho', key: 'boho', img: 'img/pers/boho.webp' },
-    { id: 'Cherry', key: 'cherry', img: 'img/pers/cherry.webp' },
-    { id: 'Scallop', key: 'scallop', img: 'img/pdp-scallop-marrom.webp' },
-    { id: 'Olive', key: 'olive', img: 'img/pers/olive.webp' }
-  ];
-  var BCOLORS = [
-    { code: '3881', name: 'Maçã do Amor', hex: '#FF6252' },
-    { code: '3748', name: 'Rosa Vermelha', hex: '#E20146' },
-    { code: '3528', name: 'Carmim', hex: '#CD002E' },
-    { code: '5427', name: 'Brotinho', hex: '#C4DDB6' },
-    { code: '8990', name: 'Preto', hex: '#21222D' },
-    { code: '2012', name: 'Azul-Candy', hex: '#9BD2E6' },
-    { code: '2972', name: 'Maré Cheia', hex: '#549CA6' },
-    { code: '3161', name: 'Rosa Algodão', hex: '#F4B3C9' },
-    { code: '6630', name: 'Lilás Suave', hex: '#B7A6C6' },
-    { code: '6859', name: 'Roxo Brilhante', hex: '#79366A' },
-    { code: '2802', name: 'Mar Noturno', hex: '#36476A' },
-    { code: '3986', name: 'Picante', hex: '#770703' },
-    { code: '3559', name: 'Tomate', hex: '#B52C28' },
-    { code: '7288', name: 'Chocolate em Pó', hex: '#522310' }
-  ];
-  function cbg(c) { return c.hex + " url('img/fio-" + c.code + ".webp') center / cover"; }
   function bcolor(code) { for (var i = 0; i < BCOLORS.length; i++) if (BCOLORS[i].code === code) return BCOLORS[i]; return null; }
   function bmodel(id) { for (var i = 0; i < BMODELS.length; i++) if (BMODELS[i].id === id) return BMODELS[i]; return null; }
   function bmodelByKey(k) { for (var i = 0; i < BMODELS.length; i++) if (BMODELS[i].key === k) return BMODELS[i].id; return null; }
@@ -862,32 +601,32 @@ details p { padding-bottom: 18px; font-size: 17px; }
     var sc = b.strapColor ? bcolor(b.strapColor) : null;
     var m = hasModel ? bmodel(b.model) : null;
     var c1 = b.colors[0] ? bcolor(b.colors[0]) : null, c2 = b.colors[1] ? bcolor(b.colors[1]) : null;
-    function ball(c, label) { return '<span class="bball"><span class="dotc' + (c ? ' on' : '') + '" style="' + (c ? 'background: ' + cbg(c) : '') + '"></span><small>' + esc(c ? c.name : label) + '</small></span>'; }
+    function ball(c, label) { return '<span class="bball"><span class="dotc' + (c ? ' on' : '') + '" style="' + (c ? 'background: ' + c.hex : '') + '"></span><small>' + esc(c ? c.name : label) + '</small></span>'; }
     var preview = '<div class="bprev">' +
         '<span class="label muted bprev-tag">Sua bolsa</span>' +
-        (m ? '<img class="bprev-img" src="' + m.img + '" alt="Modelo ' + esc(m.id) + '">' : '<div class="bprev-empty"><img src="img/simbolo-rosa.svg" alt=""><span class="label muted">Escolha um modelo para começar</span></div>') +
+        (m ? '<img class="bprev-img' + up(m.img) + '"' + imgA(m.img, 400, 860, '(max-width: 860px) 70vw, 40vw') + ' alt="Modelo ' + esc(m.id) + '">' : '<div class="bprev-empty"><img src="img/simbolo-rosa.svg" alt=""><span class="label muted">Escolha um modelo para começar</span></div>') +
         '<div class="bprev-info">' +
           '<div><span class="label muted">Modelo</span><p class="bval">' + (m ? esc(m.id) : '—') + '</p></div>' +
           '<div><span class="label muted">' + (b.colors.length === 0 ? 'Cores · nenhuma ainda' : b.colors.length === 1 ? 'Cor · pode escolher mais 1' : 'Cores') + '</span>' +
             '<div class="bcombo">' + ball(c1, 'Cor 1') + '<span class="op" aria-hidden="true">+</span>' + ball(c2, 'Cor 2') +
-            (twoColors ? '<span class="op" aria-hidden="true">=</span><span class="bball"><span class="dotc on half" style="background: url(\'img/fio-' + c1.code + '.webp\') left / 50% 100% no-repeat, url(\'img/fio-' + c2.code + '.webp\') right / 50% 100% no-repeat, linear-gradient(90deg, ' + c1.hex + ' 50%, ' + c2.hex + ' 50%)"></span><small>Combinação</small></span>' : '') + '</div></div>' +
+            (twoColors ? '<span class="op" aria-hidden="true">=</span><span class="bball"><span class="dotc on half" style="background: linear-gradient(90deg, ' + c1.hex + ' 50%, ' + c2.hex + ' 50%)"></span><small>Combinação</small></span>' : '') + '</div></div>' +
           '<div><span class="label muted">Alça tiracolo</span>' + (b.strap && sc ? '<div class="bcombo">' + ball(sc, '') + '</div>' : '<p class="bval">' + (b.strap === null ? '—' : b.strap ? 'Escolha a cor da alça' : 'Sem alça') + '</p>') + '</div>' +
         '</div></div>';
-    var models = '<div class="bmodels">' + BMODELS.map(function (x) { return '<button class="bmodel" data-bmodel="' + esc(x.id) + '" aria-pressed="' + (x.id === b.model) + '"><img src="' + (x.img.indexOf('/pers/') > -1 ? x.img : sm(x.img)) + '" alt="" loading="lazy" decoding="async"><span class="label">' + esc(x.id) + '</span></button>'; }).join('') + '</div>';
+    var models = '<div class="bmodels">' + BMODELS.map(function (x) { return '<button class="bmodel" data-bmodel="' + esc(x.id) + '" aria-pressed="' + (x.id === b.model) + '"><img class="' + up(x.img) + '"' + thumbA(x.img) + ' alt="" loading="lazy" decoding="async"><span class="label">' + esc(x.id) + '</span></button>'; }).join('') + '</div>';
     var swatches = '<div class="bswatches">' + BCOLORS.map(function (c) {
       var idx = b.colors.indexOf(c.code);
-      return '<button class="bsw" data-bcolor="' + c.code + '" aria-pressed="' + (idx > -1) + '" aria-label="' + c.code + ' ' + esc(c.name) + '"><span class="dotc" style="background: ' + cbg(c) + '">' + (idx > -1 ? '<b>' + (idx + 1) + '</b>' : '') + '</span><span class="code">' + c.code + '</span><span class="nm">' + esc(c.name) + '</span></button>';
+      return '<button class="bsw" data-bcolor="' + c.code + '" aria-pressed="' + (idx > -1) + '" aria-label="' + c.code + ' ' + esc(c.name) + '"><span class="dotc" style="background: ' + c.hex + '">' + (idx > -1 ? '<b>' + (idx + 1) + '</b>' : '') + '</span><span class="code">' + c.code + '</span><span class="nm">' + esc(c.name) + '</span></button>';
     }).join('') + '</div>';
     var strapSw = b.strap ? '<p class="label muted" style="margin-top: 10px">Cor da alça · escolha 1</p><div class="bswatches">' + BCOLORS.map(function (c) {
       var on = b.strapColor === c.code;
-      return '<button class="bsw" data-scolor="' + c.code + '" aria-pressed="' + on + '" aria-label="Alça ' + c.code + ' ' + esc(c.name) + '"><span class="dotc" style="background: ' + cbg(c) + '"></span><span class="code">' + c.code + '</span><span class="nm">' + esc(c.name) + '</span></button>';
+      return '<button class="bsw" data-scolor="' + c.code + '" aria-pressed="' + on + '" aria-label="Alça ' + c.code + ' ' + esc(c.name) + '"><span class="dotc" style="background: ' + c.hex + '"></span><span class="code">' + c.code + '</span><span class="nm">' + esc(c.name) + '</span></button>';
     }).join('') + '</div>' : '';
-    var chips = b.colors.length ? '<div class="bchips">' + b.colors.map(function (code, i) { var c = bcolor(code); return '<span class="bchip"><i style="background: ' + cbg(c) + '"></i>Cor ' + (i + 1) + ': ' + esc(c.name) + '</span>'; }).join('') + '</div>' : '';
+    var chips = b.colors.length ? '<div class="bchips">' + b.colors.map(function (code, i) { var c = bcolor(code); return '<span class="bchip"><i style="background: ' + c.hex + '"></i>Cor ' + (i + 1) + ': ' + esc(c.name) + '</span>'; }).join('') + '</div>' : '';
     var buy = done
       ? '<a class="pill solid wa" href="https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(bMessage()) + '" target="_blank" rel="noopener">' + WA_ICON + 'Comprar agora pelo WhatsApp</a>'
       : '<button class="pill solid wa" disabled>' + WA_ICON + 'Complete as etapas para continuar</button>';
     return '' +
-    '<section class="head wrap" style="padding-block: 72px 40px"><div class="t"><span class="label muted">Personalizar · sob encomenda</span><h1 class="h2">Personalize sua bolsa</h1><p style="font-size: 19px; max-width: 560px">Crie uma peça única, feita especialmente para você.</p></div></section>' +
+    '<section class="head wrap" style="padding-block: 72px 40px"><div class="t"><span class="label muted">Personalizar · sob encomenda</span><h1 class="h2">' + T(C.personalizar, 'titulo', 'Personalize sua bolsa') + '</h1><p style="font-size: 19px; max-width: 560px">' + T(C.personalizar, 'subtitulo') + '</p></div></section>' +
     '<section class="builder">' + preview +
       '<div class="bform wrap">' +
         '<fieldset class="bstep"><legend class="label">Passo 01 · Escolha seu modelo</legend>' + models + '</fieldset>' +
@@ -895,12 +634,12 @@ details p { padding-bottom: 18px; font-size: 17px; }
         '<fieldset class="bstep' + (hasColors ? '' : ' dim') + '"' + (hasColors ? '' : ' disabled') + '><legend class="label">Passo 03 · Deseja adicionar alça tiracolo?</legend><div class="chips"><button class="chip" data-strap="yes" aria-pressed="' + (b.strap === true) + '">Sim</button><button class="chip" data-strap="no" aria-pressed="' + (b.strap === false) + '">Não</button></div>' + strapSw + '</fieldset>' +
         (done ? '<div class="summary"><span class="label muted">Seu pedido</span>' +
           '<span><b>Modelo:</b> ' + esc(b.model) + '</span>' +
-          '<span><b>' + (c2 ? 'Cor 1:' : 'Cor:') + '</b> <i class="sdot" style="background: ' + cbg(c1) + '"></i>' + esc(c1.code + ' · ' + c1.name) + '</span>' +
-          (c2 ? '<span><b>Cor 2:</b> <i class="sdot" style="background: ' + cbg(c2) + '"></i>' + esc(c2.code + ' · ' + c2.name) + '</span>' : '') +
-          '<span><b>Alça tiracolo:</b> ' + (b.strap ? '<i class="sdot" style="background: ' + cbg(sc) + '"></i>' + esc(sc.code + ' · ' + sc.name) : 'Não') + '</span></div>' +
+          '<span><b>' + (c2 ? 'Cor 1:' : 'Cor:') + '</b> <i class="sdot" style="background: ' + c1.hex + '"></i>' + esc(c1.code + ' · ' + c1.name) + '</span>' +
+          (c2 ? '<span><b>Cor 2:</b> <i class="sdot" style="background: ' + c2.hex + '"></i>' + esc(c2.code + ' · ' + c2.name) + '</span>' : '') +
+          '<span><b>Alça tiracolo:</b> ' + (b.strap ? '<i class="sdot" style="background: ' + sc.hex + '"></i>' + esc(sc.code + ' · ' + sc.name) : 'Não') + '</span></div>' +
           '<div class="bmsg"><span class="label muted">Mensagem que será enviada</span><p>' + esc(bMessage()) + '</p></div>' : '') +
         '<div class="buyrow">' + buy + '</div>' +
-        '<p class="label muted" style="line-height: 1.7">O pedido abre uma conversa no WhatsApp com a Luli, onde você recebe o orçamento e o prazo.</p>' +
+        '<p class="label muted" style="line-height: 1.7">' + T(C.personalizar, 'aviso') + '</p>' +
       '</div>' +
     '</section>';
   }
@@ -910,14 +649,13 @@ details p { padding-bottom: 18px; font-size: 17px; }
   function render(scrollTarget) {
     if (state.view === 'home') app.innerHTML = homeHTML();
     else if (state.view === 'product') app.innerHTML = productHTML();
-    else if (state.view === 'policy') app.innerHTML = document.getElementById('pol-' + state.policy).innerHTML;
     else app.innerHTML = builderHTML();
     app.className = 'view-enter';
     document.querySelectorAll('.navlink[data-go="personalizar"]').forEach(function (b) { b.setAttribute('aria-current', state.view === 'personalizar' ? 'page' : 'false'); });
     setupMark();
     setupCarousel();
     if (scrollTarget === 'keep') return;
-    if (scrollTarget) { var el = document.getElementById(scrollTarget); if (el) { el.scrollIntoView({ block: 'start' }); if (state.view === 'policy' && document.fonts && document.fonts.ready) { var again = function () { if (el.isConnected) el.scrollIntoView({ block: 'start' }); }; requestAnimationFrame(again); document.fonts.ready.then(again); window.addEventListener('load', again, { once: true }); } return; } }
+    if (scrollTarget) { var el = document.getElementById(scrollTarget); if (el) { el.scrollIntoView({ block: 'start' }); return; } }
     window.scrollTo(0, 0);
   }
 
@@ -926,10 +664,9 @@ details p { padding-bottom: 18px; font-size: 17px; }
     state.view = view;
     if (opts.model) { if (isModel(opts.model)) state.model = opts.model; var bm = bmodelByKey(opts.model); if (bm) state.b.model = bm; }
     if (opts.color) state.color = opts.color;
-    if (opts.policy) state.policy = opts.policy;
     state.qty = 1;
     closeMenu();
-    var hash = view === 'product' ? state.model : view === 'personalizar' ? 'personalizar' : view === 'policy' ? opts.hash : '';
+    var hash = view === 'product' ? state.model : view === 'personalizar' ? 'personalizar' : '';
     try { history.replaceState(null, '', hash ? '#' + hash : location.pathname + location.search); } catch (e) {}
     render(opts.scroll);
   }
@@ -1007,11 +744,11 @@ details p { padding-bottom: 18px; font-size: 17px; }
       return;
     }
     items.innerHTML = cart.map(function (it, i) {
-      return '<div class="citem"><div class="th"><img src="' + sm(it.img) + '" alt="" loading="lazy" decoding="async"></div><div class="meta"><span style="font-size: 19px">' + esc(it.title) + '</span><span class="muted" style="font-size: 15px">' + esc(it.sub) + '</span><span class="label muted">' + brl(priceOf(it) * it.qty) + '</span>' +
+      return '<div class="citem"><div class="th"><img class="' + up(it.img) + '"' + thumbA(it.img) + ' alt=""" loading="lazy" decoding="async"></div><div class="meta"><span style="font-size: 19px">' + esc(it.title) + '</span><span class="muted" style="font-size: 15px">' + esc(it.sub) + '</span><span class="label muted">' + brl(priceOf(it) * it.qty) + '</span>' +
         '<div class="row"><div class="qty" role="group" aria-label="Quantidade de ' + esc(it.title) + '"><button data-cq="' + i + ':-1" aria-label="Diminuir">−</button><output>' + it.qty + '</output><button data-cq="' + i + ':1" aria-label="Aumentar">+</button></div><button class="rm" data-rm="' + i + '">Remover</button></div></div></div>';
     }).join('');
     foot.innerHTML = '<div style="display: flex; justify-content: space-between"><span class="label">Subtotal · ' + cartCount() + (cartCount() === 1 ? ' peça' : ' peças') + '</span><span class="label">' + brl(cart.reduce(function (t, i) { return t + priceOf(i) * i.qty; }, 0)) + '</span></div>' +
-      '<a class="pill solid wa" href="https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(cartMessage()) + '" target="_blank" rel="noopener">' + WA_ICON + 'Finalizar compra pelo WhatsApp</a><p class="label muted" style="line-height: 1.7">O pedido abre uma conversa no WhatsApp com a Luli, onde você combina frete e pagamento.</p>';
+      '<a class="pill solid wa" href="https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(cartMessage()) + '" target="_blank" rel="noopener">' + WA_ICON + 'Finalizar compra pelo WhatsApp</a><p class="label muted" style="line-height: 1.7">' + T(C.loja, 'aviso_whatsapp_sacola') + '</p>';
   }
   function cartMessage() {
     var total = cart.reduce(function (t, i) { return t + priceOf(i) * i.qty; }, 0);
@@ -1035,7 +772,6 @@ details p { padding-bottom: 18px; font-size: 17px; }
     var t = e.target.closest('button, a');
     if (!t) return;
     if (t.hasAttribute('data-close-cart')) closeCart();
-    if (t.dataset.policy) { e.preventDefault(); go('policy', { policy: t.dataset.policy, scroll: t.dataset.anchor, hash: t.dataset.hash }); return; }
     if (t.dataset.go) { e.preventDefault(); var v = t.dataset.go; go(v === 'home' ? 'home' : 'personalizar', { scroll: t.dataset.scroll, model: t.dataset.model }); return; }
     if (t.dataset.scrollto) { e.preventDefault(); var el = document.getElementById(t.dataset.scrollto); if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); return; }
     if (t.dataset.open && isModel(t.dataset.open)) { go('product', { model: t.dataset.open, color: t.dataset.color || MODELS[t.dataset.open].colors[0].id }); return; }
@@ -1044,7 +780,7 @@ details p { padding-bottom: 18px; font-size: 17px; }
     if (t.dataset.qty) { state.qty = Math.max(1, Math.min(9, state.qty + Number(t.dataset.qty))); document.getElementById('qtyOut').textContent = state.qty; var bn = document.getElementById('buyNow'), pm = MODELS[state.model]; if (bn && pm) bn.href = buyNowHref(pm, pm.colors.filter(function (c) { return c.id === state.color; })[0] || pm.colors[0]); return; }
     if (t.id === 'addBtn') {
       var col = colorOf(state.model, state.color), m = MODELS[state.model];
-      addItem({ key: state.model + ':' + col.id, title: m.name + ' ' + col.name, sub: 'Pronta para encomenda', img: col.img, qty: state.qty, price: m.price });
+      addItem({ key: state.model + ':' + col.id, title: m.name + ' ' + col.name, sub: 'Pronta para encomenda', img: col.pdp, qty: state.qty, price: m.price });
       toast(m.name + ' ' + col.name + ' na sacola'); return;
     }
     if (t.dataset.bmodel) { state.b.model = t.dataset.bmodel; render('keep'); return; }
@@ -1062,14 +798,42 @@ details p { padding-bottom: 18px; font-size: 17px; }
   scrim.addEventListener('click', closeCart);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { if (!cartEl.hidden) { closeCart(); cartBtn.focus(); } if (!menu.hidden) closeMenu(); } });
 
-  /* Start on the view named in the link, if any */
-  var h = (location.hash || '').replace('#', '');
-  renderCart();
-  if (isModel(h)) go('product', { model: h, color: MODELS[h].colors[0].id });
-  else if (h === 'personalizar') go('personalizar');
-  else if (h === 'privacidade') go('policy', { policy: 'privacidade', hash: h });
-  else if (h === 'trocas' || h === 'entregas') go('policy', { policy: 'trocas', scroll: h === 'trocas' ? 'pol-4' : 'pol-3', hash: h });
-  else render(h === 'todos' || h === 'concha' || h === 'modelos' ? h : null);
+  /* Photos added in the panel: if the resizer is unavailable, show the original file */
+  document.addEventListener('error', function (e) {
+    var t = e.target;
+    if (t && t.tagName === 'IMG' && t.getAttribute('data-orig') && !t.getAttribute('data-fb')) { t.setAttribute('data-fb', '1'); t.removeAttribute('srcset'); t.src = t.getAttribute('data-orig'); }
+  }, true);
+
+  /* Texts outside the page body: top bar, menus and footer */
+  function fillStatic() {
+    var L = C.loja || {}, K = C.colecao || {}, ig = str(L.instagram).replace(/^@/, ''), wa = WHATSAPP;
+    function set(sel, fn) { document.querySelectorAll(sel).forEach(fn); }
+    set('[data-t="faixa"]', function (el) { el.textContent = str(L.faixa_topo); });
+    set('[data-t="faixa-link"]', function (el) { el.textContent = str(L.faixa_topo_link, 'Crie a sua'); });
+    set('[data-t="colecao"]', function (el) { var on = K.mostrar !== false && (CONCHA.length || CAMP.length); el.hidden = !on; var t = el.querySelector('em') || el; t.textContent = str(K.nome, 'Coleção'); });
+    set('[data-t="instagram"]', function (el) { el.hidden = !ig; el.href = 'https://www.instagram.com/' + encodeURIComponent(ig) + '/'; if (el.hasAttribute('data-label')) el.textContent = 'Instagram @' + ig; else el.querySelector('span').textContent = 'Siga @' + ig + ' no Instagram'; });
+    set('[data-t="whatsapp"]', function (el) { el.hidden = !wa; el.href = 'https://wa.me/' + wa; el.textContent = 'WhatsApp ' + str(L.whatsapp_exibido, wa); });
+    set('[data-t="email"]', function (el) { el.hidden = !str(L.email); el.textContent = str(L.email); });
+    set('[data-t="rodape"]', function (el) { el.textContent = str(L.rodape_frase); });
+    var y = document.querySelector('[data-t="ano"]'); if (y) y.textContent = '© ' + new Date().getFullYear() + ' Luli Bags';
+  }
+
+  /* Start: load the content, then open the view named in the link, if any */
+  function start() {
+    fillStatic();
+    var h = (location.hash || '').replace('#', '');
+    renderCart();
+    if (isModel(h)) go('product', { model: h, color: MODELS[h].colors[0].id });
+    else if (h === 'personalizar') go('personalizar');
+    else render(h === 'todos' || h === 'concha' || h === 'modelos' ? h : null);
+  }
+  var FILES = ['loja', 'inicio', 'colecao', 'bolsas', 'personalizar'];
+  Promise.all(FILES.map(function (f) { return fetch('content/' + f + '.json').then(function (r) { if (!r.ok) throw new Error(f); return r.json(); }); }))
+    .then(function (arr) { var d = {}; FILES.forEach(function (f, i) { d[f] = arr[i]; }); build(d); start(); })
+    .catch(function (err) {
+      if (window.console) console.error('Conteúdo não carregou:', err);
+      app.innerHTML = '<section class="wrap" style="padding-block: 160px; text-align: center"><p style="font-size: 22px">Não foi possível carregar o site agora.</p><p class="muted" style="margin-top: 12px">Atualize a página em alguns instantes.</p></section>';
+    });
 })();
 </script>
 

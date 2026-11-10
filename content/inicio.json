@@ -1,0 +1,61 @@
+{
+  "capa_esquerda": {
+    "foto": "img/hero-tricot.webp",
+    "rotulo": "Coleção Concha",
+    "descricao": "Bolsa Scallop em crochê bordô segurada à frente de um cardigã de tricô",
+    "leva_para": "colecao"
+  },
+  "capa_direita": {
+    "foto": "img/hero-rua.webp",
+    "rotulo": "Novidades",
+    "descricao": "Mulher de branco caminhando na rua com uma bolsa de crochê preta na mão",
+    "leva_para": "modelos"
+  },
+  "botao_capa": "Conheça os modelos →",
+  "modelos_titulo": "Todos os modelos",
+  "modelos_link": "Prefere outra cor? Personalize →",
+  "cartao_sob_medida_titulo": "Não achou a sua cor?",
+  "cartao_sob_medida_italico": "Monte a sua combinação.",
+  "personalizar_foto_1": "img/pers-corpos.webp",
+  "personalizar_legenda_1": "01 · Escolha a cor da bolsa",
+  "personalizar_detalhe_1": "5 cores",
+  "personalizar_foto_2": "img/pers-alcas.webp",
+  "personalizar_legenda_2": "02 · Escolha a alça",
+  "personalizar_detalhe_2": "5 cores",
+  "personalizar_titulo": "Crie uma bolsa",
+  "personalizar_titulo_italico": "exclusiva para você.",
+  "personalizar_texto": "Escolha o modelo, as cores e faça sua combinação única. Cada peça é tecida à mão depois do seu pedido.",
+  "frase_etiqueta": "Handmade crochet bag",
+  "frase": "Nada sai de uma máquina.",
+  "frase_italico": "Cada Luli é feita ponto a ponto, à mão, uma de cada vez.",
+  "galeria": [
+    {
+      "foto": "img/gal-tricot.webp",
+      "ajuste": "preencher",
+      "fundo": "#3A2F2A",
+      "foco_vertical": 60,
+      "descricao": "Bolsa Scallop marrom segurada à frente de um suéter de tricô"
+    },
+    {
+      "foto": "img/arco-mini-roxa.webp",
+      "ajuste": "inteira",
+      "fundo": "#E6DED4",
+      "foco_vertical": 50,
+      "descricao": ""
+    },
+    {
+      "foto": "img/gal-vento.webp",
+      "ajuste": "preencher",
+      "fundo": "#2A2E36",
+      "foco_vertical": 40,
+      "descricao": "Modelo de branco com o cabelo ao vento e uma bolsa de crochê preta no ombro"
+    },
+    {
+      "foto": "img/classic-rosa.webp",
+      "ajuste": "inteira",
+      "fundo": "#E6DED4",
+      "foco_vertical": 50,
+      "descricao": ""
+    }
+  ]
+}

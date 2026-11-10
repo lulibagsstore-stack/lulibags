@@ -1,0 +1,36 @@
+{
+  "mostrar": true,
+  "nome": "Coleção Concha",
+  "etiqueta": "Nova coleção · Concha",
+  "cartao_titulo": "Personalize sua bolsa",
+  "cartao_italico": "da Coleção Concha.",
+  "cartao_texto": "Escolha o modelo, até duas cores e a alça.",
+  "cartao_modelo": "Olive",
+  "fotos_campanha": [
+    {
+      "foto": "img/camp-1.webp",
+      "fundo": "#3B3A2E",
+      "descricao": "Modelo de jaqueta de couro caminhando na rua com uma bolsa da Coleção Concha creme"
+    },
+    {
+      "foto": "img/camp-2.webp",
+      "fundo": "#2A2624",
+      "descricao": "Bolsa da Coleção Concha rosé segurada com as duas mãos à frente de um portão de ferro"
+    },
+    {
+      "foto": "img/camp-3.webp",
+      "fundo": "#2A2E36",
+      "descricao": "Modelo de branco encostada numa vitrine com uma bolsa da Coleção Concha preta"
+    },
+    {
+      "foto": "img/camp-4.webp",
+      "fundo": "#2E3440",
+      "descricao": "Bolsa da Coleção Concha azul-marinho com alça longa no colo, em luz de fim de tarde"
+    },
+    {
+      "foto": "img/camp-6.webp",
+      "fundo": "#4A3A32",
+      "descricao": "Bolsa da Coleção Concha creme usada transversal com suéter vinho"
+    }
+  ]
+}

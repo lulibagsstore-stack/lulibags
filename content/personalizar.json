@@ -1,0 +1,130 @@
+{
+  "titulo": "Personalize sua bolsa",
+  "subtitulo": "Crie uma peça única, feita especialmente para você.",
+  "aviso": "O pedido abre uma conversa no WhatsApp com a Luli, onde você recebe o orçamento e o prazo.",
+  "modelos": [
+    {
+      "nome": "Arco Mini",
+      "foto": "img/pdp-arco-mini-roxa.webp"
+    },
+    {
+      "nome": "Shoulder",
+      "foto": "img/pdp-shoulder-roxa.webp"
+    },
+    {
+      "nome": "Classic",
+      "foto": "img/pdp-classic-vinho.webp"
+    },
+    {
+      "nome": "Arco Maxi",
+      "foto": "img/pdp-arco-maxi-vinho.webp"
+    },
+    {
+      "nome": "Baguete",
+      "foto": "img/pers/baguete.webp"
+    },
+    {
+      "nome": "Boho",
+      "foto": "img/pers/boho.webp"
+    },
+    {
+      "nome": "Cherry",
+      "foto": "img/pers/cherry.webp"
+    },
+    {
+      "nome": "Scallop",
+      "foto": "img/pdp-scallop-marrom.webp"
+    },
+    {
+      "nome": "Olive",
+      "foto": "img/pers/olive.webp"
+    }
+  ],
+  "cores": [
+    {
+      "codigo": "7288",
+      "nome": "Chocolate em pó",
+      "cor": "#4E3015"
+    },
+    {
+      "codigo": "7361",
+      "nome": "Melado",
+      "cor": "#8B5A35"
+    },
+    {
+      "codigo": "1723",
+      "nome": "Citrino",
+      "cor": "#F5EDB0"
+    },
+    {
+      "codigo": "3363",
+      "nome": "Rosa amor",
+      "cor": "#DDB8B5"
+    },
+    {
+      "codigo": "3986",
+      "nome": "Picante",
+      "cor": "#7A0010"
+    },
+    {
+      "codigo": "3528",
+      "nome": "Carmin",
+      "cor": "#CC1020"
+    },
+    {
+      "codigo": "3526",
+      "nome": "Rosa candy",
+      "cor": "#F0BCD8"
+    },
+    {
+      "codigo": "3230",
+      "nome": "Rosa tropical",
+      "cor": "#E03580"
+    },
+    {
+      "codigo": "6291",
+      "nome": "Vinho quente",
+      "cor": "#6A2878"
+    },
+    {
+      "codigo": "6638",
+      "nome": "Lilás suave",
+      "cor": "#BCA0D5"
+    },
+    {
+      "codigo": "2882",
+      "nome": "Mar noturno",
+      "cor": "#181840"
+    },
+    {
+      "codigo": "2196",
+      "nome": "Turquesa",
+      "cor": "#109888"
+    },
+    {
+      "codigo": "5092",
+      "nome": "Floresta selvagem",
+      "cor": "#284820"
+    },
+    {
+      "codigo": "8225",
+      "nome": "Crômio",
+      "cor": "#9898A0"
+    },
+    {
+      "codigo": "8243",
+      "nome": "Cinza resina",
+      "cor": "#525255"
+    },
+    {
+      "codigo": "7684",
+      "nome": "Porcelana",
+      "cor": "#F0F0EC"
+    },
+    {
+      "codigo": "8990",
+      "nome": "Preto",
+      "cor": "#0A0A0A"
+    }
+  ]
+}
