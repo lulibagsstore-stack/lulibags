@@ -27,35 +27,33 @@
   "personalizar_texto": "Escolha o modelo, as cores e faça sua combinação única. Cada peça é tecida à mão depois do seu pedido.",
   "frase_etiqueta": "Handmade crochet bag",
   "frase": "Nada sai de uma máquina.",
-  "frase_italico": "Cada Luli é feita ponto a ponto, à mão, uma de cada vez.",
+  "frase_italico": "Cada Luli é feita ponto a ponto, à mão, uma de cada vez. Lu",
   "galeria": [
     {
       "foto": "img/gal-tricot.webp",
       "ajuste": "preencher",
-      "fundo": "#3A2F2A",
       "foco_vertical": 60,
+      "fundo": "#3A2F2A",
       "descricao": "Bolsa Scallop marrom segurada à frente de um suéter de tricô"
     },
     {
       "foto": "img/arco-mini-roxa.webp",
       "ajuste": "inteira",
-      "fundo": "#E6DED4",
       "foco_vertical": 50,
-      "descricao": ""
+      "fundo": "#E6DED4"
     },
     {
       "foto": "img/gal-vento.webp",
       "ajuste": "preencher",
-      "fundo": "#2A2E36",
       "foco_vertical": 40,
+      "fundo": "#2A2E36",
       "descricao": "Modelo de branco com o cabelo ao vento e uma bolsa de crochê preta no ombro"
     },
     {
       "foto": "img/classic-rosa.webp",
       "ajuste": "inteira",
-      "fundo": "#E6DED4",
       "foco_vertical": 50,
-      "descricao": ""
+      "fundo": "#E6DED4"
     }
   ]
 }
