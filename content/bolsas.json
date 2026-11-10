@@ -169,20 +169,6 @@
           "foto_inteira": "img/pdp-full-olive-preta.webp"
         },
         {
-          "nome": "Azul-Marinho",
-          "cor": "#232A4E",
-          "foto": "img/olive-azul-marinho.webp",
-          "foto_pagina": "img/pdp-olive-azul-marinho.webp",
-          "foto_inteira": "img/pdp-full-olive-azul-marinho.webp"
-        },
-        {
-          "nome": "Vermelha",
-          "cor": "#C0122E",
-          "foto": "img/olive-vermelha.webp",
-          "foto_pagina": "img/pdp-olive-vermelha.webp",
-          "foto_inteira": "img/pdp-full-olive-vermelha.webp"
-        },
-        {
           "nome": "Branca",
           "cor": "#F1E9DA",
           "foto": "img/olive-branca.webp",

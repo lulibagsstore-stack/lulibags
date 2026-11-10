@@ -42,89 +42,88 @@
   ],
   "cores": [
     {
-      "codigo": "7288",
-      "nome": "Chocolate em pó",
-      "cor": "#4E3015"
+      "codigo": "3881",
+      "nome": "Maçã do Amor",
+      "cor": "#FF6252",
+      "foto": "img/fio-3881.webp"
     },
     {
-      "codigo": "7361",
-      "nome": "Melado",
-      "cor": "#8B5A35"
-    },
-    {
-      "codigo": "1723",
-      "nome": "Citrino",
-      "cor": "#F5EDB0"
-    },
-    {
-      "codigo": "3363",
-      "nome": "Rosa amor",
-      "cor": "#DDB8B5"
-    },
-    {
-      "codigo": "3986",
-      "nome": "Picante",
-      "cor": "#7A0010"
+      "codigo": "3748",
+      "nome": "Rosa Vermelha",
+      "cor": "#E20146",
+      "foto": "img/fio-3748.webp"
     },
     {
       "codigo": "3528",
-      "nome": "Carmin",
-      "cor": "#CC1020"
+      "nome": "Carmim",
+      "cor": "#CD002E",
+      "foto": "img/fio-3528.webp"
     },
     {
-      "codigo": "3526",
-      "nome": "Rosa candy",
-      "cor": "#F0BCD8"
-    },
-    {
-      "codigo": "3230",
-      "nome": "Rosa tropical",
-      "cor": "#E03580"
-    },
-    {
-      "codigo": "6291",
-      "nome": "Vinho quente",
-      "cor": "#6A2878"
-    },
-    {
-      "codigo": "6638",
-      "nome": "Lilás suave",
-      "cor": "#BCA0D5"
-    },
-    {
-      "codigo": "2882",
-      "nome": "Mar noturno",
-      "cor": "#181840"
-    },
-    {
-      "codigo": "2196",
-      "nome": "Turquesa",
-      "cor": "#109888"
-    },
-    {
-      "codigo": "5092",
-      "nome": "Floresta selvagem",
-      "cor": "#284820"
-    },
-    {
-      "codigo": "8225",
-      "nome": "Crômio",
-      "cor": "#9898A0"
-    },
-    {
-      "codigo": "8243",
-      "nome": "Cinza resina",
-      "cor": "#525255"
-    },
-    {
-      "codigo": "7684",
-      "nome": "Porcelana",
-      "cor": "#F0F0EC"
+      "codigo": "5427",
+      "nome": "Brotinho",
+      "cor": "#C4DDB6",
+      "foto": "img/fio-5427.webp"
     },
     {
       "codigo": "8990",
       "nome": "Preto",
-      "cor": "#0A0A0A"
+      "cor": "#21222D",
+      "foto": "img/fio-8990.webp"
+    },
+    {
+      "codigo": "2012",
+      "nome": "Azul-Candy",
+      "cor": "#9BD2E6",
+      "foto": "img/fio-2012.webp"
+    },
+    {
+      "codigo": "2972",
+      "nome": "Maré Cheia",
+      "cor": "#549CA6",
+      "foto": "img/fio-2972.webp"
+    },
+    {
+      "codigo": "3161",
+      "nome": "Rosa Algodão",
+      "cor": "#F4B3C9",
+      "foto": "img/fio-3161.webp"
+    },
+    {
+      "codigo": "6630",
+      "nome": "Lilás Suave",
+      "cor": "#B7A6C6",
+      "foto": "img/fio-6630.webp"
+    },
+    {
+      "codigo": "6859",
+      "nome": "Roxo Brilhante",
+      "cor": "#79366A",
+      "foto": "img/fio-6859.webp"
+    },
+    {
+      "codigo": "2802",
+      "nome": "Mar Noturno",
+      "cor": "#36476A",
+      "foto": "img/fio-2802.webp"
+    },
+    {
+      "codigo": "3986",
+      "nome": "Picante",
+      "cor": "#770703",
+      "foto": "img/fio-3986.webp"
+    },
+    {
+      "codigo": "3559",
+      "nome": "Tomate",
+      "cor": "#B52C28",
+      "foto": "img/fio-3559.webp"
+    },
+    {
+      "codigo": "7288",
+      "nome": "Chocolate em Pó",
+      "cor": "#522310",
+      "foto": "img/fio-7288.webp"
     }
   ]
 }
