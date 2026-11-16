@@ -1,0 +1,11 @@
+{
+  "ativo": true,
+  "titulo": "Black November",
+  "codigo_vip": "BLACK26",
+  "desconto_1": 20,
+  "desconto_2": 25,
+  "desconto_3": 30,
+  "inicio_vip": "",
+  "aberto_para_todos": "",
+  "fim": "30/11/2026 23:59"
+}

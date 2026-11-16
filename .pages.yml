@@ -284,6 +284,31 @@ content:
             description: Uma foto bem de perto do fio. Aparece dentro da bolinha. Se ficar vazio, usa a cor acima.
             type: image
 
+  # ------------------------------------------------------------------ BLACK NOVEMBER
+  - name: blackfriday
+    label: Black November (desconto VIP)
+    type: file
+    path: content/blackfriday.json
+    format: json
+    fields:
+      - name: ativo
+        label: Promoção ligada
+        description: Desligue para voltar todos os preços ao normal na hora.
+        type: boolean
+        default: false
+      - { name: titulo, label: Nome da promoção, description: "Aparece na faixa do topo e na mensagem do WhatsApp. Ex.: Black November", type: string }
+      - name: codigo_vip
+        label: Código do link VIP
+        description: "O link do grupo é www.lulibags.com.br/?vip=CODIGO. Se o link vazar, troque o código aqui e mande o link novo no grupo. O link antigo para de funcionar."
+        type: string
+        pattern: "^[A-Za-z0-9]{4,30}$"
+      - { name: desconto_1, label: Desconto na 1ª bolsa (%), description: "Só o número. Ex.: 20", type: number, options: { min: 0, max: 90 } }
+      - { name: desconto_2, label: Desconto na 2ª bolsa (%), description: "Vale para a bolsa de menor ou igual valor. Ex.: 25", type: number, options: { min: 0, max: 90 } }
+      - { name: desconto_3, label: Desconto na 3ª bolsa em diante (%), description: "Ex.: 30", type: number, options: { min: 0, max: 90 } }
+      - { name: inicio_vip, label: Começa em (opcional), description: "DD/MM/AAAA HH:MM, horário de Brasília. Vazio = já está valendo.", type: string }
+      - { name: aberto_para_todos, label: Abre para todos em (opcional), description: "DD/MM/AAAA HH:MM. A partir daí o desconto aparece para qualquer pessoa no site. Vazio = só o grupo VIP.", type: string }
+      - { name: fim, label: Termina em, description: "DD/MM/AAAA HH:MM. Depois disso os preços voltam ao normal sozinhos.", type: string }
+
   # ------------------------------------------------------------------ LOJA
   - name: loja
     label: Contato e textos gerais

@@ -345,6 +345,12 @@ details p { padding-bottom: 18px; font-size: 17px; }
 .citem .th { aspect-ratio: 3 / 4; max-width: 100%; background: var(--stone); display: flex; align-items: center; justify-content: center; }
 .citem .th img { width: 92%; height: 92%; object-fit: contain; }
 .citem .meta { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+/* Black November VIP */
+.announce.vip { background: var(--ink); color: var(--on-night); }
+.announce.vip [data-t="faixa-link"] { color: var(--on-night) !important; }
+.was { text-decoration: line-through; color: var(--muted); font-weight: 400; }
+.vipnow { color: var(--pink-ink); }
+.viptag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pink-ink); }
 .citem .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .citem .qty { height: 40px; }
 .citem .qty button { height: 38px; width: 38px; }
@@ -687,8 +693,41 @@ details p { padding-bottom: 18px; font-size: 17px; }
   function hexOk(h, d) { h = String(h || '').trim(); if (/^[0-9a-f]{3,8}$/i.test(h)) h = '#' + h; return /^#([0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(h) ? h : (d || '#E6DED4'); }
   function str(v, d) { return v === undefined || v === null || v === '' ? (d || '') : String(v); }
   function list(v) { return Array.isArray(v) ? v : []; }
+  /* Black November VIP: content/blackfriday.json. The VIP link (?vip=CODE) is saved in this browser. */
+  var VIP = { on: false, member: false, tiers: [], title: '' };
+  function cents(n) { return Math.round(n * 100) / 100; }
+  function off(p, pc) { return Math.round(p * (100 - (pc || 0))) / 100; }
+  function vipPct(k) { var t = VIP.tiers; return t.length ? t[Math.min(k, t.length - 1)] : 0; }
+  function ord(n) { return n + 'ª'; }
+  function vipRule() { return VIP.tiers.map(function (pc, k) { var last = k === VIP.tiers.length - 1 && k > 0; return pc + '% ' + (last ? 'da ' : 'na ') + ord(k + 1) + (k === 0 ? ' bolsa' : '') + (last ? ' em diante' : ''); }).join(' · '); }
+  function vipHello() { return 'Oi, tudo bem? ' + (VIP.member ? 'Sou do grupo VIP e quero' : 'Quero') + ' finalizar meu pedido da ' + VIP.title + ':'; }
+  /* Dates typed in the panel as DD/MM/AAAA HH:MM, São Paulo time (UTC-3) */
+  function spDate(v, endOfDay) {
+    var m = /^\s*(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2})[:h](\d{2}))?\s*$/.exec(str(v));
+    if (!m) return null;
+    var hh = m[4] !== undefined ? +m[4] : (endOfDay ? 23 : 0), mi = m[5] !== undefined ? +m[5] : (endOfDay ? 59 : 0);
+    return Date.UTC(+m[3], +m[2] - 1, +m[1], hh + 3, mi, endOfDay && m[4] === undefined ? 59 : 0);
+  }
+  function setupVip(V) {
+    V = V || {};
+    var code = str(V.codigo_vip).trim().toUpperCase(), saved = '';
+    try {
+      var q = new URLSearchParams(location.search).get('vip');
+      if (q) { localStorage.setItem('luli-vip', q.trim().toUpperCase()); history.replaceState(null, '', location.pathname + location.hash); }
+      saved = localStorage.getItem('luli-vip') || '';
+    } catch (e) {}
+    var tiers = [V.desconto_1, V.desconto_2, V.desconto_3].map(function (n) { return Math.max(0, Math.min(90, Number(n) || 0)); });
+    while (tiers.length && !tiers[tiers.length - 1]) tiers.pop();
+    var now = Date.now(), start = spDate(V.inicio_vip), end = spDate(V.fim, true), pub = spDate(V.aberto_para_todos);
+    var live = V.ativo === true && tiers.length > 0 && tiers[0] > 0 && (start === null || now >= start) && (end === null || now <= end);
+    VIP.member = !!code && saved === code;
+    VIP.on = live && (VIP.member || (pub !== null && now >= pub));
+    VIP.tiers = tiers;
+    VIP.title = str(V.titulo, 'Black November');
+  }
   function build(d) {
     C = d;
+    setupVip(d.blackfriday);
     var L = d.loja || {}, B = list((d.bolsas || {}).bolsas), used = {};
     WHATSAPP = str(L.whatsapp).replace(/\D/g, '');
     B.forEach(function (b) {
@@ -756,7 +795,7 @@ details p { padding-bottom: 18px; font-size: 17px; }
   function cellHTML(m, c) {
     var col = colorOf(m, c);
     return '<button class="cell" data-open="' + m + '" data-color="' + col.id + '"><div class="ph"><img class="' + (MODELS[m].cover ? 'cover' : '') + up(col.img) + '"' + imgA(col.img, 400, 720, '(max-width: 860px) 50vw, 25vw') + ' alt="Bolsa ' + esc(MODELS[m].name) + ' em crochê ' + esc(col.name.toLowerCase()) + '" loading="lazy"></div>' +
-      '<div class="cap"><span>' + esc(MODELS[m].name) + ' <em>' + esc(col.name) + '</em></span><span class="label">' + brl(MODELS[m].price) + '</span></div></button>';
+      '<div class="cap"><span>' + esc(MODELS[m].name) + ' <em>' + esc(col.name) + '</em></span><span class="label">' + (VIP.on ? '<span class="was">' + brl(MODELS[m].price) + '</span> <span class="vipnow">' + brl(off(MODELS[m].price, VIP.tiers[0])) + '</span>' : brl(MODELS[m].price)) + '</span></div></button>';
   }
 
   function T(o, k, d) { return esc(str((o || {})[k], d)); }
@@ -825,7 +864,7 @@ details p { padding-bottom: 18px; font-size: 17px; }
         (m.colors.length < 3 ? '<div class="pthumb" style="cursor: default; grid-column: span ' + (3 - m.colors.length) + '"><span class="label muted" style="padding: 12px; text-align: center">Outras cores no Personalizar</span></div>' : '') + '</div></div>' +
       '<div class="pinfo wrap">' +
         '<nav class="crumbs label" aria-label="Trilha"><button data-go="home">Início</button><span aria-hidden="true">/</span><button data-go="home" data-scroll="todos">Modelos</button><span aria-hidden="true">/</span><span>' + esc(m.name) + '</span></nav>' +
-        '<div style="display: flex; flex-direction: column; gap: 10px"><span class="label">' + esc(m.line) + '</span><h1 class="ptitle">' + esc(m.name) + ' <em>' + esc(col.name) + '</em></h1><p style="font-size: 22px; font-variant-numeric: tabular-nums">' + brl(m.price) + '</p></div>' +
+        '<div style="display: flex; flex-direction: column; gap: 10px"><span class="label">' + esc(m.line) + '</span><h1 class="ptitle">' + esc(m.name) + ' <em>' + esc(col.name) + '</em></h1><p style="font-size: 22px; font-variant-numeric: tabular-nums">' + (VIP.on ? '<span class="was">' + brl(m.price) + '</span> <span class="vipnow">' + brl(off(m.price, VIP.tiers[0])) + '</span>' : brl(m.price)) + '</p>' + (VIP.on ? '<span class="viptag">' + esc(vipRule()) + '</span>' : '') + '</div>' +
         '<p style="font-size: 19px; line-height: 1.55; max-width: 520px">' + esc(m.desc) + '</p>' +
         '<fieldset><legend class="label">Cor · ' + esc(col.name) + '</legend><div class="sw-row">' + m.colors.map(function (c) { return '<button class="sw" data-color-pick="' + c.id + '" aria-pressed="' + (c.id === col.id) + '" aria-label="Cor ' + esc(c.name) + '"><span style="background: ' + esc(c.hex) + '"></span></button>'; }).join('') + '</div></fieldset>' +
         '<div style="display: flex; flex-direction: column; gap: 12px"><div class="buyrow"><div class="qty" role="group" aria-label="Quantidade"><button data-qty="-1" aria-label="Diminuir">−</button><output id="qtyOut">' + state.qty + '</output><button data-qty="1" aria-label="Aumentar">+</button></div><button class="pill" id="addBtn" style="flex: 1; min-width: 200px">Adicionar à sacola</button></div>' +
@@ -839,7 +878,10 @@ details p { padding-bottom: 18px; font-size: 17px; }
   }
 
   function buyNowHref(m, col) {
-    return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Oi, tudo bem? Quero comprar:\n• ' + state.qty + 'x ' + m.name + ' ' + col.name + ' · ' + brl(m.price * state.qty));
+    if (!VIP.on) return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Oi, tudo bem? Quero comprar:\n• ' + state.qty + 'x ' + m.name + ' ' + col.name + ' · ' + brl(m.price * state.qty));
+    var full = 0, net = 0, pcts = [];
+    for (var k = 0; k < state.qty; k++) { var pc = vipPct(k); full += m.price; net += off(m.price, pc); if (pcts.indexOf(pc) < 0) pcts.push(pc); }
+    return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(vipHello() + '\n• ' + state.qty + 'x ' + m.name + ' ' + col.name + ' · ' + brl(cents(net)) + ' (' + pcts.map(function (x) { return '-' + x + '%'; }).join(' / ') + ')' + '\nSubtotal: ' + brl(full) + '\nDesconto: -' + brl(cents(full - net)) + '\nTotal: ' + brl(cents(net)));
   }
   function yurl(c) { return "url('" + encodeURI(c.img).replace(/'/g, '%27') + "')"; }
   function cbg(c) { return c.img ? c.hex + ' ' + yurl(c) + ' center / cover' : c.hex; }
@@ -999,17 +1041,31 @@ details p { padding-bottom: 18px; font-size: 17px; }
       foot.innerHTML = '';
       return;
     }
+    var pr = pricedCart();
     items.innerHTML = cart.map(function (it, i) {
-      return '<div class="citem"><div class="th"><img class="' + up(it.img) + '"' + thumbA(it.img) + ' alt=""" loading="lazy" decoding="async"></div><div class="meta"><span style="font-size: 19px">' + esc(it.title) + '</span><span class="muted" style="font-size: 15px">' + esc(it.sub) + '</span><span class="label muted">' + brl(priceOf(it) * it.qty) + '</span>' +
+      return '<div class="citem"><div class="th"><img class="' + up(it.img) + '"' + thumbA(it.img) + ' alt=""" loading="lazy" decoding="async"></div><div class="meta"><span style="font-size: 19px">' + esc(it.title) + '</span><span class="muted" style="font-size: 15px">' + esc(it.sub) + '</span><span class="label muted">' + (pr.lines[i].net < pr.lines[i].full ? '<span class="was">' + brl(pr.lines[i].full) + '</span> <span class="vipnow">' + brl(pr.lines[i].net) + ' · ' + pctTxt(pr.lines[i].pcts) + '</span>' : brl(priceOf(it) * it.qty)) + '</span>' +
         '<div class="row"><div class="qty" role="group" aria-label="Quantidade de ' + esc(it.title) + '"><button data-cq="' + i + ':-1" aria-label="Diminuir">−</button><output>' + it.qty + '</output><button data-cq="' + i + ':1" aria-label="Aumentar">+</button></div><button class="rm" data-rm="' + i + '">Remover</button></div></div></div>';
     }).join('');
-    foot.innerHTML = '<div style="display: flex; justify-content: space-between"><span class="label">Subtotal · ' + cartCount() + (cartCount() === 1 ? ' peça' : ' peças') + '</span><span class="label">' + brl(cart.reduce(function (t, i) { return t + priceOf(i) * i.qty; }, 0)) + '</span></div>' +
+    foot.innerHTML = '<div style="display: flex; justify-content: space-between"><span class="label">Subtotal · ' + cartCount() + (cartCount() === 1 ? ' peça' : ' peças') + '</span><span class="label">' + brl(pr.full) + '</span></div>' +
+      (pr.net < pr.full ? '<div style="display: flex; justify-content: space-between" class="vipnow"><span class="label">Desconto ' + esc(VIP.title) + '</span><span class="label">−' + brl(cents(pr.full - pr.net)) + '</span></div><div style="display: flex; justify-content: space-between"><span class="label">Total</span><span class="label">' + brl(pr.net) + '</span></div><p class="viptag" style="line-height: 1.7">' + esc(vipRule()) + '</p>' : '') +
       '<a class="pill solid wa" href="https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(cartMessage()) + '" target="_blank" rel="noopener">' + WA_ICON + 'Finalizar compra pelo WhatsApp</a><p class="label muted" style="line-height: 1.7">' + T(C.loja, 'aviso_whatsapp_sacola') + '</p>';
   }
   function cartMessage() {
-    var total = cart.reduce(function (t, i) { return t + priceOf(i) * i.qty; }, 0);
-    return 'Oi, tudo bem? Quero finalizar meu pedido:\n' + cart.map(function (it) { return '• ' + it.qty + 'x ' + it.title + ' · ' + brl(priceOf(it) * it.qty); }).join('\n') + '\nSubtotal: ' + brl(total);
+    var pr = pricedCart();
+    if (!(pr.net < pr.full)) return 'Oi, tudo bem? Quero finalizar meu pedido:\n' + cart.map(function (it) { return '• ' + it.qty + 'x ' + it.title + ' · ' + brl(priceOf(it) * it.qty); }).join('\n') + '\nSubtotal: ' + brl(pr.full);
+    return vipHello() + '\n' + cart.map(function (it, i) { return '• ' + it.qty + 'x ' + it.title + ' · ' + brl(pr.lines[i].net) + ' (' + pctTxt(pr.lines[i].pcts) + ')'; }).join('\n') + '\nSubtotal: ' + brl(pr.full) + '\nDesconto: -' + brl(cents(pr.full - pr.net)) + '\nTotal: ' + brl(pr.net);
   }
+  /* Black November: each bag in the bag gets its own discount; the most expensive gets the 1st tier, the next the 2nd, and so on */
+  function pricedCart() {
+    var units = [], lines = cart.map(function () { return { full: 0, net: 0, pcts: [] }; });
+    cart.forEach(function (it, i) { for (var q = 0; q < it.qty; q++) units.push({ i: i, p: priceOf(it) }); });
+    units.sort(function (a, b) { return b.p - a.p || a.i - b.i; });
+    units.forEach(function (u, k) { var pc = VIP.on ? vipPct(k) : 0, L = lines[u.i]; L.full += u.p; L.net += off(u.p, pc); if (pc && L.pcts.indexOf(pc) < 0) L.pcts.push(pc); });
+    var full = 0, net = 0;
+    lines.forEach(function (L) { L.full = cents(L.full); L.net = cents(L.net); full += L.full; net += L.net; });
+    return { lines: lines, full: cents(full), net: cents(net) };
+  }
+  function pctTxt(a) { return a.map(function (x) { return '-' + x + '%'; }).join(' / '); }
   function openCart() { renderCart(); cartEl.hidden = false; scrim.hidden = false; document.getElementById('cartClose').focus(); }
   function closeCart() { cartEl.hidden = true; scrim.hidden = true; }
   function addItem(item) {
@@ -1065,7 +1121,8 @@ details p { padding-bottom: 18px; font-size: 17px; }
   function fillStatic() {
     var L = C.loja || {}, K = C.colecao || {}, ig = str(L.instagram).replace(/^@/, ''), wa = WHATSAPP;
     function set(sel, fn) { document.querySelectorAll(sel).forEach(fn); }
-    set('[data-t="faixa"]', function (el) { el.textContent = str(L.faixa_topo); });
+    set('[data-t="faixa"]', function (el) { el.textContent = VIP.on ? VIP.title + (VIP.member ? ' VIP' : '') + ' · ' + vipRule() : str(L.faixa_topo); });
+    set('.announce', function (el) { el.classList.toggle('vip', VIP.on); });
     set('[data-t="faixa-link"]', function (el) { el.textContent = str(L.faixa_topo_link, 'Crie a sua'); });
     set('[data-t="colecao"]', function (el) { var on = K.mostrar !== false && (CONCHA.length || CAMP.length); el.hidden = !on; var t = el.querySelector('em') || el; t.textContent = str(K.nome, 'Coleção'); });
     set('[data-t="instagram"]', function (el) { el.hidden = !ig; el.href = 'https://www.instagram.com/' + encodeURIComponent(ig) + '/'; if (el.hasAttribute('data-label')) el.textContent = 'Instagram @' + ig; else el.querySelector('span').textContent = 'Siga @' + ig + ' no Instagram'; });
@@ -1087,8 +1144,9 @@ details p { padding-bottom: 18px; font-size: 17px; }
     else render(h === 'todos' || h === 'concha' || h === 'modelos' ? h : null);
   }
   var FILES = ['loja', 'inicio', 'colecao', 'bolsas', 'personalizar'];
-  Promise.all(FILES.map(function (f) { return fetch('content/' + f + '.json').then(function (r) { if (!r.ok) throw new Error(f); return r.json(); }); }))
-    .then(function (arr) { var d = {}; FILES.forEach(function (f, i) { d[f] = arr[i]; }); build(d); start(); })
+  var OPTIONAL = fetch('content/blackfriday.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; });
+  Promise.all(FILES.map(function (f) { return fetch('content/' + f + '.json').then(function (r) { if (!r.ok) throw new Error(f); return r.json(); }); }).concat([OPTIONAL]))
+    .then(function (arr) { var d = {}; FILES.forEach(function (f, i) { d[f] = arr[i]; }); d.blackfriday = arr[FILES.length]; build(d); start(); })
     .catch(function (err) {
       if (window.console) console.error('Conteúdo não carregou:', err);
       app.innerHTML = '<section class="wrap" style="padding-block: 160px; text-align: center"><p style="font-size: 22px">Não foi possível carregar o site agora.</p><p class="muted" style="margin-top: 12px">Atualize a página em alguns instantes.</p></section>';
